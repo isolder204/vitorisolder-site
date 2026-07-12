@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="page-title">Reparo | Vitor iSolder</title>
+  <meta name="description" id="page-desc" content="Reparo especializado de iPhone em Itaguaí, RJ. Diagnóstico Profissional e 6 meses de garantia." />
+  <link rel="icon" href="assets/img/logo-icon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="assets/img/logo-icon.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Vitor iSolder" />
+  <meta property="og:title" id="og-title" content="Reparo Apple Especializado | Vitor iSolder" />
+  <meta property="og:description" id="og-desc" content="Diagnóstico profissional, laudo técnico e 6 meses de garantia em Itaguaí, RJ." />
+  <meta property="og:image" content="https://www.vitorisolder.com/assets/img/laboratorio.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://www.vitorisolder.com/assets/img/laboratorio.jpg" />
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JFD0B4B629"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-JFD0B4B629');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900;1,14..32,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css?v=25" />
+  <style>
+:root{
+  --y:#FFD500;--dust:#D6D6D6;--graph:#333533;--carb:#202020;
+  --w80:rgba(255,255,255,0.8);--w50:rgba(255,255,255,0.5);
+  --w20:rgba(255,255,255,0.2);--w08:rgba(255,255,255,0.08)
+}
+*{box-sizing:border-box}
+
+/* FUNDO GLOBAL TECH GRID */
+body{
+  background-color:#202020;color:#fff;font-family:'Inter',sans-serif;
+  background-image:
+    linear-gradient(rgba(51,53,51,0.14) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(51,53,51,0.14) 1px,transparent 1px),
+    linear-gradient(rgba(51,53,51,0.06) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(51,53,51,0.06) 1px,transparent 1px);
+  background-size:32px 32px,32px 32px,8px 8px,8px 8px;
+  background-attachment:fixed;
+}
+.logo-img{height:90px;width:auto;display:block;mix-blend-mode:screen;filter:brightness(1.15)}
+.navbar{padding:8px 0!important;background:#202020!important}
+.navbar.scrolled{padding:4px 0!important;background:rgba(32,32,32,0.96)!important;backdrop-filter:blur(16px)}
+@media(max-width:768px){
+  .nav-links,.nav-ctas{display:none!important}
+  .hamburger{display:block!important}
+  .nav-links.open{display:flex!important;flex-direction:column;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(32,32,32,0.98);align-items:center;justify-content:center;gap:40px;z-index:800}
+}
+
+/* BREADCRUMB */
+.breadcrumb{padding:100px 0 0;font-size:.8rem;color:var(--dust)}
+.breadcrumb a{color:var(--dust);text-decoration:none;transition:color .2s}
+.breadcrumb a:hover{color:var(--y)}
+.breadcrumb span{margin:0 8px;opacity:.4}
+
+/* ===== HERO ===== */
+.rm-hero{padding:28px 0 80px;position:relative;overflow:hidden}
+.rm-hero::before{
+  content:'';position:absolute;top:-160px;right:-100px;
+  width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,213,0,0.05) 0%,transparent 65%);
+  pointer-events:none;
+}
+.rm-hero-inner{
+  display:grid;grid-template-columns:1fr 380px;
+  gap:64px;align-items:center;
+}
+.rm-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:5px 14px;border-radius:100px;
+  background:rgba(255,213,0,0.1);border:1px solid rgba(255,213,0,0.25);
+  font-size:.7rem;font-weight:700;color:var(--y);
+  letter-spacing:.08em;text-transform:uppercase;margin-bottom:20px;
+}
+.rm-hero h1{
+  font-size:clamp(2rem,3.8vw,3.2rem);font-weight:900;
+  line-height:1.08;letter-spacing:-.03em;margin-bottom:10px;color:#fff;
+}
+.rm-hero h1 em{color:#FFD500;font-style:normal;display:block}
+.rm-hero-sub{font-size:.95rem;color:var(--dust);line-height:1.8;margin-bottom:36px;max-width:520px}
+.rm-hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:40px}
+.rm-stats{display:flex;gap:36px;padding-top:32px;border-top:1px solid rgba(51,53,51,0.6)}
+.rm-stat strong{display:block;font-size:1.6rem;font-weight:900;color:#FFD500;margin-bottom:4px}
+.rm-stat span{font-size:.7rem;color:var(--dust);font-weight:600;text-transform:uppercase;letter-spacing:.06em}
+
+/* Mockup lateral */
+.rm-mockup{
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+}
+/* Frame externo — anel de titânio/alumínio */
+.rm-mockup-frame{
+  width:220px;height:460px;
+  background:linear-gradient(170deg,#2c2c2e 0%,#1c1c1e 60%,#111 100%);
+  border:2px solid #3a3a3c;
+  border-radius:44px;
+  position:relative;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.06),
+    inset 0 0 0 1px rgba(255,255,255,0.04),
+    0 40px 80px rgba(0,0,0,0.7),
+    0 0 0 2.5px var(--frame-accent,#555);
+  overflow:hidden;
+}
+/* Botão lateral */
+.rm-mockup-frame::after{
+  content:'';position:absolute;right:-4px;top:100px;
+  width:3px;height:60px;border-radius:0 2px 2px 0;
+  background:#3a3a3c;
+}
+/* Dynamic Island */
+.rm-mockup-island{
+  position:absolute;top:14px;left:50%;transform:translateX(-50%);
+  width:90px;height:30px;border-radius:20px;
+  background:#000;
+  display:flex;align-items:center;justify-content:center;gap:6px;
+  z-index:2;
+}
+.rm-mockup-island-cam{
+  width:10px;height:10px;border-radius:50%;
+  background:radial-gradient(circle at 35% 35%,#1a1a1a,#000);
+  border:1px solid rgba(255,255,255,0.06);
+  box-shadow:0 0 0 1.5px rgba(255,255,255,0.04);
+}
+/* Tela interna */
+.rm-mockup-screen{
+  position:absolute;inset:0;
+  background:linear-gradient(160deg,#161618 0%,#0d0d0f 100%);
+  border-radius:42px;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  gap:14px;padding:60px 20px 32px;
+}
+/* Ícone grande translúcido */
+.rm-mockup-screen-icon{
+  font-size:3rem;
+  color:rgba(255,255,255,0.06);
+}
+.rm-mockup-label{
+  text-align:center;
+  position:relative;z-index:1;
+}
+.rm-mockup-label h4{font-size:.85rem;font-weight:700;color:rgba(255,255,255,0.9);margin-bottom:4px}
+.rm-mockup-label p{font-size:.68rem;color:rgba(255,255,255,0.4);line-height:1.5}
+/* Reflexo de tela */
+.rm-mockup-screen::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:50%;
+  background:linear-gradient(180deg,rgba(255,255,255,0.025) 0%,transparent 100%);
+  border-radius:42px 42px 0 0;
+  pointer-events:none;
+}
+.rm-mockup-glow{
+  position:absolute;bottom:-40px;left:50%;transform:translateX(-50%);
+  width:160px;height:160px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,213,0,0.12) 0%,transparent 70%);
+  pointer-events:none;
+}
+.rm-mockup-badge{
+  position:absolute;top:24px;right:-20px;
+  background:#FFD500;color:#1a1600;
+  font-size:.62rem;font-weight:800;
+  padding:5px 12px;border-radius:20px;
+  letter-spacing:.04em;
+  box-shadow:0 4px 16px rgba(255,213,0,0.4);
+  white-space:nowrap;
+}
+
+/* ===== DESTAQUE: TROCA DE VIDRO ===== */
+.rm-vidro-section{
+  padding:72px 0;
+  background-color:#1a1a1a;
+  background-image:
+    linear-gradient(rgba(51,53,51,0.18) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(51,53,51,0.18) 1px,transparent 1px);
+  background-size:32px 32px;
+  background-attachment:fixed;
+}
+.rm-vidro-inner{
+  display:grid;grid-template-columns:1fr 280px;
+  gap:60px;align-items:center;
+}
+.rm-vidro-badge{
+  display:inline-flex;align-items:center;gap:7px;
+  padding:5px 14px;border-radius:100px;
+  background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.25);
+  font-size:.7rem;font-weight:700;color:#4ade80;
+  letter-spacing:.08em;text-transform:uppercase;margin-bottom:20px;
+}
+.rm-vidro-section h2{
+  font-size:clamp(1.6rem,3vw,2.4rem);font-weight:900;
+  line-height:1.1;letter-spacing:-.02em;margin-bottom:14px;
+  color:#fff;
+}
+.rm-vidro-section h2 em{color:#FFD500;font-style:normal}
+.rm-vidro-desc{font-size:.93rem;color:var(--dust);line-height:1.8;margin-bottom:28px;max-width:560px}
+.rm-vidro-feats{display:flex;flex-direction:column;gap:12px;margin-bottom:32px}
+.rm-vidro-feat{
+  display:flex;align-items:center;gap:12px;
+  font-size:.88rem;color:#fff;font-weight:500;
+}
+.rm-vidro-feat i{
+  width:28px;height:28px;border-radius:8px;flex-shrink:0;
+  background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.2);
+  color:#4ade80;font-size:.75rem;
+  display:flex;align-items:center;justify-content:center;
+}
+
+/* Savings box */
+.rm-vidro-savings{
+  background:#202020;border:1px solid #333533;border-radius:20px;
+  padding:32px 28px;text-align:center;
+  position:relative;overflow:hidden;
+}
+.rm-vidro-savings::before{
+  content:'';position:absolute;top:-40px;left:50%;transform:translateX(-50%);
+  width:120px;height:120px;border-radius:50%;
+  background:radial-gradient(circle,rgba(34,197,94,0.12) 0%,transparent 70%);
+  pointer-events:none;
+}
+.rm-savings-pct{
+  font-size:4rem;font-weight:900;color:#4ade80;
+  letter-spacing:-.04em;line-height:1;margin-bottom:4px;
+}
+.rm-savings-label{font-size:.78rem;color:var(--dust);font-weight:600;margin-bottom:20px;text-transform:uppercase;letter-spacing:.06em}
+.rm-savings-vs{
+  background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.18);
+  border-radius:10px;padding:12px;
+  font-size:.78rem;color:#4ade80;line-height:1.5;
+}
+
+/* ===== OUTROS REPAROS ===== */
+.rm-repairs-section{padding:72px 0}
+.rm-section-header{margin-bottom:44px}
+.rm-section-header h2{font-size:1.8rem;font-weight:900;letter-spacing:-.025em;margin-bottom:10px}
+.rm-section-header h2 em{color:#FFD500;font-style:normal}
+.rm-section-header p{color:var(--dust);font-size:.92rem}
+.rm-repairs-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+  gap:14px;
+}
+.rm-repairs-grid:hover .rm-repair-card{
+  opacity:.4;transform:scale(0.99);
+  transition:opacity .3s,transform .3s,border-color .3s,box-shadow .3s;
+}
+.rm-repairs-grid:hover .rm-repair-card:hover{
+  opacity:1;
+  transform:translateY(-8px) scale(1.03);
+  border-color:#FFD500;
+  box-shadow:0 20px 48px rgba(0,0,0,0.5),0 0 0 1px rgba(255,213,0,0.2);
+}
+.rm-repair-card{
+  background:#202020;border:1px solid #333533;border-radius:16px;
+  padding:24px 20px;
+  display:flex;flex-direction:column;gap:12px;
+  transition:opacity .3s,transform .3s cubic-bezier(.34,1.56,.64,1),border-color .3s,box-shadow .3s;
+  cursor:default;
+}
+.rm-repair-icon{
+  width:44px;height:44px;border-radius:12px;
+  background:rgba(255,213,0,0.1);border:1px solid rgba(255,213,0,0.18);
+  display:flex;align-items:center;justify-content:center;
+  color:#FFD500;font-size:1rem;
+  transition:background .3s,border-color .3s;
+  flex-shrink:0;
+}
+.rm-repairs-grid:hover .rm-repair-card:hover .rm-repair-icon{
+  background:rgba(255,213,0,0.2);border-color:rgba(255,213,0,0.4);
+}
+.rm-repair-info h4{font-size:.95rem;font-weight:700;color:#fff;margin-bottom:5px}
+.rm-repair-info p{font-size:.79rem;color:var(--dust);line-height:1.55;margin:0}
+.rm-repair-wa{
+  margin-top:auto;
+  display:inline-flex;align-items:center;gap:8px;
+  padding:9px 16px;border-radius:10px;
+  background:#333533;border:1px solid rgba(255,255,255,0.08);
+  color:var(--dust);font-size:.78rem;font-weight:600;
+  text-decoration:none;
+  transition:background .22s,color .22s,border-color .22s,transform .2s;
+}
+.rm-repair-wa:hover{background:#FFD500;color:#1a1600;border-color:#FFD500;transform:translateY(-1px)}
+.rm-repair-wa i{color:#25d366;font-size:.82rem;transition:color .22s}
+.rm-repair-wa:hover i{color:#1a1600}
+
+/* ===== REPARO DE PLACA ===== */
+.rm-placa-section{
+  padding:80px 0;
+  background-color:#202020;
+  background-image:
+    linear-gradient(rgba(51,53,51,0.14) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(51,53,51,0.14) 1px,transparent 1px),
+    linear-gradient(rgba(51,53,51,0.06) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(51,53,51,0.06) 1px,transparent 1px);
+  background-size:32px 32px,32px 32px,8px 8px,8px 8px;
+  background-attachment:fixed;
+  border-top:1px solid rgba(51,53,51,0.7);
+}
+.rm-placa-inner{
+  display:grid;grid-template-columns:1fr 280px;
+  gap:60px;align-items:center;
+}
+.rm-placa-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:6px 16px;border-radius:100px;
+  background:#282828;border:1px solid #3a3a3a;
+  font-size:.68rem;font-weight:800;color:#FFD500;
+  letter-spacing:.08em;text-transform:uppercase;margin-bottom:22px;
+}
+.rm-placa-section h2{
+  font-size:clamp(1.6rem,3vw,2.4rem);font-weight:900;
+  line-height:1.1;letter-spacing:-.02em;margin-bottom:14px;
+  color:#fff;
+}
+.rm-placa-section h2 em{color:#FFD500;font-style:normal}
+.rm-placa-desc{
+  font-size:.93rem;color:var(--dust);line-height:1.85;
+  margin-bottom:28px;max-width:560px;
+}
+.rm-placa-feats{display:flex;flex-direction:column;gap:13px;margin-bottom:34px}
+.rm-placa-feat{
+  display:flex;align-items:flex-start;gap:12px;
+  font-size:.88rem;color:#fff;font-weight:500;line-height:1.45;
+}
+.rm-placa-feat i{
+  width:28px;height:28px;border-radius:8px;flex-shrink:0;margin-top:1px;
+  background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.2);
+  color:#4ade80;font-size:.75rem;
+  display:flex;align-items:center;justify-content:center;
+}
+
+/* Card lateral — Lab */
+.rm-placa-card{
+  background:linear-gradient(160deg,#252525 0%,#1e1e1e 100%);
+  border:1px solid #333533;border-radius:20px;
+  padding:32px 28px;text-align:center;
+  position:relative;overflow:hidden;
+}
+.rm-placa-card::before{
+  content:'';position:absolute;top:-50px;left:50%;transform:translateX(-50%);
+  width:180px;height:180px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,213,0,0.07) 0%,transparent 70%);
+  pointer-events:none;
+}
+/* Ícone de circuito SVG — desenhado inline como pseudo-elemento via border */
+.rm-placa-circuit{
+  width:72px;height:72px;margin:0 auto 20px;
+  position:relative;display:flex;align-items:center;justify-content:center;
+}
+.rm-placa-circuit svg{
+  width:72px;height:72px;
+  filter:drop-shadow(0 0 6px rgba(255,213,0,0.3));
+}
+.rm-placa-stat-label{
+  font-size:.68rem;font-weight:700;color:rgba(255,213,0,0.6);
+  text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;
+}
+.rm-placa-stat-value{
+  font-size:1.5rem;font-weight:900;color:#FFD500;
+  line-height:1;margin-bottom:4px;letter-spacing:-.02em;
+}
+.rm-placa-stat-sub{
+  font-size:.7rem;color:var(--dust);line-height:1.4;margin-bottom:20px;
+}
+.rm-placa-divider{
+  height:1px;background:rgba(51,53,51,0.8);margin:20px 0;
+}
+.rm-placa-desc-card{
+  background:rgba(255,213,0,0.06);border:1px solid rgba(255,213,0,0.14);
+  border-radius:10px;padding:14px 16px;
+  font-size:.78rem;color:var(--dust);line-height:1.6;text-align:left;
+}
+.rm-placa-desc-card strong{color:#FFD500;display:block;margin-bottom:4px;font-size:.75rem;text-transform:uppercase;letter-spacing:.05em}
+
+@media(max-width:900px){.rm-placa-inner{grid-template-columns:1fr}.rm-placa-card{display:none}}
+
+/* ===== CTA FINAL ===== */
+.rm-cta-section{padding:80px 0}
+.rm-cta-box{
+  padding:64px;text-align:center;
+  background:rgba(255,255,255,0.02);
+  border:1px solid rgba(255,213,0,0.14);
+  border-radius:24px;position:relative;overflow:hidden;
+}
+.rm-cta-box::before{
+  content:'';position:absolute;top:-80px;left:50%;transform:translateX(-50%);
+  width:400px;height:400px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,213,0,0.06) 0%,transparent 70%);
+  pointer-events:none;
+}
+.rm-cta-box h2{font-size:2rem;font-weight:900;letter-spacing:-.025em;margin-bottom:12px;color:#fff}
+/* Sobrescreve btn-ghost padrão (que usa var(--ink) escuro) neste contexto dark */
+.rm-hero .btn-ghost,.rm-cta-box .btn-ghost{
+  background:rgba(255,255,255,0.07);color:#D6D6D6;
+  border:1px solid rgba(255,255,255,0.14);
+}
+.rm-hero .btn-ghost:hover,.rm-cta-box .btn-ghost:hover{
+  color:#fff;border-color:rgba(255,255,255,0.35);background:rgba(255,255,255,0.12);
+}
+.rm-cta-box p{color:var(--dust);font-size:.93rem;margin-bottom:36px;max-width:520px;margin-left:auto;margin-right:auto}
+.rm-cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* FOOTER */
+.footer{background:#181818;border-top:1px solid rgba(51,53,51,0.8);padding:60px 0 0}
+.footer-inner{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:48px;align-items:start}
+.footer-brand>p{font-size:.84rem;color:var(--dust);line-height:1.75;max-width:300px}
+.footer-social{display:flex;gap:10px;margin-top:20px}
+.footer-social a{width:38px;height:38px;border-radius:9px;background:rgba(255,255,255,0.04);border:1px solid #333533;display:flex;align-items:center;justify-content:center;font-size:.95rem;color:var(--dust);transition:.2s;text-decoration:none}
+.footer-social a:hover{background:rgba(255,213,0,0.1);border-color:rgba(255,213,0,0.3);color:#FFD500}
+.footer-col h6{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--dust);margin-bottom:18px}
+.footer-col ul{display:flex;flex-direction:column;gap:10px;list-style:none;padding:0;margin:0}
+.footer-col a{font-size:.85rem;color:var(--dust);transition:color .2s;text-decoration:none}
+.footer-col a:hover{color:#FFD500}
+.footer-bottom{border-top:1px solid rgba(51,53,51,0.8);padding:20px 0}
+.footer-bottom-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.footer-bottom p{font-size:.75rem;color:rgba(255,255,255,0.25);margin:0}
+.footer-legal{display:flex;gap:20px;justify-content:center;padding:10px 0;margin-top:10px;border-top:1px solid rgba(51,53,51,0.5)}
+.footer-legal a{font-size:.72rem;color:#a3a3a3;text-decoration:none;transition:color .2s}
+.footer-legal a:hover{color:#FFD500}
+.logo-img-footer{height:120px}
+
+/* NOT FOUND */
+.rm-not-found{min-height:60vh;display:flex;align-items:center;justify-content:center;text-align:center}
+.rm-not-found h1{font-size:2rem;font-weight:900;margin-bottom:12px}
+.rm-not-found p{color:var(--dust);margin-bottom:28px}
+
+@media(max-width:900px){
+  .rm-hero-inner,.rm-vidro-inner{grid-template-columns:1fr}
+  .rm-mockup,.rm-vidro-savings{display:none}
+  .footer-inner{grid-template-columns:1fr 1fr;gap:36px}
+}
+@media(max-width:600px){
+  .rm-cta-box{padding:36px 24px}
+  .footer-inner{grid-template-columns:1fr}
+  .footer-bottom-inner{flex-direction:column;text-align:center}
+  .rm-stats{flex-wrap:wrap;gap:20px}
+}
+  </style>
+</head>
+<body>
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-wrap">
+      <a href="index.html" class="logo">
+        <img src="assets/img/logo-icon.png" alt="Vitor iSolder" class="logo-img" />
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#reparos">Reparos</a></li>
+        <li><a href="index.html#reparo-placa">Placa Lógica</a></li>
+        <li><a href="corporativo.html">Para Empresas</a></li>
+        <li><a href="index.html#porque">Por que a iSolder</a></li>
+        <li><a href="index.html#historia">Sobre nós</a></li>
+        <li><a href="index.html#avaliacoes">Avaliações</a></li>
+        <li><a href="index.html#contato">Contato</a></li>
+      </ul>
+      <div class="nav-ctas">
+        <a href="#" id="nav-wa-btn" target="_blank" class="btn-nav">
+          <i class="fa-brands fa-whatsapp"></i> Falar agora
+        </a>
+      </div>
+      <button class="hamburger" id="hamburger"><i class="fa-solid fa-bars" id="menuIcon"></i></button>
+    </div>
+  </nav>
+
+  <div id="app"></div>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="logo" style="margin-bottom:14px;display:inline-flex">
+          <img src="assets/img/logo-full.png" alt="Vitor iSolder" class="logo-img logo-img-footer" />
+        </a>
+        <p>Assistência especializada Apple em Itaguaí, RJ. Reparo de placa lógica, laudos técnicos e atendimento transparente desde 2020.</p>
+        <div class="footer-social">
+          <a href="https://instagram.com/vitor.isolder" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://youtube.com/@vitor.isolder" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+          <a href="https://tiktok.com/@vitorisolder" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="https://maps.app.goo.gl/zm5rNsxPpcUqcPT39" target="_blank"><i class="fa-brands fa-google"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h6>Dispositivos</h6>
+        <ul>
+          <li><a href="iphone.html">iPhone</a></li>
+          <li><a href="ipad.html">iPad</a></li>
+          <li><a href="macbook.html">MacBook</a></li>
+          <li><a href="watch.html">Apple Watch</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h6>Navegação</h6>
+        <ul>
+          <li><a href="index.html#historia">Nossa história</a></li>
+          <li><a href="index.html#porque">Por que a iSolder</a></li>
+          <li><a href="index.html#avaliacoes">Avaliações</a></li>
+          <li><a href="index.html#contato">Contato</a></li>
+          <li><a href="https://www.reclameaqui.com.br/empresa/41-632-649-vitor-hugo-silva-de-souza/sobre/" target="_blank">Reclame Aqui</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h6>Parcerias</h6>
+        <ul>
+          <li><a href="corporativo.html">Seja um Lojista Parceiro</a></li>
+          <li><a href="corporativo.html">Soluções para Empresas</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>© 2025 Vitor iSolder · Itaguaí, RJ · CNPJ 41.632.649/0001-02</p>
+        <p>Empresa independente, sem vínculo com a Apple Inc.</p>
+      </div>
+      <div class="container footer-legal">
+        <a href="politica-de-privacidade.html">Política de Privacidade</a>
+        <a href="termos-de-uso.html">Termos de Uso</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="wa-wrap" id="waWrap">
+    <div class="wa-menu" id="waMenu">
+      <a href="https://wa.me/5521988476695?text=Olá!%20Somos%20lojistas." target="_blank" class="wa-opt">
+        <span>Lojistas & PJ</span><div class="wa-sm-btn"><i class="fa-brands fa-whatsapp"></i></div>
+      </a>
+      <a href="https://wa.me/5521950147576?text=Olá!%20Gostaria%20de%20um%20orçamento." target="_blank" class="wa-opt">
+        <span>Cliente Final</span><div class="wa-sm-btn"><i class="fa-brands fa-whatsapp"></i></div>
+      </a>
+    </div>
+    <button class="wa-btn" id="waBtn">
+      <i class="fa-brands fa-whatsapp" id="waIco"></i>
+      <i class="fa-solid fa-xmark" id="waX" style="display:none"></i>
+    </button>
+  </div>
+
+  <script src="assets/js/main.js?v=2"></script>
+  <script>
+  // ─── MODEL DATABASE ──────────────────────────────────────────────────────
+  const MODELS = {
+    // iPhone 17
+    'iphone-17-pro-max': { name:'iPhone 17 Pro Max', line:'iPhone 17', year:'2025', spec:'6,9" · Chip A19 Pro · Titânio', icon:'fa-solid fa-mobile-screen', backPage:'iphone.html', hasGlass:true, frameAccent:'#8e8e93' },
+    'iphone-17-pro':     { name:'iPhone 17 Pro',     line:'iPhone 17', year:'2025', spec:'6,3" · Chip A19 Pro · Titânio',  icon:'fa-solid fa-mobile-screen', backPage:'iphone.html', hasGlass:true, frameAccent:'#8e8e93' },
+    'iphone-17-air':     { name:'iPhone 17 Air',     line:'iPhone 17', year:'2025', spec:'6,6" · Chip A18 · Ultrafino',   icon:'fa-solid fa-mobile-screen', backPage:'iphone.html', hasGlass:true, frameAccent:'#636366' },
+    'iphone-17':         { name:'iPhone 17',         line:'iPhone 17', year:'2025', spec:'6,1" · Chip A18',               icon:'fa-solid fa-mobile-screen', backPage:'iphone.html', hasGlass:true, frameAccent:'#636366' },
+    // iPhone 16
+    'iphone-16-pro-max': { name:'iPhone 16 Pro Max', line:'iPhone 16', year:'2024', spec:'6,9" · Chip A18 Pro · Titânio', icon:'fa-solid fa-mobile-screen', backPage:'iphone.html', hasGlass:true, frameAccent:'#8e8e93' },
+    'iphone-16-pro':     { name:'iPhone 16 Pro',     line:'iPhone 16', year:'2024', spec:'6,3" · Chip A18 Pro · Titânio',  icon:'fa-solid fa-mobile-screen', backPage:'iphone.html', hasGlass:true, frameAccent:'#8e8e93' },
+    'iphone-16-plus':    { name:'iPhone 16 Plus',    line:'iPhone 16', year:'2024', spec:'6,7" · Chip A18',               icon:'fa-solid fa-mobile-screen', backPage:'iphone.html', hasGlass:true, frameAccent:'#636366' },
+    'iphone-16':         { name:'iPhone 16',         line:'iPhone 16', year:'2024', spec:'6,1" · Chip A18',               icon:'fa-solid fa-mobile-screen', backPage:'iphone.html', hasGlass:true, frameAccent:'#636366' },
+    // iPhone 15
+    'iphone-15-pro-max': { name:'iPhone 15 Pro Max', line:'iPhone 15', year:'2023', spec:'6,7" · Chip A17 Pro · Titânio', icon:'fa-solid fa-mobile-screen', backPage:'iphone.html', hasGlass:true, frameAccent:'#8e8e93' },
+    'iphone-15-pro':     { name:'iPhone 15 Pro',     line:'iPhone 15', year:'2023', spec:'6,1" · Chip A17 Pro · Titânio',  icon:'fa-solid fa-mobile-screen', backPage:'iphone.html', hasGlass:true, frameAccent:'#8e8e93' },
+    'iphone-15-plus':    { name:'iPhone 15 Plus',    line:'iPhone 15', year:'2023', spec:'6,7" · Chip A16',               icon:'fa-solid fa-mobile-screen', backPage:'iphone.html', hasGlass:true, frameAccent:'#636366' },
+    'iphone-15':         { name:'iPhone 15',         line:'iPhone 15', year:'2023', spec:'6,1" · Chip A16',               icon:'fa-solid fa-mobile-screen', backPage:'iphone.html', hasGlass:true, frameAccent:'#636366' },
+    // iPhone 14
+    'iphone-14-pro-max': { name:'iPhone 14 Pro Max', line:'iPhone 14', year:'2022', spec:'6,7" · Chip A16',              icon:'fa-solid fa-mobile-screen', backPage:'iphone.html', hasGlass:true, frameAccent:'#8e8e93' },
+    'iphone-14-pro':     { name:'iPhone 14 Pro',     line:'iPhone 14', year:'2022', spec:'6,1" · Chip A16',               icon:'fa-solid fa-mobile-screen', backPage:'iphone.html', hasGlass:true, frameAccent:'#8e8e93' },
+    'iphone-14-plus':    { name:'iPhone 14 Plus',    line:'iPhone 14', year:'2022', spec:'6,7" · Chip A15',               icon:'fa-solid fa-mobile-screen', backPage:'iphone.html', hasGlass:true, frameAccent:'#636366' },
+    'iphone-14':         { name:'iPhone 14',         line:'iPhone 14', year:'2022', spec:'6,1" · Chip A15',               icon:'fa-solid fa-mobile-screen', backPage:'iphone.html', hasGlass:true, frameAccent:'#636366' },
+    // iPhone 13
+    'iphone-13-pro-max': { name:'iPhone 13 Pro Max', line:'iPhone 13', year:'2021', spec:'6,7" · Chip A15',              icon:'fa-solid fa-mobile-screen', backPage:'iphone.html', hasGlass:true, frameAccent:'#8e8e93' },
+    'iphone-13-pro':     { name:'iPhone 13 Pro',     line:'iPhone 13', year:'2021', spec:'6,1" · Chip A15',               icon:'fa-solid fa-mobile-screen', backPage:'iphone.html', hasGlass:true, frameAccent:'#8e8e93' },
+    'iphone-13':         { name:'iPhone 13',         line:'iPhone 13', year:'2021', spec:'6,1" · Chip A15',               icon:'fa-solid fa-mobile-screen', backPage:'iphone.html', hasGlass:true, frameAccent:'#636366' },
+    'iphone-13-mini':    { name:'iPhone 13 Mini',    line:'iPhone 13', year:'2021', spec:'5,4" · Chip A15',               icon:'fa-solid fa-mobile-screen', backPage:'iphone.html', hasGlass:true, frameAccent:'#636366' },
+    // iPhone 12
+    'iphone-12-pro-max': { name:'iPhone 12 Pro Max', line:'iPhone 12', year:'2020', spec:'6,7" · Chip A14',              icon:'fa-solid fa-mobile-screen', backPage:'iphone.html', hasGlass:true, frameAccent:'#8e8e93' },
+    'iphone-12-pro':     { name:'iPhone 12 Pro',     line:'iPhone 12', year:'2020', spec:'6,1" · Chip A14',               icon:'fa-solid fa-mobile-screen', backPage:'iphone.html', hasGlass:true, frameAccent:'#8e8e93' },
+    'iphone-12':         { name:'iPhone 12',         line:'iPhone 12', year:'2020', spec:'6,1" · Chip A14',               icon:'fa-solid fa-mobile-screen', backPage:'iphone.html', hasGlass:true, frameAccent:'#636366' },
+    'iphone-12-mini':    { name:'iPhone 12 Mini',    line:'iPhone 12', year:'2020', spec:'5,4" · Chip A14',               icon:'fa-solid fa-mobile-screen', backPage:'iphone.html', hasGlass:true, frameAccent:'#636366' },
+    // iPhone 11
+    'iphone-11-pro-max': { name:'iPhone 11 Pro Max', line:'iPhone 11', year:'2019', spec:'6,5" · Chip A13',              icon:'fa-solid fa-mobile-screen', backPage:'iphone.html', hasGlass:true, frameAccent:'#8e8e93' },
+    'iphone-11-pro':     { name:'iPhone 11 Pro',     line:'iPhone 11', year:'2019', spec:'5,8" · Chip A13',               icon:'fa-solid fa-mobile-screen', backPage:'iphone.html', hasGlass:true, frameAccent:'#8e8e93' },
+    'iphone-11':         { name:'iPhone 11',         line:'iPhone 11', year:'2019', spec:'6,1" · Chip A13',               icon:'fa-solid fa-mobile-screen', backPage:'iphone.html', hasGlass:true, frameAccent:'#48484a' },
+    // iPhone X/XS/XR
+    'iphone-xs-max':     { name:'iPhone XS Max',     line:'iPhone X', year:'2018', spec:'6,5" · Chip A12',               icon:'fa-solid fa-mobile-screen', backPage:'iphone.html', hasGlass:true, frameAccent:'#8e8e93' },
+    'iphone-xs':         { name:'iPhone XS',         line:'iPhone X', year:'2018', spec:'5,8" · Chip A12',               icon:'fa-solid fa-mobile-screen', backPage:'iphone.html', hasGlass:true, frameAccent:'#8e8e93' },
+    'iphone-xr':         { name:'iPhone XR',         line:'iPhone X', year:'2018', spec:'6,1" · Chip A12',               icon:'fa-solid fa-mobile-screen', backPage:'iphone.html', hasGlass:false, frameAccent:'#636366' },
+
+    // ── iPAD ──────────────────────────────────────────────────────────────────
+    // iPad Pro M4
+    'ipad-pro-13-m4':   { name:'iPad Pro 13" M4',      line:'iPad Pro',  year:'2024', spec:'13" · Chip M4 · OLED Ultra Retina XDR', icon:'fa-solid fa-tablet-screen-button', backPage:'ipad.html', hasGlass:true, frameAccent:'#8e8e93', deviceType:'ipad' },
+    'ipad-pro-11-m4':   { name:'iPad Pro 11" M4',      line:'iPad Pro',  year:'2024', spec:'11" · Chip M4 · OLED Ultra Retina XDR', icon:'fa-solid fa-tablet-screen-button', backPage:'ipad.html', hasGlass:true, frameAccent:'#8e8e93', deviceType:'ipad' },
+    // iPad Air M3
+    'ipad-air-13-m3':   { name:'iPad Air 13" M3',      line:'iPad Air',  year:'2025', spec:'13" · Chip M3 · Liquid Retina',          icon:'fa-solid fa-tablet-screen-button', backPage:'ipad.html', hasGlass:true, frameAccent:'#636366', deviceType:'ipad' },
+    'ipad-air-11-m3':   { name:'iPad Air 11" M3',      line:'iPad Air',  year:'2025', spec:'11" · Chip M3 · Liquid Retina',          icon:'fa-solid fa-tablet-screen-button', backPage:'ipad.html', hasGlass:true, frameAccent:'#636366', deviceType:'ipad' },
+    // iPad Mini 7
+    'ipad-mini-7':      { name:'iPad Mini 7ª geração', line:'iPad Mini', year:'2024', spec:'8,3" · Chip A17 Pro',                   icon:'fa-solid fa-tablet-screen-button', backPage:'ipad.html', hasGlass:true, frameAccent:'#636366', deviceType:'ipad' },
+    // iPad 10ª gen
+    'ipad-10':          { name:'iPad 10ª geração',     line:'iPad',      year:'2022', spec:'10,9" · Chip A14 · USB-C',              icon:'fa-solid fa-tablet-screen-button', backPage:'ipad.html', hasGlass:true, frameAccent:'#636366', deviceType:'ipad' },
+    // iPad Air M2 / Mini 6
+    'ipad-air-13-m2':   { name:'iPad Air 13" M2',      line:'iPad Air',  year:'2024', spec:'13" · Chip M2 · Liquid Retina',         icon:'fa-solid fa-tablet-screen-button', backPage:'ipad.html', hasGlass:true, frameAccent:'#636366', deviceType:'ipad' },
+    'ipad-air-11-m2':   { name:'iPad Air 11" M2',      line:'iPad Air',  year:'2024', spec:'11" · Chip M2 · Liquid Retina',         icon:'fa-solid fa-tablet-screen-button', backPage:'ipad.html', hasGlass:true, frameAccent:'#636366', deviceType:'ipad' },
+    'ipad-mini-6':      { name:'iPad Mini 6ª geração', line:'iPad Mini', year:'2021', spec:'8,3" · Chip A15 · Touch ID lateral',    icon:'fa-solid fa-tablet-screen-button', backPage:'ipad.html', hasGlass:true, frameAccent:'#636366', deviceType:'ipad' },
+    // iPad Pro M1 / Air 4
+    'ipad-pro-129-m1':  { name:'iPad Pro 12,9" M1',    line:'iPad Pro',  year:'2021', spec:'12,9" · Chip M1 · Liquid Retina XDR',  icon:'fa-solid fa-tablet-screen-button', backPage:'ipad.html', hasGlass:true, frameAccent:'#8e8e93', deviceType:'ipad' },
+    'ipad-pro-11-m1':   { name:'iPad Pro 11" M1',      line:'iPad Pro',  year:'2021', spec:'11" · Chip M1',                         icon:'fa-solid fa-tablet-screen-button', backPage:'ipad.html', hasGlass:true, frameAccent:'#8e8e93', deviceType:'ipad' },
+    'ipad-air-4':       { name:'iPad Air 4ª geração',  line:'iPad Air',  year:'2020', spec:'10,9" · Chip A14 · USB-C',              icon:'fa-solid fa-tablet-screen-button', backPage:'ipad.html', hasGlass:true, frameAccent:'#636366', deviceType:'ipad' },
+    // iPad 7–9ª gen
+    'ipad-9':           { name:'iPad 9ª geração',      line:'iPad',      year:'2021', spec:'10,2" · Chip A13 · Lightning',          icon:'fa-solid fa-tablet-screen-button', backPage:'ipad.html', hasGlass:true, frameAccent:'#636366', deviceType:'ipad' },
+    'ipad-8':           { name:'iPad 8ª geração',      line:'iPad',      year:'2020', spec:'10,2" · Chip A12 · Lightning',          icon:'fa-solid fa-tablet-screen-button', backPage:'ipad.html', hasGlass:true, frameAccent:'#636366', deviceType:'ipad' },
+    'ipad-7':           { name:'iPad 7ª geração',      line:'iPad',      year:'2019', spec:'10,2" · Chip A10 · Lightning',          icon:'fa-solid fa-tablet-screen-button', backPage:'ipad.html', hasGlass:true, frameAccent:'#48484a', deviceType:'ipad' },
+    // iPad Pro 1ª–3ª gen
+    'ipad-pro-129-3gen':{ name:'iPad Pro 12,9" 3ª gen',line:'iPad Pro',  year:'2019', spec:'12,9" · Chip A12X · USB-C · Face ID',  icon:'fa-solid fa-tablet-screen-button', backPage:'ipad.html', hasGlass:true, frameAccent:'#8e8e93', deviceType:'ipad' },
+    'ipad-pro-11-2gen': { name:'iPad Pro 11" 2ª gen',  line:'iPad Pro',  year:'2020', spec:'11" · Chip A12Z · USB-C · Face ID',    icon:'fa-solid fa-tablet-screen-button', backPage:'ipad.html', hasGlass:true, frameAccent:'#8e8e93', deviceType:'ipad' },
+    'ipad-pro-129-2gen':{ name:'iPad Pro 12,9" 2ª gen',line:'iPad Pro',  year:'2018', spec:'12,9" · Chip A10X · USB-C',            icon:'fa-solid fa-tablet-screen-button', backPage:'ipad.html', hasGlass:true, frameAccent:'#8e8e93', deviceType:'ipad' },
+    'ipad-pro-11-1gen': { name:'iPad Pro 11" 1ª gen',  line:'iPad Pro',  year:'2018', spec:'11" · Chip A12X · USB-C · Face ID',    icon:'fa-solid fa-tablet-screen-button', backPage:'ipad.html', hasGlass:true, frameAccent:'#8e8e93', deviceType:'ipad' },
+    'iphone-x':          { name:'iPhone X',          line:'iPhone X', year:'2017', spec:'5,8" · Chip A11',               icon:'fa-solid fa-mobile-screen', backPage:'iphone.html', hasGlass:true, frameAccent:'#8e8e93' },
+
+    // ── MacBook ──────────────────────────────────────────────────────────────
+    // MacBook Pro Apple Silicon
+    'macbook-pro-16-m4':        { name:'MacBook Pro 16" M4',       line:'MacBook Pro', year:'2024', spec:'16" · Chip M4 Pro/M4 Max · Liquid Retina XDR', icon:'fa-solid fa-laptop', backPage:'macbook.html', hasGlass:true, frameAccent:'#6e6e73', deviceType:'macbook' },
+    'macbook-pro-14-m4':        { name:'MacBook Pro 14" M4',       line:'MacBook Pro', year:'2024', spec:'14" · Chip M4/M4 Pro/M4 Max · Liquid Retina XDR', icon:'fa-solid fa-laptop', backPage:'macbook.html', hasGlass:true, frameAccent:'#6e6e73', deviceType:'macbook' },
+    'macbook-pro-16-m3':        { name:'MacBook Pro 16" M3',       line:'MacBook Pro', year:'2023', spec:'16" · Chip M3 Pro/M3 Max · Liquid Retina XDR', icon:'fa-solid fa-laptop', backPage:'macbook.html', hasGlass:true, frameAccent:'#6e6e73', deviceType:'macbook' },
+    'macbook-pro-14-m3':        { name:'MacBook Pro 14" M3',       line:'MacBook Pro', year:'2023', spec:'14" · Chip M3/M3 Pro/M3 Max · Liquid Retina XDR', icon:'fa-solid fa-laptop', backPage:'macbook.html', hasGlass:true, frameAccent:'#6e6e73', deviceType:'macbook' },
+    'macbook-pro-16-m2':        { name:'MacBook Pro 16" M2',       line:'MacBook Pro', year:'2023', spec:'16" · Chip M2 Pro/M2 Max · Liquid Retina XDR', icon:'fa-solid fa-laptop', backPage:'macbook.html', hasGlass:true, frameAccent:'#6e6e73', deviceType:'macbook' },
+    'macbook-pro-14-m2':        { name:'MacBook Pro 14" M2',       line:'MacBook Pro', year:'2023', spec:'14" · Chip M2/M2 Pro · Liquid Retina XDR', icon:'fa-solid fa-laptop', backPage:'macbook.html', hasGlass:true, frameAccent:'#6e6e73', deviceType:'macbook' },
+    'macbook-pro-13-m2':        { name:'MacBook Pro 13" M2',       line:'MacBook Pro', year:'2022', spec:'13,3" · Chip M2 · Liquid Retina', icon:'fa-solid fa-laptop', backPage:'macbook.html', hasGlass:true, frameAccent:'#6e6e73', deviceType:'macbook' },
+    'macbook-pro-16-m1':        { name:'MacBook Pro 16" M1',       line:'MacBook Pro', year:'2021', spec:'16" · Chip M1 Pro/M1 Max · Liquid Retina XDR', icon:'fa-solid fa-laptop', backPage:'macbook.html', hasGlass:true, frameAccent:'#6e6e73', deviceType:'macbook' },
+    'macbook-pro-14-m1':        { name:'MacBook Pro 14" M1',       line:'MacBook Pro', year:'2021', spec:'14" · Chip M1 Pro/M1 Max · Liquid Retina XDR', icon:'fa-solid fa-laptop', backPage:'macbook.html', hasGlass:true, frameAccent:'#6e6e73', deviceType:'macbook' },
+    'macbook-pro-13-m1':        { name:'MacBook Pro 13" M1',       line:'MacBook Pro', year:'2020', spec:'13,3" · Chip M1 · Liquid Retina', icon:'fa-solid fa-laptop', backPage:'macbook.html', hasGlass:true, frameAccent:'#6e6e73', deviceType:'macbook' },
+    // MacBook Air Apple Silicon
+    'macbook-air-15-m3':        { name:'MacBook Air 15" M3',       line:'MacBook Air', year:'2024', spec:'15,3" · Chip M3 · Liquid Retina', icon:'fa-solid fa-laptop', backPage:'macbook.html', hasGlass:true, frameAccent:'#6e6e73', deviceType:'macbook' },
+    'macbook-air-13-m3':        { name:'MacBook Air 13" M3',       line:'MacBook Air', year:'2024', spec:'13,6" · Chip M3 · Liquid Retina', icon:'fa-solid fa-laptop', backPage:'macbook.html', hasGlass:true, frameAccent:'#6e6e73', deviceType:'macbook' },
+    'macbook-air-15-m2':        { name:'MacBook Air 15" M2',       line:'MacBook Air', year:'2023', spec:'15,3" · Chip M2 · Liquid Retina', icon:'fa-solid fa-laptop', backPage:'macbook.html', hasGlass:true, frameAccent:'#6e6e73', deviceType:'macbook' },
+    'macbook-air-13-m2':        { name:'MacBook Air 13" M2',       line:'MacBook Air', year:'2022', spec:'13,6" · Chip M2 · Liquid Retina', icon:'fa-solid fa-laptop', backPage:'macbook.html', hasGlass:true, frameAccent:'#6e6e73', deviceType:'macbook' },
+    'macbook-air-13-m1':        { name:'MacBook Air 13" M1',       line:'MacBook Air', year:'2020', spec:'13,3" · Chip M1 · Retina', icon:'fa-solid fa-laptop', backPage:'macbook.html', hasGlass:true, frameAccent:'#6e6e73', deviceType:'macbook' },
+    // MacBook Pro Intel
+    'macbook-pro-16-intel-2019':{ name:'MacBook Pro 16" 2019',     line:'MacBook Pro', year:'2019', spec:'16" · Intel Core i7/i9 · Touch Bar · AMD Radeon', icon:'fa-solid fa-laptop', backPage:'macbook.html', hasGlass:true, frameAccent:'#6e6e73', deviceType:'macbook' },
+    'macbook-pro-15-intel':     { name:'MacBook Pro 15" Intel',    line:'MacBook Pro', year:'2018', spec:'15" · Intel Core i7/i9 · Touch Bar', icon:'fa-solid fa-laptop', backPage:'macbook.html', hasGlass:true, frameAccent:'#6e6e73', deviceType:'macbook' },
+    'macbook-pro-13-intel':     { name:'MacBook Pro 13" Intel',    line:'MacBook Pro', year:'2018', spec:'13" · Intel Core i5/i7 · Touch Bar', icon:'fa-solid fa-laptop', backPage:'macbook.html', hasGlass:true, frameAccent:'#6e6e73', deviceType:'macbook' },
+    // MacBook Air / MacBook Intel
+    'macbook-air-13-intel':         { name:'MacBook Air 13" Intel',    line:'MacBook Air', year:'2018', spec:'13" · Intel Core i3/i5 · Touch ID · Retina', icon:'fa-solid fa-laptop', backPage:'macbook.html', hasGlass:true, frameAccent:'#6e6e73', deviceType:'macbook' },
+    'macbook-air-13-retina-intel':  { name:'MacBook Air Retina 13"',   line:'MacBook Air', year:'2017', spec:'13" · Intel Core i5 · Touch ID · Retina', icon:'fa-solid fa-laptop', backPage:'macbook.html', hasGlass:true, frameAccent:'#6e6e73', deviceType:'macbook' },
+    'macbook-pro-15-retina':        { name:'MacBook Pro 15" Retina',   line:'MacBook Pro', year:'2015', spec:'15" · Intel Core i7/i9 · Retina · AMD GPU', icon:'fa-solid fa-laptop', backPage:'macbook.html', hasGlass:true, frameAccent:'#6e6e73', deviceType:'macbook' },
+    'macbook-pro-13-retina':        { name:'MacBook Pro 13" Retina',   line:'MacBook Pro', year:'2015', spec:'13" · Intel Core i5/i7 · Retina', icon:'fa-solid fa-laptop', backPage:'macbook.html', hasGlass:true, frameAccent:'#6e6e73', deviceType:'macbook' },
+    'macbook-12':                   { name:'MacBook 12"',               line:'MacBook',     year:'2015', spec:'12" · Intel Core m · Retina · USB-C único', icon:'fa-solid fa-laptop', backPage:'macbook.html', hasGlass:true, frameAccent:'#6e6e73', deviceType:'macbook' },
+
+    // ── Apple Watch ───────────────────────────────────────────────────────────
+    // Ultra
+    'watch-ultra-2': { name:'Apple Watch Ultra 2', line:'Apple Watch Ultra', year:'2023', spec:'49mm · Titânio · Chip S9 · GPS+Celular', icon:'fa-solid fa-clock', backPage:'watch.html', hasGlass:true, frameAccent:'#8e8e93', deviceType:'watch' },
+    'watch-ultra':   { name:'Apple Watch Ultra',   line:'Apple Watch Ultra', year:'2022', spec:'49mm · Titânio · Chip S8 · GPS+Celular', icon:'fa-solid fa-clock', backPage:'watch.html', hasGlass:true, frameAccent:'#8e8e93', deviceType:'watch' },
+    // Series 10
+    'watch-series-10-46': { name:'Apple Watch Series 10 46mm', line:'Apple Watch Series 10', year:'2024', spec:'46mm · Alumínio/Titânio · Chip S10 · Always-On', icon:'fa-solid fa-clock', backPage:'watch.html', hasGlass:true, frameAccent:'#636366', deviceType:'watch' },
+    'watch-series-10-42': { name:'Apple Watch Series 10 42mm', line:'Apple Watch Series 10', year:'2024', spec:'42mm · Alumínio/Titânio · Chip S10 · Always-On', icon:'fa-solid fa-clock', backPage:'watch.html', hasGlass:true, frameAccent:'#636366', deviceType:'watch' },
+    // Series 9
+    'watch-series-9-45': { name:'Apple Watch Series 9 45mm', line:'Apple Watch Series 9', year:'2023', spec:'45mm · Alumínio/Aço · Chip S9 · Double Tap', icon:'fa-solid fa-clock', backPage:'watch.html', hasGlass:true, frameAccent:'#636366', deviceType:'watch' },
+    'watch-series-9-41': { name:'Apple Watch Series 9 41mm', line:'Apple Watch Series 9', year:'2023', spec:'41mm · Alumínio/Aço · Chip S9 · Double Tap', icon:'fa-solid fa-clock', backPage:'watch.html', hasGlass:true, frameAccent:'#636366', deviceType:'watch' },
+    // Series 8
+    'watch-series-8-45': { name:'Apple Watch Series 8 45mm', line:'Apple Watch Series 8', year:'2022', spec:'45mm · Alumínio/Aço · Chip S8 · Detecção de Colisão', icon:'fa-solid fa-clock', backPage:'watch.html', hasGlass:true, frameAccent:'#636366', deviceType:'watch' },
+    'watch-series-8-41': { name:'Apple Watch Series 8 41mm', line:'Apple Watch Series 8', year:'2022', spec:'41mm · Alumínio/Aço · Chip S8 · Detecção de Colisão', icon:'fa-solid fa-clock', backPage:'watch.html', hasGlass:true, frameAccent:'#636366', deviceType:'watch' },
+    // Series 7
+    'watch-series-7-45': { name:'Apple Watch Series 7 45mm', line:'Apple Watch Series 7', year:'2021', spec:'45mm · Alumínio/Aço/Titânio · Chip S7 · Always-On', icon:'fa-solid fa-clock', backPage:'watch.html', hasGlass:true, frameAccent:'#636366', deviceType:'watch' },
+    'watch-series-7-41': { name:'Apple Watch Series 7 41mm', line:'Apple Watch Series 7', year:'2021', spec:'41mm · Alumínio/Aço/Titânio · Chip S7 · Always-On', icon:'fa-solid fa-clock', backPage:'watch.html', hasGlass:true, frameAccent:'#636366', deviceType:'watch' },
+    // Series 6
+    'watch-series-6-44': { name:'Apple Watch Series 6 44mm', line:'Apple Watch Series 6', year:'2020', spec:'44mm · Alumínio/Aço/Titânio · Chip S6 · SpO2', icon:'fa-solid fa-clock', backPage:'watch.html', hasGlass:true, frameAccent:'#636366', deviceType:'watch' },
+    'watch-series-6-40': { name:'Apple Watch Series 6 40mm', line:'Apple Watch Series 6', year:'2020', spec:'40mm · Alumínio/Aço/Titânio · Chip S6 · SpO2', icon:'fa-solid fa-clock', backPage:'watch.html', hasGlass:true, frameAccent:'#636366', deviceType:'watch' },
+    // Series 5
+    'watch-series-5-44': { name:'Apple Watch Series 5 44mm', line:'Apple Watch Series 5', year:'2019', spec:'44mm · Alumínio/Aço/Titânio · Chip S5 · Always-On', icon:'fa-solid fa-clock', backPage:'watch.html', hasGlass:true, frameAccent:'#636366', deviceType:'watch' },
+    'watch-series-5-40': { name:'Apple Watch Series 5 40mm', line:'Apple Watch Series 5', year:'2019', spec:'40mm · Alumínio/Aço/Titânio · Chip S5 · Always-On', icon:'fa-solid fa-clock', backPage:'watch.html', hasGlass:true, frameAccent:'#636366', deviceType:'watch' },
+    // Series 4
+    'watch-series-4-44': { name:'Apple Watch Series 4 44mm', line:'Apple Watch Series 4', year:'2018', spec:'44mm · Alumínio/Aço · Chip S4 · ECG · Detecção de Queda', icon:'fa-solid fa-clock', backPage:'watch.html', hasGlass:true, frameAccent:'#48484a', deviceType:'watch' },
+    'watch-series-4-40': { name:'Apple Watch Series 4 40mm', line:'Apple Watch Series 4', year:'2018', spec:'40mm · Alumínio/Aço · Chip S4 · ECG · Detecção de Queda', icon:'fa-solid fa-clock', backPage:'watch.html', hasGlass:true, frameAccent:'#48484a', deviceType:'watch' },
+    // SE
+    'watch-se-2-44': { name:'Apple Watch SE 2ª geração 44mm', line:'Apple Watch SE', year:'2022', spec:'44mm · Alumínio · Chip S8 · Detecção de Colisão', icon:'fa-solid fa-clock', backPage:'watch.html', hasGlass:true, frameAccent:'#636366', deviceType:'watch' },
+    'watch-se-2-40': { name:'Apple Watch SE 2ª geração 40mm', line:'Apple Watch SE', year:'2022', spec:'40mm · Alumínio · Chip S8 · Detecção de Colisão', icon:'fa-solid fa-clock', backPage:'watch.html', hasGlass:true, frameAccent:'#636366', deviceType:'watch' },
+    'watch-se-44':   { name:'Apple Watch SE 1ª geração 44mm', line:'Apple Watch SE', year:'2020', spec:'44mm · Alumínio · Chip S5 · GPS', icon:'fa-solid fa-clock', backPage:'watch.html', hasGlass:true, frameAccent:'#48484a', deviceType:'watch' },
+    'watch-se-40':   { name:'Apple Watch SE 1ª geração 40mm', line:'Apple Watch SE', year:'2020', spec:'40mm · Alumínio · Chip S5 · GPS', icon:'fa-solid fa-clock', backPage:'watch.html', hasGlass:true, frameAccent:'#48484a', deviceType:'watch' },
+  };
+
+  // ─── REPAIRS PER MODEL ────────────────────────────────────────────────────
+  function getRepairs(slug, model) {
+    const wa = (txt) => `https://wa.me/5521950147576?text=${encodeURIComponent('Olá! Preciso de reparo no meu ' + model.name + '. Serviço: ' + txt)}`;
+    if (model.deviceType === 'watch') {
+      return [
+        { icon:'fa-solid fa-display',      title:'Troca de Vidro / Tela OLED', desc:'Display OLED preservado — touch, always-on e brilho de fábrica restaurados sem trocar o conjunto interno.', wa: wa('Troca de Vidro/Tela OLED') },
+        { icon:'fa-solid fa-battery-full', title:'Troca de Bateria',            desc:'Bateria nova com ciclos zerados — autonomia e carregamento magnético restaurados ao padrão original.', wa: wa('Troca de Bateria') },
+        { icon:'fa-solid fa-rotate-right', title:'Digital Crown',               desc:'Coroa digital travada, sem resposta ao giro ou com ruído — reparo sem substituição do conjunto.', wa: wa('Digital Crown') },
+        { icon:'fa-solid fa-heart-pulse',  title:'Sensores de Saúde',           desc:'Frequência cardíaca, SpO2, ECG e temperatura corporal — sensores traseiros diagnosticados e reparados.', wa: wa('Sensores de Saúde') },
+        { icon:'fa-solid fa-bolt',         title:'Problema de Carga',           desc:'Sem carga, carga lenta ou pinos magnéticos danificados — conector e placa de carga restaurados.', wa: wa('Problema de Carga') },
+        { icon:'fa-solid fa-microchip',    title:'Reparo de Placa',             desc:'Microssoldagem especializada — infiltração de líquido, curto-circuito ou relógio sem inicialização.', wa: wa('Reparo de Placa') },
+      ];
+    }
+    if (model.deviceType === 'macbook') {
+      return [
+        { icon:'fa-solid fa-display',         title:'Troca de Tela',               desc:'Liquid Retina, Liquid Retina XDR — imagem, True Tone e brilho originais preservados.', wa: wa('Troca de Tela') },
+        { icon:'fa-solid fa-battery-full',    title:'Troca de Bateria',            desc:'Bateria nova com ciclos zerados e autonomia restaurada ao padrão original de fábrica.', wa: wa('Troca de Bateria') },
+        { icon:'fa-solid fa-plug',            title:'Conector MagSafe / USB-C',    desc:'Sem carga, carga intermitente ou conector físico danificado — reparo especializado.', wa: wa('Conector MagSafe/USB-C') },
+        { icon:'fa-solid fa-temperature-low', title:'Limpeza + Pasta Térmica',     desc:'Cooler entupido, superaquecimento e travamentos — limpeza interna profissional e pasta de alta performance.', wa: wa('Limpeza e Pasta Térmica') },
+        { icon:'fa-solid fa-keyboard',        title:'Teclado e Trackpad',          desc:'Teclas presas, sem resposta ou trackpad irregular — reparamos sem substituir a placa inteira.', wa: wa('Teclado/Trackpad') },
+        { icon:'fa-solid fa-microchip',       title:'Reparo de Placa Lógica',      desc:'Microssoldagem especializada — sem imagem, sem boot, curto-circuito ou dano por líquido.', wa: wa('Reparo de Placa Lógica') },
+      ];
+    }
+    if (model.deviceType === 'ipad') {
+      return [
+        { icon:'fa-solid fa-display',      title:'Troca de Tela Completa', desc:'Display e touch originais 100% preservados — imagem e sensibilidade íntegras.', wa: wa('Troca de Tela') },
+        { icon:'fa-solid fa-battery-full', title:'Troca de Bateria',       desc:'Bateria genuína com capacidade e ciclos zerados — autonomia restaurada.', wa: wa('Troca de Bateria') },
+        { icon:'fa-solid fa-plug',         title:'Conector de Carga',      desc:'USB-C ou Lightning — encaixe perfeito e carregamento rápido restaurado.', wa: wa('Conector de Carga') },
+        { icon:'fa-solid fa-camera',       title:'Câmera e Face ID',       desc:'Câmera traseira, frontal e sensores de Face ID (iPad Pro) — reparo especializado.', wa: wa('Câmera e Face ID') },
+        { icon:'fa-solid fa-wifi',         title:'Wi-Fi / Bluetooth',      desc:'Problemas de conectividade — chip antena diagnosticado e reparado no laboratório.', wa: wa('Reparo Wi-Fi/Bluetooth') },
+        { icon:'fa-solid fa-microchip',    title:'Reparo de Placa',        desc:'Microssoldagem especializada em chips de carga, gerenciadores de energia e dano por líquido.', wa: wa('Reparo de Placa Lógica') },
+      ];
+    }
+    return [
+      { icon:'fa-solid fa-display',      title:'Troca de Tela',        desc:'Display original com touch e brilho íntegros — sem perda de qualidade.', wa: wa('Troca de Tela') },
+      { icon:'fa-solid fa-battery-full', title:'Troca de Bateria',     desc:'Bateria nova com 100% de capacidade e ciclos zerados — autonomia de volta.', wa: wa('Troca de Bateria') },
+      { icon:'fa-solid fa-square',       title:'Tampa Traseira',        desc:'Substituição da tampa traseira sem danificar câmera ou wireless charging.', wa: wa('Tampa Traseira') },
+      { icon:'fa-solid fa-plug',         title:'Conector de Carga',    desc:'Lightning e USB-C — encaixe perfeito, carregamento rápido restaurado.', wa: wa('Conector de Carga') },
+      { icon:'fa-solid fa-camera',       title:'Câmera',               desc:'Foco, estabilização e qualidade de imagem comprometidos — conserto especializado.', wa: wa('Câmera') },
+      { icon:'fa-solid fa-microchip',    title:'Reparo de Placa',      desc:'Microssoldagem especializada — falhas complexas, dano por líquido e sem imagem.', wa: wa('Reparo de Placa Lógica') },
+    ];
+  }
+
+  // ─── RENDER ───────────────────────────────────────────────────────────────
+  function wa(model, extra) {
+    const txt = extra ? `Preciso de reparo no meu ${model.name}. Serviço: ${extra}` : `Preciso de reparo no meu ${model.name}. Gostaria de um orçamento.`;
+    return `https://wa.me/5521950147576?text=${encodeURIComponent('Olá! ' + txt)}`;
+  }
+
+  function render(slug) {
+    const model = MODELS[slug];
+    const app = document.getElementById('app');
+
+    if (!model) {
+      app.innerHTML = `
+        <div class="container rm-not-found">
+          <div>
+            <h1>Modelo não encontrado</h1>
+            <p>Não encontramos informações para esse modelo. Fale com a nossa equipe.</p>
+            <a href="iphone.html" class="btn btn-yellow btn-lg">← Ver todos os modelos</a>
+          </div>
+        </div>`;
+      return;
+    }
+
+    // Update page title & meta
+    document.getElementById('page-title').textContent = `Reparo de ${model.name} | Vitor iSolder`;
+    document.getElementById('page-desc').content = `Reparo especializado de ${model.name} em Itaguaí, RJ. Diagnóstico Profissional, laudo técnico e 6 meses de garantia.`;
+    document.getElementById('nav-wa-btn').href = wa(model);
+
+    // Breadcrumb
+    const breadcrumb = `
+      <div class="breadcrumb">
+        <div class="container">
+          <a href="index.html">Início</a><span>›</span>
+          <a href="${model.backPage}">${model.line}</a><span>›</span>
+          ${model.name}
+        </div>
+      </div>`;
+
+    // Hero
+    const hero = `
+      <section class="rm-hero">
+        <div class="container rm-hero-inner">
+          <div>
+            <div class="rm-eyebrow"><i class="${model.icon}"></i> ${model.year} · Reparo especializado</div>
+            <h1>
+              Precisa de conserto para seu ${model.name}?
+              <em>A iSolder resolve.</em>
+            </h1>
+            <p class="rm-hero-sub">${model.spec} — Diagnóstico Profissional, laudo técnico detalhado e 6 meses de garantia em cada serviço realizado.</p>
+            <div class="rm-hero-btns">
+              <a href="${wa(model)}" target="_blank" class="btn btn-yellow btn-lg">
+                <i class="fa-brands fa-whatsapp"></i> Solicitar orçamento
+              </a>
+              <a href="${model.backPage}" class="btn btn-ghost btn-lg">← Ver modelos</a>
+            </div>
+            <div class="rm-stats">
+              <div class="rm-stat"><strong>+10 mil</strong><span>Aparelhos reparados</span></div>
+              <div class="rm-stat"><strong>6 meses</strong><span>de garantia</span></div>
+              <div class="rm-stat"><strong>Profissional</strong><span>diagnóstico</span></div>
+            </div>
+          </div>
+          <div class="rm-mockup">
+            <div class="rm-mockup-frame" style="--frame-accent:${model.frameAccent||'#555'};${model.deviceType==='ipad'?'width:200px;height:270px;border-radius:24px':model.deviceType==='macbook'?'width:310px;height:196px;border-radius:14px':model.deviceType==='watch'?'width:190px;height:225px;border-radius:50px':''}">
+              ${model.deviceType === 'macbook'
+                ? '<div style=\'position:absolute;top:8px;left:50%;transform:translateX(-50%);width:6px;height:6px;border-radius:50%;background:#2a2a2a;border:1px solid rgba(255,255,255,0.08)\'></div>'
+                : model.deviceType === 'ipad'
+                ? '<div style=\'position:absolute;top:10px;left:50%;transform:translateX(-50%);width:10px;height:10px;border-radius:50%;background:#1a1a1a;border:1px solid rgba(255,255,255,0.06)\'></div>'
+                : model.deviceType === 'watch'
+                ? ''
+                : '<div class="rm-mockup-island"><div class="rm-mockup-island-cam"></div></div>'}
+              <div class="rm-mockup-screen">
+                <i class="${model.icon} rm-mockup-screen-icon"></i>
+                <div class="rm-mockup-label">
+                  <h4>${model.name}</h4>
+                  <p>${model.spec}</p>
+                </div>
+              </div>
+            </div>
+            <div class="rm-mockup-glow"></div>
+            <span class="rm-mockup-badge">✓ Atendemos</span>
+          </div>
+        </div>
+      </section>`;
+
+    // Troca de Vidro
+    const vidroSection = model.hasGlass ? `
+      <section class="rm-vidro-section">
+        <div class="container rm-vidro-inner">
+          <div>
+            <div class="rm-vidro-badge"><i class="fa-solid fa-star"></i> Serviço mais procurado</div>
+            <h2>${model.deviceType === 'macbook' ? 'Troca de Tela —' : 'Troca de Vidro —'}<br /><em>${model.deviceType === 'macbook' ? 'preservando a originalidade do seu Mac' : 'sem substituir sua tela original'}</em></h2>
+            <p class="rm-vidro-desc">
+              ${model.deviceType === 'macbook'
+              ? 'Substituímos o display danificado do seu ' + model.name + ' utilizando telas de alta qualidade com tecnologia Liquid Retina, garantindo a fidelidade de cores, brilho máximo, suporte True Tone e a experiência visual original de fábrica da Apple.'
+              : model.deviceType === 'watch'
+              ? 'Se o vidro do seu ' + model.name + ' trincou mas o display OLED continua exibindo a imagem e respondendo ao toque perfeitamente, nós substituímos apenas o vidro externo danificado. Esse processo cirúrgico preserva a vedação e a tela original de fábrica com uma economia de até 70% comparado a uma tela nova.'
+              : model.deviceType === 'ipad'
+              ? 'Quando o vidro do seu ' + model.name + ' trinca mas a imagem e o touch continuam funcionando, realizamos a separação cirúrgica do vidro danificado. Uma técnica avançada que preserva o display de fábrica da Apple e evita a troca completa do conjunto.'
+              : 'Quando a tela do seu ' + model.name + ' ainda funciona mas o vidro quebrou, não é necessário substituir o conjunto inteiro. Realizamos a troca cirúrgica apenas do vidro, preservando o display de fábrica com toda a qualidade original intacta.'}
+            </p>
+            <div class="rm-vidro-feats">
+              ${model.deviceType === 'macbook' ? `
+              <div class="rm-vidro-feat"><i class="fa-solid fa-check"></i> Liquid Retina / Retina XDR — qualidade original preservada</div>
+              <div class="rm-vidro-feat"><i class="fa-solid fa-check"></i> True Tone e calibração de cores de fábrica mantidos</div>
+              <div class="rm-vidro-feat"><i class="fa-solid fa-check"></i> Brilho máximo e uniformidade de iluminação</div>
+              <div class="rm-vidro-feat"><i class="fa-solid fa-check"></i> Garantia de 6 meses no serviço</div>
+              ` : model.deviceType === 'watch' ? `
+              <div class="rm-vidro-feat"><i class="fa-solid fa-check"></i> Display OLED original 100% preservado</div>
+              <div class="rm-vidro-feat"><i class="fa-solid fa-check"></i> Always-On, toque e brilho sem qualquer alteração</div>
+              <div class="rm-vidro-feat"><i class="fa-solid fa-check"></i> Economia real versus troca do conjunto de tela completo</div>
+              <div class="rm-vidro-feat"><i class="fa-solid fa-check"></i> Garantia de 6 meses no serviço</div>
+              ` : `
+              <div class="rm-vidro-feat"><i class="fa-solid fa-check"></i> Display original 100% preservado</div>
+              <div class="rm-vidro-feat"><i class="fa-solid fa-check"></i> Touch, brilho e cores sem alteração</div>
+              <div class="rm-vidro-feat"><i class="fa-solid fa-check"></i> Economia real versus troca de tela completa</div>
+              <div class="rm-vidro-feat"><i class="fa-solid fa-check"></i> Garantia de 6 meses no serviço</div>
+              `}
+            </div>
+            <a href="${wa(model, model.deviceType === 'macbook' ? 'Troca de Tela' : 'Troca de Vidro')}" target="_blank" class="btn btn-yellow btn-lg" style="margin-top:8px">
+              <i class="fa-brands fa-whatsapp"></i> ${model.deviceType === 'macbook' ? 'Orçar Troca de Tela' : 'Orçar Troca de Vidro'}
+            </a>
+          </div>
+          <div class="rm-vidro-savings">
+            ${model.deviceType === 'macbook' ? `
+            <div class="rm-savings-pct" style="font-size:2.4rem;letter-spacing:-.02em">True Tone</div>
+            <div class="rm-savings-label">Qualidade preservada</div>
+            <div class="rm-savings-vs">
+              Liquid Retina · Retina XDR<br />Calibração de cores de fábrica
+            </div>
+            ` : `
+            <div class="rm-savings-pct">70%</div>
+            <div class="rm-savings-label">de economia</div>
+            <div class="rm-savings-vs">
+              Troca de vidro vs.<br />substituição completa da tela
+            </div>
+            `}
+          </div>
+        </div>
+      </section>` : '';
+
+    // Outros reparos
+    const repairs = getRepairs(slug, model);
+    const repairCards = repairs.map(r => `
+      <div class="rm-repair-card">
+        <div class="rm-repair-icon"><i class="${r.icon}"></i></div>
+        <div class="rm-repair-info">
+          <h4>${r.title}</h4>
+          <p>${r.desc}</p>
+        </div>
+        <a href="${r.wa}" target="_blank" class="rm-repair-wa">
+          <i class="fa-brands fa-whatsapp"></i> Orçar serviço
+        </a>
+      </div>`).join('');
+
+    const repairsSection = `
+      <section class="rm-repairs-section" id="reparos">
+        <div class="container">
+          <div class="rm-section-header">
+            <h2>Reparos disponíveis para o <em>${model.name}</em></h2>
+            <p>Todos com Diagnóstico Profissional, laudo técnico e 6 meses de garantia.</p>
+          </div>
+          <div class="rm-repairs-grid">
+            ${repairCards}
+          </div>
+        </div>
+      </section>`;
+
+    // Reparo de Placa
+    const placaSection = `
+      <section class="rm-placa-section">
+        <div class="container rm-placa-inner">
+          <div>
+            <div class="rm-placa-badge">🔬 Laboratório avançado de microssoldagem</div>
+            <h2>Reparo de Placa —<br /><em>a alternativa inteligente à troca do aparelho</em></h2>
+            <p class="rm-placa-desc">
+              ${model.deviceType === 'macbook'
+              ? 'Se o seu ' + model.name + ' não liga, não carrega, sofreu curto-circuito ou derramamento de líquido, a autorizada vai exigir o preço de um computador novo para trocar a placa inteira. Na iSolder, nós reparamos os componentes afetados na placa lógica original, devolvendo a vida ao seu Mac com uma economia de até 70%.'
+              : model.deviceType === 'watch'
+              ? 'Por ser um dispositivo de uso contínuo, o ' + model.name + ' está sujeito a picos de carga ou infiltrações de água — especialmente salgada ou de piscina. Onde outras assistências condenam o relógio, nosso laboratório realiza o reparo avançado a nível de componentes em circuitos integrados, reativando o aparelho com total segurança.'
+              : model.deviceType === 'ipad'
+              ? 'iPads que não ligam, não carregam ou sofreram danos por curto-circuito são a especialidade do nosso laboratório. Reparamos circuitos integrados (como chips de carga e gerenciadores de energia) a nível de componentes, evitando que você precise descartar o aparelho ou pagar uma fortuna por uma placa nova.'
+              : 'Enquanto a maioria das assistências condena o seu dispositivo ou exige a troca de uma placa inteira por valores astronômicos, nossa equipe realiza reparos cirúrgicos a nível de componentes. Recuperamos falhas de inicialização, curto-circuito, problemas de carga e aparelhos que entraram em contato com líquidos.'}
+            </p>
+            <div class="rm-placa-feats">
+              ${model.deviceType === 'macbook' ? `
+              <div class="rm-placa-feat"><i class="fa-solid fa-check"></i> Preservação total dos dados e configurações do cliente.</div>
+              <div class="rm-placa-feat"><i class="fa-solid fa-check"></i> Reparo especializado em curto-circuito, chip de carga, GPU integrada e Wi-Fi.</div>
+              <div class="rm-placa-feat"><i class="fa-solid fa-check"></i> Equipamentos de precisão térmica e microscopia de última geração.</div>
+              <div class="rm-placa-feat"><i class="fa-solid fa-check"></i> Economia de até 70% comparado à substituição da placa lógica ou do MacBook.</div>
+              ` : model.deviceType === 'watch' ? `
+              <div class="rm-placa-feat"><i class="fa-solid fa-check"></i> Reparo de infiltração por água salgada, clorada ou por condensação.</div>
+              <div class="rm-placa-feat"><i class="fa-solid fa-check"></i> Recuperação de circuitos de carga, sensores e chipsets de conectividade.</div>
+              <div class="rm-placa-feat"><i class="fa-solid fa-check"></i> Equipamentos de precisão térmica e microscopia de última geração.</div>
+              <div class="rm-placa-feat"><i class="fa-solid fa-check"></i> Economia real versus a compra de um novo relógio.</div>
+              ` : `
+              <div class="rm-placa-feat"><i class="fa-solid fa-check"></i> Preservação total dos dados originais do cliente.</div>
+              <div class="rm-placa-feat"><i class="fa-solid fa-check"></i> Reparo especializado em curto-circuito, Face ID, Wi-Fi e Codec de Áudio.</div>
+              <div class="rm-placa-feat"><i class="fa-solid fa-check"></i> Equipamentos de precisão térmica e microscopia de última geração.</div>
+              <div class="rm-placa-feat"><i class="fa-solid fa-check"></i> Economia de até 60% comparado à substituição do dispositivo.</div>
+              `}
+            </div>
+            <a href="${wa(model, 'Reparo de Placa Lógica')}" target="_blank" class="btn btn-yellow btn-lg">
+              <i class="fa-brands fa-whatsapp"></i> Solicitar Análise de Placa
+            </a>
+          </div>
+          <div class="rm-placa-card">
+            <div class="rm-placa-circuit">
+              <svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Trilhas principais -->
+                <rect x="20" y="20" width="32" height="32" rx="4" stroke="#FFD500" stroke-width="1.5" fill="none"/>
+                <!-- Pinos horizontais esquerda -->
+                <line x1="20" y1="28" x2="8"  y2="28" stroke="#FFD500" stroke-width="1.2"/>
+                <line x1="20" y1="36" x2="8"  y2="36" stroke="#FFD500" stroke-width="1.2"/>
+                <line x1="20" y1="44" x2="8"  y2="44" stroke="#FFD500" stroke-width="1.2"/>
+                <!-- Pinos horizontais direita -->
+                <line x1="52" y1="28" x2="64" y2="28" stroke="#FFD500" stroke-width="1.2"/>
+                <line x1="52" y1="36" x2="64" y2="36" stroke="#FFD500" stroke-width="1.2"/>
+                <line x1="52" y1="44" x2="64" y2="44" stroke="#FFD500" stroke-width="1.2"/>
+                <!-- Pinos verticais topo -->
+                <line x1="28" y1="20" x2="28" y2="8"  stroke="#FFD500" stroke-width="1.2"/>
+                <line x1="36" y1="20" x2="36" y2="8"  stroke="#FFD500" stroke-width="1.2"/>
+                <line x1="44" y1="20" x2="44" y2="8"  stroke="#FFD500" stroke-width="1.2"/>
+                <!-- Pinos verticais base -->
+                <line x1="28" y1="52" x2="28" y2="64" stroke="#FFD500" stroke-width="1.2"/>
+                <line x1="36" y1="52" x2="36" y2="64" stroke="#FFD500" stroke-width="1.2"/>
+                <line x1="44" y1="52" x2="44" y2="64" stroke="#FFD500" stroke-width="1.2"/>
+                <!-- Núcleo interno -->
+                <rect x="29" y="29" width="14" height="14" rx="2" fill="rgba(255,213,0,0.15)" stroke="#FFD500" stroke-width="1"/>
+                <!-- Ponto central -->
+                <circle cx="36" cy="36" r="2.5" fill="#FFD500"/>
+                <!-- Terminais nos pinos -->
+                <circle cx="8"  cy="28" r="1.8" fill="#FFD500" opacity=".7"/>
+                <circle cx="8"  cy="36" r="1.8" fill="#FFD500" opacity=".7"/>
+                <circle cx="8"  cy="44" r="1.8" fill="#FFD500" opacity=".7"/>
+                <circle cx="64" cy="28" r="1.8" fill="#FFD500" opacity=".7"/>
+                <circle cx="64" cy="36" r="1.8" fill="#FFD500" opacity=".7"/>
+                <circle cx="64" cy="44" r="1.8" fill="#FFD500" opacity=".7"/>
+                <circle cx="28" cy="8"  r="1.8" fill="#FFD500" opacity=".7"/>
+                <circle cx="36" cy="8"  r="1.8" fill="#FFD500" opacity=".7"/>
+                <circle cx="44" cy="8"  r="1.8" fill="#FFD500" opacity=".7"/>
+                <circle cx="28" cy="64" r="1.8" fill="#FFD500" opacity=".7"/>
+                <circle cx="36" cy="64" r="1.8" fill="#FFD500" opacity=".7"/>
+                <circle cx="44" cy="64" r="1.8" fill="#FFD500" opacity=".7"/>
+              </svg>
+            </div>
+            <div class="rm-placa-stat-label">Taxa de recuperação</div>
+            <div class="rm-placa-stat-value">Alta</div>
+            <div class="rm-placa-stat-sub">em reparos de placa avançados realizados no laboratório iSolder</div>
+            <div class="rm-placa-divider"></div>
+            <div class="rm-placa-desc-card">
+              <strong>Especialistas em hardware Apple</strong>
+              Reparos complexos realizados por especialistas em engenharia de hardware Apple — diagnóstico preciso, sem achismo.
+            </div>
+          </div>
+        </div>
+      </section>`;
+
+    // CTA Final
+    const cta = `
+      <section class="rm-cta-section">
+        <div class="container">
+          <div class="rm-cta-box">
+            <h2>Pronto para resolver o problema do seu ${model.name}?</h2>
+            <p>Diagnóstico Profissional, laudo técnico e orçamento sem compromisso. Atendemos em Itaguaí, RJ e via SEDEX para todo o Brasil.</p>
+            <div class="rm-cta-btns">
+              <a href="${wa(model)}" target="_blank" class="btn btn-yellow btn-lg">
+                <i class="fa-brands fa-whatsapp"></i> Falar no WhatsApp
+              </a>
+              <a href="${model.backPage}" class="btn btn-ghost btn-lg">← Ver outros modelos</a>
+            </div>
+          </div>
+        </div>
+      </section>`;
+
+    if (model.deviceType === 'macbook') {
+      app.innerHTML = breadcrumb + hero + placaSection + vidroSection + repairsSection + cta;
+    } else {
+      app.innerHTML = breadcrumb + hero + vidroSection + repairsSection + placaSection + cta;
+    }
+  }
+
+  // ─── INIT ─────────────────────────────────────────────────────────────────
+  (function() {
+    const params = new URLSearchParams(window.location.search);
+    const slug = params.get('modelo') || '';
+    render(slug);
+  })();
+  </script>
+</body>
+</html>

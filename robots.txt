@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Disallow: /reparo-modelo.html
+
+Sitemap: https://www.vitorisolder.com/sitemap.xml

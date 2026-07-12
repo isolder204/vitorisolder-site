@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vitor iSolder | Assistência Técnica Apple Especializada — Itaguaí, RJ</title>
+  <meta name="description" content="Especialistas em reparo Apple em Itaguaí, RJ. iPhone, iPad, MacBook e Apple Watch. Reparo de placa lógica, recuperação de Face ID, laudos técnicos. Atendemos clientes finais, lojistas e PJ." />
+  <link rel="icon" href="assets/img/logo-icon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="assets/img/logo-icon.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Vitor iSolder" />
+  <meta property="og:title" content="Vitor iSolder | Reparo Apple Especializado em Itaguaí, RJ" />
+  <meta property="og:description" content="Especialistas em reparo Apple em Itaguaí, RJ. iPhone, iPad, MacBook e Apple Watch. Reparo de placa lógica, laudos técnicos e 6 meses de garantia." />
+  <meta property="og:url" content="https://www.vitorisolder.com/" />
+  <meta property="og:image" content="https://www.vitorisolder.com/assets/img/laboratorio.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Vitor iSolder | Reparo Apple Especializado em Itaguaí, RJ" />
+  <meta name="twitter:description" content="Especialistas em reparo Apple em Itaguaí, RJ. iPhone, iPad, MacBook e Apple Watch. Reparo de placa lógica e laudos técnicos." />
+  <meta name="twitter:image" content="https://www.vitorisolder.com/assets/img/laboratorio.jpg" />
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JFD0B4B629"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-JFD0B4B629');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900;1,14..32,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css?v=25" />
+  <style>
+/* ===== FOTOS DA EQUIPE ===== */
+.team-card{ padding:28px !important; gap:24px !important; }
+.team-photo{ width:160px !important; height:200px !important; flex-shrink:0 !important; border-radius:14px; overflow:hidden; }
+.team-photo-img{ width:100%;height:100%;object-fit:cover;object-position:top center;display:block; }
+.team-role{ font-size:.72rem !important; }
+.team-info h3{ font-size:1.2rem !important; margin-bottom:10px !important; }
+.team-info p{ font-size:.83rem !important; line-height:1.6 !important; }
+@media(max-width:768px){
+  .team-grid{ grid-template-columns:1fr !important; }
+  .team-card{ flex-direction:row !important; align-items:flex-start !important; }
+  .team-photo{ width:120px !important; height:150px !important; }
+}
+
+/* ===== CARROSSEL DE FOTOS ===== */
+.photo-carousel-wrap{
+  overflow:hidden;
+  border-radius:20px;
+  cursor:grab;
+  user-select:none;
+}
+.photo-carousel-wrap:active{ cursor:grabbing; }
+.photo-carousel-track{
+  display:flex;
+  gap:16px;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  scrollbar-width:none;
+  -webkit-overflow-scrolling:touch;
+  padding-bottom:4px;
+}
+.photo-carousel-track::-webkit-scrollbar{ display:none; }
+.photo-slide{
+  flex:0 0 calc(33.333% - 11px);
+  scroll-snap-align:start;
+  border-radius:16px;
+  overflow:hidden;
+  aspect-ratio:4/3;
+  border:1.5px solid #333533;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,0.04), 0 4px 16px rgba(0,0,0,0.18);
+  transition:border-color .3s ease, box-shadow .3s ease;
+  position:relative;
+}
+.photo-slide img{
+  width:100%;height:100%;object-fit:cover;
+  display:block;
+  pointer-events:none;
+  transition:transform .45s cubic-bezier(.25,.46,.45,.94), filter .45s ease;
+}
+.photo-slide:hover{
+  border-color:#FFD500;
+  box-shadow:inset 0 0 0 1px rgba(255,213,0,0.15), 0 8px 32px rgba(0,0,0,0.28), 0 0 0 1px #FFD500;
+}
+.photo-slide:hover img{
+  transform:scale(1.05);
+  filter:brightness(1.10);
+}
+
+/* Dots do carrossel de fotos */
+.photo-dots{
+  display:flex;
+  justify-content:center;
+  gap:6px;
+  margin-top:20px;
+}
+.photo-dot{
+  width:24px;
+  height:3px;
+  border-radius:2px;
+  background:#D6D6D6;
+  transition:background .3s ease, width .3s ease;
+  cursor:pointer;
+}
+.photo-dot.active{
+  background:#FFD500;
+  width:40px;
+}
+
+@media(max-width:768px){
+  .photo-slide{ flex:0 0 80%; }
+}
+
+/* ===== DEVICE PILLS CLICÁVEIS ===== */
+.device-pill-link{
+  text-decoration:none;color:inherit;
+  display:flex;align-items:center;
+  transition:background .2s,border-color .2s,transform .2s;
+  cursor:pointer;
+}
+.device-pill-link:hover{
+  background:rgba(255,224,0,0.08)!important;
+  border-color:rgba(255,224,0,0.3)!important;
+  transform:translateY(-2px);
+}
+.device-pill-link:hover .dp-icon{ background:rgba(255,224,0,0.18)!important; }
+.device-pill-link:hover .dp-arrow{ opacity:1; transform:translateX(0); }
+.dp-arrow{
+  margin-left:auto;font-size:.75rem;
+  color:rgba(255,224,0,0.7);
+  opacity:0;transform:translateX(-6px);
+  transition:opacity .2s,transform .2s;
+  flex-shrink:0;
+}
+
+/* ===== GRID DE FUNDO SUTIL ===== */
+body{
+  background-image:
+    linear-gradient(rgba(51,53,51,0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(51,53,51,0.07) 1px, transparent 1px),
+    linear-gradient(rgba(51,53,51,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(51,53,51,0.03) 1px, transparent 1px);
+  background-size:80px 80px, 80px 80px, 16px 16px, 16px 16px;
+  background-attachment: fixed;
+}
+
+/* ===== LOGO ===== */
+.logo-img{
+  height:90px;width:auto;display:block;
+  mix-blend-mode:screen;
+  filter:brightness(1.15);
+}
+.logo-img-footer{height:160px}
+/* Navbar: ajuste para logo */
+.navbar{ padding:8px 0 !important; }
+.navbar.scrolled{ padding:4px 0 !important; }
+.nav-wrap{ align-items:center; }
+@media(max-width:768px){
+  .nav-links,.nav-ctas{ display:none !important; }
+  .hamburger{ display:block !important; }
+  .nav-links.open{
+    display:flex !important;
+    flex-direction:column;
+    position:fixed;top:0;left:0;right:0;bottom:0;
+    background:rgba(8,8,8,0.97);
+    align-items:center;justify-content:center;
+    gap:40px;z-index:800;
+  }
+}
+
+/* ===== RECLAME AQUI ===== */
+.ra-section{
+  background-color:#202020;
+  background-image:
+    linear-gradient(rgba(51,53,51,0.13) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(51,53,51,0.13) 1px,transparent 1px);
+  background-size:32px 32px;
+  background-attachment:fixed;
+}
+.ra-card{
+  padding:56px 60px;
+  background:transparent;
+  border:none;
+  border-radius:0;
+  position:relative;overflow:hidden;
+  box-shadow:none;
+}
+.ra-card::before{
+  content:'';position:absolute;top:0;left:0;
+  width:5px;height:100%;
+  background:linear-gradient(180deg,#00b14f 0%,#4caf50 100%);
+  border-radius:20px 0 0 20px;
+}
+.ra-card::after{
+  content:'';position:absolute;top:-80px;right:-80px;
+  width:280px;height:280px;border-radius:50%;
+  background:radial-gradient(circle,rgba(0,178,80,0.1) 0%,transparent 70%);
+  pointer-events:none;
+}
+.ra-top-row{display:flex;align-items:center;gap:16px;margin-bottom:32px;flex-wrap:wrap}
+.ra-logo{width:180px;height:31px;display:block;flex-shrink:0}
+.ra-badge{
+  display:inline-flex;align-items:center;gap:7px;
+  padding:6px 16px;border-radius:100px;
+  background:rgba(0,178,80,0.10);
+  border:1px solid rgba(0,178,80,0.28);
+  font-size:.75rem;font-weight:600;color:#4caf50;
+  letter-spacing:.02em;
+}
+.ra-badge i{ font-size:.8rem; }
+.ra-headline{
+  font-size:2.4rem;font-weight:900;line-height:1.05;
+  color:#ffffff;margin-bottom:16px;letter-spacing:-.02em;
+}
+.ra-headline em{color:#00b14f;font-style:normal}
+.ra-desc{
+  font-size:.93rem;color:rgba(255,255,255,0.55);
+  line-height:1.85;max-width:700px;margin-bottom:40px;
+}
+.ra-numbers{
+  display:flex;align-items:stretch;
+  margin-bottom:40px;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(0,178,80,0.20);
+  border-radius:16px;overflow:hidden;
+  max-width:600px;
+  transition:border-color .35s ease, box-shadow .35s ease;
+}
+.ra-numbers:hover{
+  border-color:rgba(0,178,80,0.55);
+  box-shadow:0 0 0 1px rgba(0,178,80,0.18), 0 8px 32px rgba(0,178,80,0.10);
+}
+.ra-num-item{flex:1;text-align:center;padding:24px 16px}
+.ra-num-item strong{
+  display:block;font-size:2.6rem;font-weight:900;
+  color:#00b14f;line-height:1;margin-bottom:8px;letter-spacing:-.03em;
+}
+.ra-num-item span{
+  font-size:.72rem;color:#D6D6D6;
+  font-weight:600;text-transform:uppercase;letter-spacing:.12em;
+}
+.ra-num-divider{width:1px;background:rgba(0,178,80,0.15);flex-shrink:0}
+.ra-btn-green{
+  display:inline-flex;align-items:center;gap:12px;
+  padding:16px 36px;border-radius:16px;
+  background:#00b14f;color:#fff;
+  font-size:.95rem;font-weight:700;letter-spacing:.01em;
+  transition:background .22s,transform .22s,box-shadow .22s;
+  text-decoration:none;
+}
+.ra-btn-green i{font-size:.85rem;transition:transform .22s}
+.ra-btn-green:hover{
+  background:#00c957;color:#fff;
+  transform:translateY(-2px);
+  box-shadow:0 14px 40px rgba(0,178,80,0.38);
+}
+.ra-btn-green:hover i{transform:translateX(4px)}
+
+/* ===== CANAIS DE ATENDIMENTO ===== */
+.canais-top{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:24px;margin-bottom:24px;
+}
+.canal-card{
+  padding:36px 32px;
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:18px;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,0.08);
+}
+.canal-b2b{border-color:rgba(255,224,0,0.18)}
+.canal-badge-b2b{
+  display:inline-block;margin-bottom:16px;
+  padding:4px 12px;border-radius:100px;
+  background:#FFE000;color:#080808;
+  font-size:.68rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
+  cursor:pointer;text-decoration:none;
+  transition:transform .25s ease,box-shadow .25s ease,background .25s ease;
+}
+.canal-badge-b2b:hover{
+  transform:scale(1.07);
+  box-shadow:0 0 16px rgba(255,224,0,0.45);
+  background:#fff176;
+}
+.canal-b2b-title{
+  text-decoration:none;color:inherit;
+  transition:color .2s;
+}
+.canal-b2b-title:hover{color:#FFE000}
+.canal-header{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.canal-icon{
+  width:44px;height:44px;border-radius:12px;flex-shrink:0;
+  background:rgba(255,224,0,0.1);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.1rem;color:#FFE000;
+}
+.canal-card h3{font-size:1.15rem;font-weight:700;margin:0}
+.canal-card>p{font-size:.85rem;color:rgba(255,255,255,0.5);line-height:1.75;margin-bottom:20px}
+.canal-features{display:flex;flex-direction:column;gap:9px;margin-top:20px}
+.canal-features li{
+  display:flex;align-items:center;gap:10px;
+  font-size:.82rem;color:rgba(255,255,255,0.5);list-style:none;
+}
+.canal-features li i{color:#FFE000;font-size:.75rem;flex-shrink:0}
+
+/* Info rectangle */
+.canal-info-card{
+  padding:32px 40px;margin-bottom:24px;
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:18px;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,0.08);
+}
+.canal-info-row{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+}
+.info-block{
+  display:flex;align-items:flex-start;gap:14px;
+  padding:0 28px;
+  border-right:1px solid rgba(255,255,255,0.08);
+}
+.info-block:first-child{padding-left:0}
+.info-block:last-child{border-right:none}
+.ib-icon{
+  width:36px;height:36px;flex-shrink:0;border-radius:10px;
+  background:rgba(255,224,0,0.1);
+  display:flex;align-items:center;justify-content:center;
+  color:#FFE000;font-size:.85rem;margin-top:2px;
+}
+.info-block h5{
+  font-size:.72rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:.07em;
+  color:rgba(255,255,255,0.45);margin-bottom:6px;
+}
+.info-block p,.info-block a{
+  font-size:.86rem;color:rgba(255,255,255,0.82);line-height:1.6;
+  text-decoration:none;
+}
+.info-block a:hover{color:#FFE000}
+.social-links{display:flex;flex-direction:column;gap:4px}
+.social-links a{font-size:.86rem;color:rgba(255,255,255,0.82);transition:color .2s}
+.social-links a:hover{color:#FFE000}
+
+/* Map */
+.canal-map{border-radius:18px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.3)}
+
+/* ===== FOOTER ===== */
+.footer{background:#0e0e0e;border-top:1px solid rgba(255,255,255,0.07);padding:60px 0 0}
+.footer-inner{
+  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:56px;margin-bottom:48px;align-items:start;
+}
+.footer-brand .logo{margin-bottom:14px;display:inline-flex}
+.footer-brand>p{
+  font-size:.84rem;color:rgba(255,255,255,0.45);
+  line-height:1.75;max-width:300px;margin-bottom:0;
+}
+.footer-social{display:flex;gap:10px;margin-top:20px}
+.footer-social a{
+  width:38px;height:38px;border-radius:9px;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.95rem;color:rgba(255,255,255,0.6);
+  transition:.2s;text-decoration:none;
+}
+.footer-social a:hover{background:rgba(255,224,0,0.1);border-color:rgba(255,224,0,0.25);color:#FFE000}
+.footer-col h6{
+  font-size:.7rem;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:18px;
+}
+.footer-col ul{display:flex;flex-direction:column;gap:10px;list-style:none;padding:0;margin:0}
+.footer-col a{font-size:.85rem;color:rgba(255,255,255,0.5);transition:color .2s;text-decoration:none}
+.footer-col a:hover{color:#FFE000}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.06);padding:20px 0}
+.footer-bottom-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:8px;
+}
+.footer-bottom p{font-size:.75rem;color:rgba(255,255,255,0.35);margin:0}
+.footer-legal{display:flex;gap:20px;justify-content:center;padding:10px 0;margin-top:10px;border-top:1px solid rgba(255,255,255,.06)}
+.footer-legal a{font-size:.72rem;color:#a3a3a3;text-decoration:none;transition:color .2s}
+.footer-legal a:hover{color:#FFD500}
+
+/* Responsive */
+@media(max-width:900px){
+  .ra-card{padding:36px 28px}
+  .ra-headline{font-size:1.8rem}
+  .ra-numbers{max-width:100%}
+  .canal-info-row{grid-template-columns:1fr 1fr;gap:24px}
+  .info-block{padding:0;border-right:none;border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:20px}
+  .info-block:last-child{border-bottom:none;padding-bottom:0}
+  .footer-inner{grid-template-columns:1fr 1fr;gap:36px}
+  .footer-bottom-inner{flex-direction:column;text-align:center}
+}
+@media(max-width:600px){
+  .canais-top{grid-template-columns:1fr}
+  .canal-info-row{grid-template-columns:1fr}
+  .ra-numbers{flex-direction:column}
+  .ra-num-divider{width:100%;height:1px}
+  .footer-inner{grid-template-columns:1fr}
+}
+  </style>
+</head>
+<body>
+
+  <!-- ==============================
+       NAVBAR
+  =============================== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-wrap">
+      <a href="#" class="logo">
+        <img src="assets/img/logo-icon.png" alt="Vitor iSolder" class="logo-img" />
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#reparos">Reparos</a></li>
+        <li><a href="#reparo-placa">Placa Lógica</a></li>
+        <li><a href="corporativo.html">Para Empresas</a></li>
+        <li><a href="#porque">Por que a iSolder</a></li>
+        <li><a href="#historia">Sobre nós</a></li>
+        <li><a href="#avaliacoes">Avaliações</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+      <div class="nav-ctas">
+        <a href="https://wa.me/5521950147576?text=Olá!%20Gostaria%20de%20um%20orçamento." target="_blank" class="btn-nav">
+          <i class="fa-brands fa-whatsapp"></i> Falar agora
+        </a>
+      </div>
+      <button class="hamburger" id="hamburger"><i class="fa-solid fa-bars" id="menuIcon"></i></button>
+    </div>
+  </nav>
+
+  <!-- ==============================
+       HERO
+  =============================== -->
+  <section class="hero">
+    <div class="hero-noise"></div>
+    <div class="hero-glow g1"></div>
+    <div class="hero-glow g2"></div>
+    <div class="container hero-inner">
+      <p class="hero-tagline">
+        Tela trincou.<span class="tl-dot"></span>
+        Bateria viciou.<span class="tl-dot"></span>
+        Placa falhou.<span class="tl-dot"></span>
+        <strong>A iSolder resolve.</strong>
+      </p>
+      <h1 class="hero-title">
+        Aqui, Apple<br />volta a ser<br /><em>Apple.</em>
+      </h1>
+      <p class="hero-sub">Assistência técnica especializada no Rio de Janeiro. Reparos do básico ao mais avançado — com laudo técnico, transparência e garantia.</p>
+      <div class="hero-btns">
+        <a href="https://wa.me/5521950147576?text=Olá!%20Gostaria%20de%20um%20orçamento." target="_blank" class="btn btn-yellow btn-lg">
+          <i class="fa-brands fa-whatsapp"></i> Solicitar orçamento
+        </a>
+        <a href="#reparos" class="btn btn-ghost btn-lg">Conhecer os serviços</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================
+       FEATURE CARDS
+  =============================== -->
+  <section class="feat-section">
+    <div class="container">
+      <div class="feat-grid">
+        <div class="feat-card reveal">
+          <div class="feat-photo">
+            <img src="assets/img/laboratorioflash.jpg" alt="Laboratório próprio iSolder" loading="lazy" />
+            <div class="feat-photo-overlay"></div>
+          </div>
+          <div class="feat-body">
+            <div class="feat-icon"><i class="fa-solid fa-flask-vial"></i></div>
+            <h3>Laboratório Próprio</h3>
+            <p>Estrutura completa dedicada ao universo Apple — microscópio, estações de solda, equipamentos de diagnóstico e bancada profissional.</p>
+          </div>
+        </div>
+        <div class="feat-card reveal">
+          <div class="feat-photo">
+            <img src="assets/img/sedex.jpg" alt="Atendimento nacional via SEDEX" loading="lazy" />
+            <div class="feat-photo-overlay"></div>
+          </div>
+          <div class="feat-body">
+            <div class="feat-icon"><i class="fa-solid fa-box"></i></div>
+            <h3>Atendimento Nacional</h3>
+            <p>Recebemos aparelhos de todo o Brasil via SEDEX. Todo o processo — da chegada até a entrega — é acompanhado pela nossa equipe.</p>
+          </div>
+        </div>
+        <div class="feat-card reveal">
+          <div class="feat-photo">
+            <img src="assets/img/vidro.jpg" alt="Especialistas em troca de vidro" loading="lazy" />
+            <div class="feat-photo-overlay"></div>
+          </div>
+          <div class="feat-body">
+            <div class="feat-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+            <h3>Especialistas em Vidro</h3>
+            <p>Troca de vidro sem substituir o display original — preservamos a tela de fábrica do seu iPhone com precisão e sem perda de qualidade.</p>
+          </div>
+        </div>
+        <div class="feat-card reveal">
+          <div class="feat-photo">
+            <img src="assets/img/bancada.jpg" alt="Reparo de placa lógica Apple" loading="lazy" />
+            <div class="feat-photo-overlay"></div>
+          </div>
+          <div class="feat-body">
+            <div class="feat-icon"><i class="fa-solid fa-microchip"></i></div>
+            <h3>Reparo de Placa</h3>
+            <p>Diagnóstico e reparo avançado em placa lógica: falhas de carga, sem sinal, Face ID, Wi-Fi, áudio — reparos que outros não conseguem fazer.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================
+       STATS BAR
+  =============================== -->
+  <div class="stats-bar">
+    <div class="container stats-inner">
+      <div class="sstat">
+        <span class="sstat-n">+<span class="countup" data-target="10000" data-suffix=" mil" data-divisor="1000">10 mil</span></span>
+        <span class="sstat-l">aparelhos consertados</span>
+      </div>
+      <div class="sstat-sep"></div>
+      <div class="sstat">
+        <span class="sstat-n"><span class="countup" data-target="4.9" data-decimals="1">4.9</span> <i class="fa-solid fa-star-half-stroke"></i></span>
+        <span class="sstat-l">avaliação no Google</span>
+      </div>
+      <div class="sstat-sep"></div>
+      <div class="sstat">
+        <span class="sstat-n"><span class="countup" data-target="6" data-suffix=" anos">6 anos</span></span>
+        <span class="sstat-l">de experiência</span>
+      </div>
+      <div class="sstat-sep"></div>
+      <div class="sstat">
+        <span class="sstat-n"><span class="countup" data-target="1" data-suffix=" dia">1 dia</span></span>
+        <span class="sstat-l">tempo médio de reparo</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==============================
+       SOMENTE APPLE
+  =============================== -->
+  <section class="section apple-only-section" id="reparos">
+    <div class="container">
+      <div class="ao-header reveal">
+        <span class="eyebrow">Especialização total</span>
+        <h2>Atendemos<br />Dispositivos <em>Apple.</em></h2>
+        <p>Selecione o dispositivo do seu aparelho para ver modelos atendidos, serviços disponíveis e solicitar orçamento.</p>
+      </div>
+      <div class="ao-cards-grid">
+        <a href="iphone.html" class="ao-card reveal">
+          <span class="ao-card-os">iOS</span>
+          <div class="ao-card-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+          <h3>iPhone</h3>
+          <p>iPhone X ao 17 Pro Max</p>
+          <span class="ao-card-link">Ver modelos →</span>
+        </a>
+        <a href="ipad.html" class="ao-card reveal">
+          <span class="ao-card-os">iPadOS</span>
+          <div class="ao-card-icon"><i class="fa-solid fa-tablet-screen-button"></i></div>
+          <h3>iPad</h3>
+          <p>iPad, Air, Pro e Mini</p>
+          <span class="ao-card-link">Ver modelos →</span>
+        </a>
+        <a href="macbook.html" class="ao-card reveal">
+          <span class="ao-card-os">macOS</span>
+          <div class="ao-card-icon"><i class="fa-solid fa-laptop"></i></div>
+          <h3>MacBook</h3>
+          <p>Air e Pro · Intel e M</p>
+          <span class="ao-card-link">Ver modelos →</span>
+        </a>
+        <a href="watch.html" class="ao-card reveal">
+          <span class="ao-card-os">watchOS</span>
+          <div class="ao-card-icon"><i class="fa-solid fa-clock"></i></div>
+          <h3>Apple Watch</h3>
+          <p>Series 1 ao Ultra 2</p>
+          <span class="ao-card-link">Ver modelos →</span>
+        </a>
+      </div>
+      <div class="ao-wa-cta reveal">
+        <a href="https://wa.me/5521950147576?text=Olá!%20Gostaria%20de%20um%20orçamento." target="_blank" class="ao-wa-btn">
+          <i class="fa-brands fa-whatsapp"></i> Não encontrou? Fale direto no WhatsApp →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================
+       REPARO DE PLACA
+  =============================== -->
+  <section class="section section-dark reparo-section" id="reparo-placa">
+    <div class="reparo-glow"></div>
+    <div class="container">
+      <div class="reparo-header reveal">
+        <span class="eyebrow accent">Serviço avançado</span>
+        <h2>Reparo de<br />Placa Lógica</h2>
+        <p class="reparo-sub">Falhas que outras assistências não resolvem — a nossa especialidade.</p>
+      </div>
+      <div class="rp-features reveal">
+        <div class="rp-feat">
+          <div class="rp-feat-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+          <h4>Diagnóstico avançado</h4>
+          <p>Identificamos a origem exata da falha com equipamentos profissionais.</p>
+        </div>
+        <div class="rp-feat">
+          <div class="rp-feat-icon"><i class="fa-solid fa-microchip"></i></div>
+          <h4>Microssoldagem</h4>
+          <p>Reparos diretamente no circuito com microscópio e estação de retrabalho.</p>
+        </div>
+        <div class="rp-feat">
+          <div class="rp-feat-icon"><i class="fa-solid fa-rotate-left"></i></div>
+          <h4>Preserva seus dados</h4>
+          <p>Recuperamos o aparelho original sem precisar trocar a placa.</p>
+        </div>
+        <div class="rp-feat">
+          <div class="rp-feat-icon"><i class="fa-solid fa-circle-check"></i></div>
+          <h4>Testado antes de entregar</h4>
+          <p>Todo reparo passa por testes rigorosos antes da devolução.</p>
+        </div>
+        <div class="rp-feat">
+          <div class="rp-feat-icon"><i class="fa-solid fa-earth-americas"></i></div>
+          <h4>Atendemos todo o Brasil</h4>
+          <p>Recebemos aparelhos via SEDEX de qualquer estado.</p>
+        </div>
+        <div class="rp-feat">
+          <div class="rp-feat-icon"><i class="fa-solid fa-file-contract"></i></div>
+          <h4>Laudo técnico incluso</h4>
+          <p>Documentação completa do defeito, peças e garantia em todo serviço.</p>
+        </div>
+      </div>
+      <div class="reparo-cta-bar reveal">
+        <p>Aparelho condenado por outra assistência?<br><strong>Envie para diagnóstico antes de desistir.</strong></p>
+        <a href="https://wa.me/5521950147576?text=Olá!%20Gostaria%20de%20diagnóstico%20de%20placa." target="_blank" class="btn-wa-placa">
+          <i class="fa-brands fa-whatsapp"></i> Solicitar diagnóstico de placa
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================
+       POR QUE ESCOLHER
+  =============================== -->
+  <section class="section porque-section" id="porque">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">Porque escolher a iSolder?</span>
+        <h2>Excelência que se vê<br />em cada <em>circuito.</em></h2>
+      </div>
+      <div class="porque-grid">
+        <div class="pq-card glass reveal">
+          <div class="pq-num">01</div>
+          <div class="pq-icon"><i class="fa-solid fa-file-invoice"></i></div>
+          <h3>Orçamento rápido e transparente</h3>
+          <p>Avaliação técnica clara e sem rodeios. Você entende exatamente a falha do seu aparelho, o processo do reparo e decide com total segurança e clareza.</p>
+        </div>
+        <div class="pq-card glass reveal">
+          <div class="pq-num">02</div>
+          <div class="pq-icon"><i class="fa-solid fa-truck-fast"></i></div>
+          <h3>Atendimento em todo o Brasil</h3>
+          <p>Enviamos e recebemos dispositivos de qualquer estado com total cuidado e segurança. Toda a trajetória do seu aparelho é rastreada e acompanhada de perto pela nossa equipe.</p>
+        </div>
+        <div class="pq-card glass reveal">
+          <div class="pq-num">03</div>
+          <div class="pq-icon"><i class="fa-solid fa-microchip"></i></div>
+          <h3>Laboratório próprio de microeletrônica</h3>
+          <p>Contamos com estações de solda avançadas, microscópios de alta precisão e ferramentas de última geração para garantir um diagnóstico exato e um acabamento padrão fábrica.</p>
+        </div>
+        <div class="pq-card glass reveal">
+          <div class="pq-num">04</div>
+          <div class="pq-icon"><i class="fa-brands fa-apple"></i></div>
+          <h3>Especialistas em hardware Apple</h3>
+          <p>Seu equipamento nas mãos de quem realmente entende do assunto. Executamos desde manutenções preventivas simples até as microssoldagens de alta complexidade em placas lógicas e troca de vidro de telas.</p>
+        </div>
+        <div class="pq-card glass reveal">
+          <div class="pq-num">05</div>
+          <div class="pq-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <h3>6 meses de garantia</h3>
+          <p>Todo reparo tem 6 meses de garantia. Se o mesmo problema voltar dentro desse prazo, resolvemos sem custo adicional. Sem enrolação.</p>
+        </div>
+        <div class="pq-card glass reveal">
+          <div class="pq-num">06</div>
+          <div class="pq-icon"><i class="fa-solid fa-bolt"></i></div>
+          <h3>Rapidez sem perda de dados</h3>
+          <p>Sabemos que seu aparelho é sua ferramenta de trabalho. Por isso, a grande maioria dos nossos reparos é realizada no mesmo dia, garantindo total integridade e segurança dos seus dados e arquivos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================
+       NOSSA HISTÓRIA + EQUIPE
+  =============================== -->
+  <section class="section historia-section" id="historia">
+    <div class="container">
+      <div class="historia-header reveal">
+        <span class="eyebrow">Nossa história</span>
+        <h2>A iSolder existe desde 2020 e já é referência em reparo Apple no Rio de Janeiro.</h2>
+        <p>E sabe como tudo começou? Com um iPhone que ninguém conseguia consertar.</p>
+      </div>
+
+      <div class="team-grid">
+        <div class="team-card glass reveal">
+          <div class="team-photo">
+            <img src="assets/img/vitor.png" alt="Vitor Hugo" class="team-photo-img" />
+          </div>
+          <div class="team-info">
+            <div class="team-role">Fundador & Técnico Especialista</div>
+            <h3>Vitor Hugo</h3>
+            <p>Transformou a paixão por tecnologia em especialização real. Referência em reparo de placa lógica, recuperação de Face ID e diagnósticos avançados em dispositivos Apple.</p>
+          </div>
+        </div>
+        <div class="team-card glass reveal">
+          <div class="team-photo">
+            <img src="assets/img/eduardo.png" alt="Eduardo Alvarenga" class="team-photo-img" />
+          </div>
+          <div class="team-info">
+            <div class="team-role">CEO & Gestão Estratégica</div>
+            <h3>Eduardo Alvarenga</h3>
+            <p>Responsável pela gestão e crescimento da iSolder. Trabalha para fortalecer a estrutura da empresa e garantir a melhor experiência para cada cliente.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================
+       VENHA NOS VISITAR + GALERIA
+  =============================== -->
+  <section class="section visita-section" id="loja">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">Nossa estrutura</span>
+        <h2>Venha nos <em>visitar</em></h2>
+        <p class="section-sub">Temos uma estrutura pensada para oferecer um atendimento profissional e transparente. Acompanhe o processo do seu reparo e veja de perto o cuidado que colocamos em cada serviço.</p>
+      </div>
+      <div class="photo-carousel-wrap reveal">
+        <div class="photo-carousel-track" id="photoTrack">
+          <div class="photo-slide"><img src="assets/img/recepcao1.jpg" alt="Recepção" /></div>
+          <div class="photo-slide"><img src="assets/img/bancada.jpg" alt="Bancada técnica" /></div>
+          <div class="photo-slide"><img src="assets/img/laboratorio.jpg" alt="Laboratório" /></div>
+          <div class="photo-slide"><img src="assets/img/recepcao2.jpg" alt="Recepção 2" /></div>
+          <div class="photo-slide"><img src="assets/img/certificados.jpg" alt="Certificados" /></div>
+          <div class="photo-slide"><img src="assets/img/recepcao3.jpg" alt="Recepção 3" /></div>
+          <div class="photo-slide"><img src="assets/img/recepcao4.jpg" alt="Recepção 4" /></div>
+          <div class="photo-slide"><img src="assets/img/recepcao5.jpg" alt="Recepção 5" /></div>
+        </div>
+      </div>
+      <div class="photo-dots" id="photoDots"></div>
+    </div>
+  </section>
+
+  <!-- ==============================
+       AVALIAÇÕES GOOGLE
+  =============================== -->
+  <section class="section section-darker avaliacoes-section" id="avaliacoes">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">O que dizem nossos clientes</span>
+        <h2>Avaliações reais,<br />resultados <em>comprovados.</em></h2>
+        <div class="g-rating-pill reveal">
+          <img src="https://www.google.com/favicon.ico" width="16" alt="Google" />
+          <strong>4.9</strong>
+          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+          <span>no Google</span>
+          <a href="https://maps.app.goo.gl/zm5rNsxPpcUqcPT39" target="_blank">Ver todas →</a>
+        </div>
+      </div>
+      <!-- Carrossel -->
+      <div class="carousel-wrap reveal">
+        <div class="carousel-track" id="reviewsTrack">
+          <div class="review-card glass">
+            <div class="rc-top">
+              <div class="rc-avatar">A</div>
+              <div><strong>Alan Carlos</strong><div class="stars sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div></div>
+              <img src="https://www.google.com/favicon.ico" width="14" class="ml-auto" alt="Google" />
+            </div>
+            <p>"Melhor experiência que já tive em uma assistência técnica. Esclareceram todas as minhas dúvidas sobre o reparo. Muito transparentes, passando confiança e profissionalismo. Toda a equipe está de parabéns! Obrigado ao Eduardo e ao Vitor pelo trabalho bem feito."</p>
+          </div>
+          <div class="review-card glass">
+            <div class="rc-top">
+              <div class="rc-avatar">J</div>
+              <div><strong>Juan Jeronimo</strong><div class="stars sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div></div>
+              <img src="https://www.google.com/favicon.ico" width="14" class="ml-auto" alt="Google" />
+            </div>
+            <p>"Atendimento impecável! Profissionais altamente qualificados, prontos a atender a qualquer complicação que esteja com seu iPhone. Não terá dor de cabeça e sairá totalmente satisfeito com os serviços prestados."</p>
+          </div>
+          <div class="review-card glass">
+            <div class="rc-top">
+              <div class="rc-avatar">T</div>
+              <div><strong>Tamara Sampaio</strong><div class="stars sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div></div>
+              <img src="https://www.google.com/favicon.ico" width="14" class="ml-auto" alt="Google" />
+            </div>
+            <p>"Atendimento excelente! Fui muito bem recebida, explicaram tudo com clareza e o serviço foi realizado com muito cuidado e agilidade. Saí super satisfeita e confiante. Recomendo de olhos fechados! 🙌"</p>
+          </div>
+          <div class="review-card glass">
+            <div class="rc-top">
+              <div class="rc-avatar">G</div>
+              <div><strong>Gabriela Elisa Simas</strong><div class="stars sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div></div>
+              <img src="https://www.google.com/favicon.ico" width="14" class="ml-auto" alt="Google" />
+            </div>
+            <p>"Trouxeram minha maçazinha de volta! Estou super feliz! Qualidade no atendimento, no serviço! Nota 1.000!"</p>
+          </div>
+          <div class="review-card glass">
+            <div class="rc-top">
+              <div class="rc-avatar">L</div>
+              <div><strong>Luane Lima</strong><div class="stars sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div></div>
+              <img src="https://www.google.com/favicon.ico" width="14" class="ml-auto" alt="Google" />
+            </div>
+            <p>"Super recomendo. Vitor foi super atencioso, me explicou todos os possíveis problemas do celular e as soluções. O reparo foi realizado super rápido, entregando o celular no mesmo dia."</p>
+          </div>
+          <div class="review-card glass">
+            <div class="rc-top">
+              <div class="rc-avatar">K</div>
+              <div><strong>Kailany Figueiredo</strong><div class="stars sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div></div>
+              <img src="https://www.google.com/favicon.ico" width="14" class="ml-auto" alt="Google" />
+            </div>
+            <p>"Trabalho de excelência, serviço rápido, seguro, limpo e com qualidade absurda! Essa assistência realmente entende de Apple! Parabéns pelo capricho 😊"</p>
+          </div>
+          <div class="review-card glass">
+            <div class="rc-top">
+              <div class="rc-avatar">B</div>
+              <div><strong>Bryan</strong><div class="stars sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div></div>
+              <img src="https://www.google.com/favicon.ico" width="14" class="ml-auto" alt="Google" />
+            </div>
+            <p>"Resolveram meu problema, estou muito feliz. Procurei as melhores assistências técnicas, fui muito bem atendido e me entregaram no outro dia perfeitamente. Tão de parabéns!"</p>
+          </div>
+        </div>
+        <div class="carousel-controls">
+          <button class="carousel-btn" id="prevReview"><i class="fa-solid fa-arrow-left"></i></button>
+          <div class="carousel-dots" id="reviewDots"></div>
+          <button class="carousel-btn" id="nextReview"><i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+      </div>
+      <div class="reviews-link reveal">
+        <a href="https://maps.app.goo.gl/zm5rNsxPpcUqcPT39" target="_blank" class="btn btn-ghost btn-lg">
+          <i class="fa-brands fa-google"></i> Ver todas as avaliações no Google
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================
+       RECLAME AQUI
+  =============================== -->
+  <section class="section ra-section">
+    <div class="container">
+      <div class="ra-card glass reveal">
+        <div class="ra-top-row">
+          <img src="assets/img/reclame-aqui.svg" alt="Reclame Aqui" class="ra-logo" />
+          <span class="ra-badge"><i class="fa-solid fa-shield-halved"></i> Perfil verificado · sem reclamações</span>
+        </div>
+        <h2 class="ra-headline">6 anos de operação.<br /><em>Zero reclamações.</em></h2>
+        <p class="ra-desc">Desde 2020, atendemos clientes de todo o Brasil. Transparência, comunicação honesta e compromisso real com cada cliente — isso não é discurso, é histórico comprovado no Reclame Aqui.</p>
+        <div class="ra-numbers">
+          <div class="ra-num-item">
+            <strong>0</strong>
+            <span>reclamações registradas</span>
+          </div>
+          <div class="ra-num-divider"></div>
+          <div class="ra-num-item">
+            <strong>6</strong>
+            <span>anos de histórico limpo</span>
+          </div>
+          <div class="ra-num-divider"></div>
+          <div class="ra-num-item">
+            <strong>100%</strong>
+            <span>resoluções positivas</span>
+          </div>
+        </div>
+        <a href="https://www.reclameaqui.com.br/empresa/41-632-649-vitor-hugo-silva-de-souza/sobre/" target="_blank" class="ra-btn-green">
+          Ver nosso perfil no Reclame Aqui
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================
+       CANAIS DE ATENDIMENTO
+  =============================== -->
+  <section class="section section-darker contato-section" id="contato">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">Fale com a gente</span>
+        <h2>Canais de<br /><em>atendimento</em></h2>
+      </div>
+
+      <!-- Dois canais lado a lado -->
+      <div class="canais-top reveal">
+        <div class="canal-card glass canal-final">
+          <div class="canal-header">
+            <div class="canal-icon"><i class="fa-solid fa-user"></i></div>
+            <h3>Cliente Final</h3>
+          </div>
+          <p>Diagnóstico gratuito, laudo técnico e 6 meses de garantia para pessoas físicas com dispositivos Apple.</p>
+          <a href="https://wa.me/5521950147576?text=Olá!%20Gostaria%20de%20um%20orçamento." target="_blank" class="btn btn-yellow btn-block">
+            <i class="fa-brands fa-whatsapp"></i> (21) 95014-7576
+          </a>
+          <ul class="canal-features">
+            <li><i class="fa-solid fa-check"></i> Diagnóstico 100% gratuito</li>
+            <li><i class="fa-solid fa-check"></i> Laudo técnico incluso</li>
+            <li><i class="fa-solid fa-check"></i> 6 meses de garantia</li>
+            <li><i class="fa-solid fa-check"></i> Atendimento pelo WhatsApp</li>
+          </ul>
+        </div>
+        <div class="canal-card glass canal-b2b">
+          <a href="corporativo.html" class="canal-badge-b2b">Corporativo</a>
+          <div class="canal-header">
+            <div class="canal-icon"><i class="fa-solid fa-building"></i></div>
+            <h3><a href="corporativo.html" class="canal-b2b-title">Lojistas & Empresas PJ</a></h3>
+          </div>
+          <p>B2B exclusivo para lojas de celular, revendedores e empresas que precisam de reparos Apple em volume.</p>
+          <a href="https://wa.me/5521988476695?text=Olá!%20Somos%20lojistas%20e%20gostaríamos%20de%20falar%20sobre%20parceria." target="_blank" class="btn btn-yellow btn-block">
+            <i class="fa-brands fa-whatsapp"></i> (21) 98847-6695
+          </a>
+          <ul class="canal-features">
+            <li><i class="fa-solid fa-check"></i> Canal exclusivo para B2B</li>
+            <li><i class="fa-solid fa-check"></i> Condições especiais por volume</li>
+            <li><i class="fa-solid fa-check"></i> Atendimento prioritário</li>
+            <li><i class="fa-solid fa-check"></i> Laudos técnicos para terceiros</li>
+            <li><i class="fa-solid fa-check"></i> Recebemos de todo o Brasil</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Info em retângulo -->
+      <div class="canal-info-card glass reveal">
+        <div class="canal-info-row">
+          <div class="info-block">
+            <div class="ib-icon"><i class="fa-solid fa-location-dot"></i></div>
+            <div>
+              <h5>Endereço</h5>
+              <p>Rua Doutor Monteiro Mendes, 67 — Sala 204<br />CEP 23812-345 · Itaguaí, RJ</p>
+            </div>
+          </div>
+          <div class="info-block">
+            <div class="ib-icon"><i class="fa-solid fa-clock"></i></div>
+            <div>
+              <h5>Horário</h5>
+              <p>Seg a Sex: 9h às 18h<br />Sábado: 9h às 13h</p>
+            </div>
+          </div>
+          <div class="info-block">
+            <div class="ib-icon"><i class="fa-solid fa-envelope"></i></div>
+            <div>
+              <h5>E-mail</h5>
+              <a href="mailto:contato@vitorisolder.com.br">contato@vitorisolder.com.br</a>
+            </div>
+          </div>
+          <div class="info-block">
+            <div class="ib-icon"><i class="fa-brands fa-instagram"></i></div>
+            <div>
+              <h5>Redes sociais</h5>
+              <div class="social-links">
+                <a href="https://instagram.com/vitor.isolder" target="_blank">Instagram</a>
+                <a href="https://youtube.com/@vitor.isolder" target="_blank">YouTube</a>
+                <a href="https://tiktok.com/@vitorisolder" target="_blank">TikTok</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mapa -->
+      <div class="canal-map reveal">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3681.2!2d-43.77721!3d-22.8728512!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd73daba5a6b7e0f%3A0xe6afad877c6a6bd0!2sVitor%20iSolder%20-%20Assist%C3%AAncia%20T%C3%A9cnica%20Apple!5e0!3m2!1spt-BR!2sbr!4v1"
+          width="100%" height="340" style="border:0;border-radius:18px;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================
+       FOOTER
+  =============================== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="#" class="logo">
+          <img src="assets/img/logo-full.png" alt="Vitor iSolder" class="logo-img logo-img-footer" />
+        </a>
+        <p>Assistência especializada Apple em Itaguaí, RJ. Reparo de placa lógica, laudos técnicos e atendimento transparente desde 2020.</p>
+        <div class="footer-social">
+          <a href="https://instagram.com/vitor.isolder" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://youtube.com/@vitor.isolder" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          <a href="https://tiktok.com/@vitorisolder" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="https://maps.app.goo.gl/zm5rNsxPpcUqcPT39" target="_blank" aria-label="Google Maps"><i class="fa-brands fa-google"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h6>Serviços</h6>
+        <ul>
+          <li><a href="#reparo-placa">Reparo de Placa</a></li>
+          <li><a href="#reparos">Troca de Tela</a></li>
+          <li><a href="#reparos">Troca de Bateria</a></li>
+          <li><a href="#reparos">Face ID</a></li>
+          <li><a href="#reparos">Recuperação de dados</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h6>Navegação</h6>
+        <ul>
+          <li><a href="#historia">Nossa história</a></li>
+          <li><a href="#porque">Por que a iSolder</a></li>
+          <li><a href="#avaliacoes">Avaliações</a></li>
+          <li><a href="#contato">Contato</a></li>
+          <li><a href="https://www.reclameaqui.com.br/empresa/41-632-649-vitor-hugo-silva-de-souza/sobre/" target="_blank">Reclame Aqui</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h6>Parcerias</h6>
+        <ul>
+          <li><a href="corporativo.html">Seja um Lojista Parceiro</a></li>
+          <li><a href="corporativo.html">Soluções para Empresas</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>© 2025 Vitor iSolder · Itaguaí, RJ · CNPJ 41.632.649/0001-02</p>
+        <p>Empresa independente, sem vínculo com a Apple Inc.</p>
+      </div>
+      <div class="container footer-legal">
+        <a href="politica-de-privacidade.html">Política de Privacidade</a>
+        <a href="termos-de-uso.html">Termos de Uso</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WA FLOAT -->
+  <div class="wa-wrap" id="waWrap">
+    <div class="wa-menu" id="waMenu">
+      <a href="https://wa.me/5521988476695?text=Olá!%20Somos%20lojistas." target="_blank" class="wa-opt">
+        <span>Lojistas & PJ</span>
+        <div class="wa-sm-btn"><i class="fa-brands fa-whatsapp"></i></div>
+      </a>
+      <a href="https://wa.me/5521950147576?text=Olá!%20Gostaria%20de%20um%20orçamento." target="_blank" class="wa-opt">
+        <span>Cliente Final</span>
+        <div class="wa-sm-btn"><i class="fa-brands fa-whatsapp"></i></div>
+      </a>
+    </div>
+    <button class="wa-btn" id="waBtn">
+      <i class="fa-brands fa-whatsapp" id="waIco"></i>
+      <i class="fa-solid fa-xmark" id="waX" style="display:none"></i>
+    </button>
+  </div>
+
+  <script src="assets/js/main.js?v=2"></script>
+  <script>
+  // Count-up animation
+  (function(){
+    const els = document.querySelectorAll('.countup');
+    if (!els.length) return;
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        observer.unobserve(el);
+        const target = parseFloat(el.dataset.target);
+        const decimals = parseInt(el.dataset.decimals || '0');
+        const suffix = el.dataset.suffix || '';
+        const divisor = parseFloat(el.dataset.divisor || '1');
+        const duration = 1400;
+        const start = performance.now();
+        function tick(now) {
+          const elapsed = now - start;
+          const progress = Math.min(elapsed / duration, 1);
+          // ease out cubic
+          const ease = 1 - Math.pow(1 - progress, 3);
+          const value = target * ease;
+          const display = divisor > 1
+            ? (value / divisor).toFixed(decimals)
+            : value.toFixed(decimals);
+          el.textContent = display + suffix;
+          if (progress < 1) requestAnimationFrame(tick);
+          else el.textContent = (divisor > 1 ? (target / divisor).toFixed(decimals) : target.toFixed(decimals)) + suffix;
+        }
+        requestAnimationFrame(tick);
+      });
+    }, { threshold: 0.5 });
+    els.forEach(el => observer.observe(el));
+  })();
+  </script>
+</body>
+</html>

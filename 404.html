@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Página não encontrada | Vitor iSolder</title>
+  <link rel="icon" href="assets/img/logo-icon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="assets/img/logo-icon.png" />
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JFD0B4B629"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-JFD0B4B629');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+      background-color:#202020;font-family:'Inter',sans-serif;color:#fff;text-align:center;padding:32px;
+      background-image:
+        linear-gradient(rgba(51,53,51,0.18) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(51,53,51,0.18) 1px,transparent 1px);
+      background-size:32px 32px;
+    }
+    .err-code{
+      font-size:clamp(6rem,18vw,10rem);font-weight:900;letter-spacing:-.05em;
+      line-height:1;color:#FFD500;opacity:.15;
+      position:absolute;top:50%;left:50%;transform:translate(-50%,-54%);
+      pointer-events:none;user-select:none;
+    }
+    .err-wrap{position:relative;z-index:1}
+    .err-logo{height:72px;width:auto;mix-blend-mode:screen;filter:brightness(1.2);margin-bottom:32px}
+    .err-eyebrow{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:4px 14px;border-radius:100px;
+      background:rgba(255,213,0,0.08);border:1px solid rgba(255,213,0,0.2);
+      font-size:.68rem;font-weight:700;color:#FFD500;
+      letter-spacing:.1em;text-transform:uppercase;margin-bottom:20px;
+    }
+    h1{font-size:clamp(1.6rem,4vw,2.2rem);font-weight:900;letter-spacing:-.025em;margin-bottom:12px}
+    p{font-size:.95rem;color:#D6D6D6;line-height:1.75;max-width:420px;margin:0 auto 36px}
+    .err-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+    .btn-home{
+      display:inline-flex;align-items:center;gap:8px;
+      background:#FFD500;color:#111;font-size:.9rem;font-weight:800;
+      padding:14px 28px;border-radius:100px;text-decoration:none;
+      transition:transform .2s,box-shadow .2s;
+      box-shadow:0 6px 24px rgba(255,213,0,0.2);
+    }
+    .btn-home:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(255,213,0,0.35)}
+    .btn-wa{
+      display:inline-flex;align-items:center;gap:8px;
+      background:transparent;color:#D6D6D6;font-size:.88rem;font-weight:600;
+      padding:12px 24px;border-radius:100px;text-decoration:none;
+      border:1px solid rgba(255,255,255,0.15);transition:.2s;
+    }
+    .btn-wa:hover{border-color:rgba(255,255,255,0.4);color:#fff}
+  </style>
+</head>
+<body>
+  <div class="err-code">404</div>
+  <div class="err-wrap">
+    <img src="assets/img/logo-icon.png" alt="Vitor iSolder" class="err-logo" />
+    <div class="err-eyebrow"><i class="fa-solid fa-triangle-exclamation"></i> Página não encontrada</div>
+    <h1>Esse endereço não existe.</h1>
+    <p>A página que você tentou acessar foi removida, renomeada ou nunca existiu. Mas a gente ainda pode ajudar com o seu reparo Apple.</p>
+    <div class="err-btns">
+      <a href="index.html" class="btn-home"><i class="fa-solid fa-house"></i> Voltar ao início</a>
+      <a href="https://wa.me/5521950147576?text=Olá!%20Gostaria%20de%20um%20orçamento." target="_blank" class="btn-wa"><i class="fa-brands fa-whatsapp"></i> Falar no WhatsApp</a>
+    </div>
+  </div>
+</body>
+</html>

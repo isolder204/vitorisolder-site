@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Corporativo & Parcerias | Vitor iSolder — Grupo Yellow</title>
+  <meta name="description" content="Engenharia de hardware Apple para o seu negócio. Condições exclusivas para lojistas, assistências parceiras e frotas corporativas. Faturamento via CNPJ." />
+  <link rel="icon" href="assets/img/logo-icon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="assets/img/logo-icon.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Vitor iSolder — Grupo Yellow" />
+  <meta property="og:title" content="Corporativo & Parcerias B2B | Vitor iSolder" />
+  <meta property="og:description" content="Condições exclusivas para lojistas, assistências parceiras e frotas corporativas Apple. Terceirização de microssoldagem e faturamento via CNPJ." />
+  <meta property="og:url" content="https://www.vitorisolder.com/corporativo.html" />
+  <meta property="og:image" content="https://www.vitorisolder.com/assets/img/laboratorio.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Corporativo & Parcerias B2B | Vitor iSolder" />
+  <meta name="twitter:description" content="Condições exclusivas para lojistas, assistências parceiras e frotas corporativas Apple. Faturamento via CNPJ." />
+  <meta name="twitter:image" content="https://www.vitorisolder.com/assets/img/laboratorio.jpg" />
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JFD0B4B629"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-JFD0B4B629');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css?v=4" />
+  <style>
+:root{
+  --y:#FFD500;--bk:#202020;--graph:#333533;--dust:#D6D6D6;
+  --w:#fff;--w50:rgba(255,255,255,0.5);--w20:rgba(255,255,255,0.08);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background-color:#202020;color:#fff;font-family:'Inter',sans-serif;
+  background-image:
+    linear-gradient(rgba(51,53,51,0.18) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(51,53,51,0.18) 1px,transparent 1px),
+    linear-gradient(rgba(51,53,51,0.07) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(51,53,51,0.07) 1px,transparent 1px);
+  background-size:32px 32px,32px 32px,8px 8px,8px 8px;
+  background-attachment:fixed;
+}
+
+/* NAV */
+.logo-img{height:90px;width:auto;display:block;mix-blend-mode:screen;filter:brightness(1.15)}
+.logo-img-footer{height:120px}
+.navbar{padding:8px 0!important;background:#202020!important}
+.navbar.scrolled{padding:4px 0!important;background:rgba(32,32,32,0.96)!important;backdrop-filter:blur(16px)}
+@media(max-width:768px){.nav-links,.nav-ctas{display:none!important}.hamburger{display:block!important}.nav-links.open{display:flex!important;flex-direction:column;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(32,32,32,0.98);align-items:center;justify-content:center;gap:40px;z-index:800}}
+
+/* BREADCRUMB */
+.breadcrumb{padding:100px 0 0;font-size:.8rem;color:var(--dust)}
+.breadcrumb a{color:var(--dust);text-decoration:none;transition:color .2s}
+.breadcrumb a:hover{color:var(--y)}
+.breadcrumb span{margin:0 8px;opacity:.4}
+
+/* ========================
+   HERO B2B
+======================== */
+.hero-b2b{
+  padding:56px 0 80px;
+  position:relative;overflow:hidden;
+}
+.hero-b2b-inner{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:64px;align-items:center;
+}
+.hero-b2b-left{}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:5px 14px;border-radius:100px;
+  background:rgba(255,213,0,0.08);border:1px solid rgba(255,213,0,0.2);
+  font-size:.7rem;font-weight:700;color:#FFD500;
+  letter-spacing:.1em;text-transform:uppercase;margin-bottom:28px;
+}
+.hero-b2b h1{
+  font-size:clamp(2.1rem,3.8vw,3.2rem);font-weight:900;
+  line-height:1.08;letter-spacing:-.03em;
+  color:#fff;margin-bottom:24px;
+}
+.hero-b2b h1 em{color:#FFD500;font-style:normal}
+.hero-b2b-sub{
+  font-size:1rem;color:var(--dust);line-height:1.8;
+  max-width:480px;margin-bottom:40px;
+}
+.btn-b2b-hero{
+  display:inline-flex;align-items:center;gap:10px;
+  background:#FFD500;color:#111;
+  font-size:.92rem;font-weight:800;
+  padding:16px 32px;border-radius:100px;
+  text-decoration:none;transition:transform .2s,box-shadow .2s;
+  box-shadow:0 8px 32px rgba(255,213,0,0.25);
+  letter-spacing:.01em;
+}
+.btn-b2b-hero:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(255,213,0,0.35)}
+.btn-b2b-ghost{
+  display:inline-flex;align-items:center;gap:8px;
+  background:transparent;color:var(--dust);
+  font-size:.88rem;font-weight:600;
+  padding:14px 28px;border-radius:100px;
+  border:1px solid rgba(255,255,255,0.15);
+  text-decoration:none;transition:.2s;margin-left:12px;
+}
+.btn-b2b-ghost:hover{border-color:rgba(255,255,255,0.4);color:#fff}
+.hero-ctas{display:flex;align-items:center;flex-wrap:wrap;gap:12px}
+
+/* FLEET MOCKUP */
+.hero-b2b-right{
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+}
+.fleet-visual{
+  position:relative;width:100%;max-width:480px;
+  aspect-ratio:4/3;
+}
+.fleet-glow{
+  position:absolute;inset:-20%;
+  background:radial-gradient(circle at 50% 50%,rgba(255,213,0,0.07) 0%,transparent 70%);
+  pointer-events:none;
+}
+/* MacBook mockup */
+.mac-wrap{
+  position:absolute;top:5%;left:0;right:10%;
+}
+.mac-frame{
+  width:100%;background:#1a1a1a;
+  border:2px solid #3a3a3a;border-radius:10px 10px 0 0;
+  padding:8px 8px 0;
+  box-shadow:0 24px 80px rgba(0,0,0,0.6),0 0 0 1px rgba(255,255,255,0.04);
+}
+.mac-notch{
+  width:10px;height:10px;background:#2a2a2a;border-radius:50%;
+  margin:0 auto 6px;
+}
+.mac-screen{
+  background:linear-gradient(135deg,#1c1c1e 0%,#2c2c2e 100%);
+  border-radius:6px;aspect-ratio:16/10;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;position:relative;
+}
+.mac-screen-content{
+  display:grid;grid-template-columns:1fr 2fr;gap:8px;
+  padding:12px;width:100%;height:100%;
+}
+.mac-sidebar{background:rgba(255,255,255,0.04);border-radius:4px;}
+.mac-main{display:flex;flex-direction:column;gap:6px;}
+.mac-bar{height:8px;background:rgba(255,255,255,0.06);border-radius:3px;}
+.mac-bar.accent{background:rgba(255,213,0,0.3);width:60%;}
+.mac-bar.short{width:40%;}
+.mac-base{
+  width:110%;margin-left:-5%;height:10px;
+  background:#2a2a2a;border-radius:0 0 6px 6px;
+  border-top:1px solid #3a3a3a;
+}
+.mac-foot{
+  width:40%;margin:0 auto;height:5px;
+  background:#222;border-radius:0 0 4px 4px;
+}
+/* iPhone mockup */
+.iphone-wrap{
+  position:absolute;bottom:0;right:0;width:28%;
+  filter:drop-shadow(0 16px 48px rgba(0,0,0,0.7));
+}
+.iphone-frame{
+  background:#1a1a1a;border:2px solid #3a3a3a;
+  border-radius:28px;padding:10px 6px;
+  box-shadow:0 0 0 1px rgba(255,255,255,0.04);
+}
+.iphone-island{
+  width:36%;height:10px;background:#111;border-radius:10px;
+  margin:0 auto 8px;
+}
+.iphone-screen{
+  background:linear-gradient(160deg,#1c1c1e 0%,#2c2c2e 100%);
+  border-radius:20px;aspect-ratio:9/19;
+  display:flex;flex-direction:column;gap:5px;padding:10px 6px;
+}
+.iph-bar{height:6px;background:rgba(255,255,255,0.06);border-radius:3px;}
+.iph-bar.accent{background:rgba(255,213,0,0.35);width:55%;}
+.iph-bar.short{width:35%;}
+.iph-icon-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-top:4px;
+}
+.iph-icon{aspect-ratio:1;background:rgba(255,255,255,0.05);border-radius:8px;}
+.iph-icon:first-child{background:rgba(255,213,0,0.15);}
+/* badge flutuante */
+.fleet-badge{
+  position:absolute;top:18%;right:-6%;
+  background:#1e1e1e;border:1px solid rgba(255,213,0,0.3);
+  border-radius:14px;padding:10px 14px;
+  display:flex;align-items:center;gap:10px;
+  box-shadow:0 8px 32px rgba(0,0,0,0.5);
+  white-space:nowrap;
+}
+.fleet-badge-dot{
+  width:8px;height:8px;background:#FFD500;border-radius:50%;
+  box-shadow:0 0 8px rgba(255,213,0,0.6);flex-shrink:0;
+}
+.fleet-badge-text{font-size:.72rem;font-weight:700;color:#fff;line-height:1.3}
+.fleet-badge-sub{font-size:.65rem;color:var(--dust);font-weight:400}
+
+/* ========================
+   PILARES — DOIS CARDS
+======================== */
+.pilares{padding:0 0 80px}
+.pilares-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:2px;
+  border:1px solid rgba(51,53,51,0.8);border-radius:20px;
+  overflow:hidden;
+}
+.pilar-card{
+  padding:48px 44px;
+  background:rgba(255,255,255,0.02);
+  position:relative;overflow:hidden;
+  transition:background .3s;
+}
+.pilar-card:hover{background:rgba(255,255,255,0.04)}
+.pilar-card+.pilar-card{border-left:1px solid rgba(51,53,51,0.8)}
+.pilar-num{
+  font-size:.68rem;font-weight:800;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--y);margin-bottom:20px;
+  display:flex;align-items:center;gap:8px;
+}
+.pilar-num::before{
+  content:'';display:block;width:24px;height:1px;background:#FFD500;
+}
+.pilar-icon-wrap{
+  width:56px;height:56px;border-radius:14px;
+  background:rgba(255,213,0,0.08);border:1px solid rgba(255,213,0,0.18);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.4rem;color:#FFD500;margin-bottom:24px;
+}
+.pilar-card h2{
+  font-size:1.4rem;font-weight:900;letter-spacing:-.02em;
+  color:#fff;margin-bottom:10px;line-height:1.2;
+}
+.pilar-card .pilar-tag{
+  display:inline-block;font-size:.68rem;font-weight:700;
+  letter-spacing:.08em;text-transform:uppercase;
+  color:rgba(255,213,0,0.7);margin-bottom:20px;
+}
+.pilar-card p{
+  font-size:.88rem;color:var(--dust);line-height:1.85;margin-bottom:28px;
+}
+.pilar-list{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:36px}
+.pilar-list li{
+  display:flex;align-items:flex-start;gap:10px;
+  font-size:.86rem;color:var(--dust);line-height:1.6;
+}
+.pilar-list li i{
+  color:#FFD500;font-size:.8rem;flex-shrink:0;margin-top:3px;
+}
+.pilar-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:12px 24px;border-radius:100px;
+  font-size:.83rem;font-weight:700;text-decoration:none;
+  border:1px solid rgba(255,255,255,0.15);color:#fff;
+  transition:.2s;
+}
+.pilar-btn:hover{border-color:rgba(255,213,0,0.5);color:#FFD500}
+.pilar-btn.primary{
+  background:#FFD500;color:#111;border-color:#FFD500;
+  box-shadow:0 4px 20px rgba(255,213,0,0.2);
+}
+.pilar-btn.primary:hover{background:#ffe333;box-shadow:0 8px 28px rgba(255,213,0,0.35)}
+
+/* ========================
+   DIFERENCIAIS — 4 CARDS
+======================== */
+.diferenciais{padding:0 0 80px}
+.section-label{
+  display:flex;align-items:center;gap:14px;
+  font-size:.7rem;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--dust);margin-bottom:48px;
+}
+.section-label::after{
+  content:'';flex:1;height:1px;
+  background:linear-gradient(90deg,rgba(255,255,255,0.12) 0%,transparent 100%);
+}
+.dif-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:16px;
+}
+.dif-card{
+  padding:32px 28px;
+  background:rgba(255,255,255,0.02);
+  border:1px solid rgba(51,53,51,0.8);border-radius:16px;
+  transition:border-color .3s,background .3s;
+  position:relative;overflow:hidden;
+}
+.dif-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,rgba(255,213,0,0.4),transparent);
+  opacity:0;transition:opacity .3s;
+}
+.dif-card:hover{border-color:rgba(255,213,0,0.2);background:rgba(255,255,255,0.04)}
+.dif-card:hover::before{opacity:1}
+.dif-icon{
+  width:48px;height:48px;border-radius:12px;
+  background:rgba(255,213,0,0.08);border:1px solid rgba(255,213,0,0.15);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.1rem;color:#FFD500;margin-bottom:20px;
+}
+.dif-card h3{
+  font-size:.95rem;font-weight:800;color:#fff;
+  margin-bottom:10px;line-height:1.3;letter-spacing:-.01em;
+}
+.dif-card p{font-size:.82rem;color:var(--dust);line-height:1.75}
+
+/* ========================
+   NÚMEROS
+======================== */
+.numeros{
+  padding:60px 0;
+  border-top:1px solid rgba(51,53,51,0.8);
+  border-bottom:1px solid rgba(51,53,51,0.8);
+  margin-bottom:80px;
+}
+.numeros-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+}
+.numero-item{
+  text-align:center;padding:0 20px;
+  border-right:1px solid rgba(51,53,51,0.8);
+}
+.numero-item:last-child{border-right:none}
+.numero-val{
+  font-size:clamp(2rem,3.5vw,3rem);font-weight:900;
+  letter-spacing:-.03em;color:#FFD500;line-height:1;
+  margin-bottom:8px;
+}
+.numero-label{font-size:.78rem;color:var(--dust);font-weight:500}
+
+/* ========================
+   CTA FINAL
+======================== */
+.cta-final{padding:0 0 100px}
+.cta-box{
+  background:rgba(255,255,255,0.02);
+  border:1px solid rgba(51,53,51,0.8);border-radius:24px;
+  padding:72px 64px;text-align:center;
+  position:relative;overflow:hidden;
+}
+.cta-box::before{
+  content:'';position:absolute;
+  top:-120px;left:50%;transform:translateX(-50%);
+  width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,213,0,0.05) 0%,transparent 65%);
+  pointer-events:none;
+}
+.cta-box-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:5px 14px;border-radius:100px;
+  background:rgba(255,213,0,0.08);border:1px solid rgba(255,213,0,0.18);
+  font-size:.68rem;font-weight:700;color:#FFD500;
+  letter-spacing:.1em;text-transform:uppercase;margin-bottom:28px;
+}
+.cta-box h2{
+  font-size:clamp(1.6rem,3vw,2.5rem);font-weight:900;
+  color:#fff;line-height:1.15;letter-spacing:-.025em;
+  max-width:640px;margin:0 auto 16px;
+}
+.cta-box p{
+  font-size:.95rem;color:var(--dust);line-height:1.75;
+  max-width:520px;margin:0 auto 48px;
+}
+.cta-box-btns{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+.btn-cta-primary{
+  display:inline-flex;align-items:center;gap:10px;
+  background:#FFD500;color:#111;
+  font-size:.92rem;font-weight:800;
+  padding:18px 36px;border-radius:100px;
+  text-decoration:none;transition:.2s;
+  box-shadow:0 8px 32px rgba(255,213,0,0.25);
+}
+.btn-cta-primary:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(255,213,0,0.35)}
+.btn-cta-ghost{
+  display:inline-flex;align-items:center;gap:8px;
+  background:transparent;color:var(--dust);
+  font-size:.88rem;font-weight:600;
+  padding:16px 30px;border-radius:100px;
+  border:1px solid rgba(255,255,255,0.15);
+  text-decoration:none;transition:.2s;
+}
+.btn-cta-ghost:hover{border-color:rgba(255,255,255,0.4);color:#fff}
+
+/* ========================
+   FOOTER
+======================== */
+.footer{background:#181818;border-top:1px solid rgba(51,53,51,0.8);padding:60px 0 0}
+.footer-inner{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:48px;align-items:start}
+.footer-brand>p{font-size:.84rem;color:var(--dust);line-height:1.75;max-width:300px}
+.footer-social{display:flex;gap:10px;margin-top:20px}
+.footer-social a{width:38px;height:38px;border-radius:9px;background:rgba(255,255,255,0.04);border:1px solid #333533;display:flex;align-items:center;justify-content:center;font-size:.95rem;color:var(--dust);transition:.2s;text-decoration:none}
+.footer-social a:hover{background:rgba(255,213,0,0.1);border-color:rgba(255,213,0,0.3);color:#FFD500}
+.footer-col h6{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--dust);margin-bottom:18px}
+.footer-col ul{display:flex;flex-direction:column;gap:10px;list-style:none;padding:0;margin:0}
+.footer-col a{font-size:.85rem;color:var(--dust);transition:color .2s;text-decoration:none}
+.footer-col a:hover{color:#FFD500}
+.footer-bottom{border-top:1px solid rgba(51,53,51,0.8);padding:20px 0}
+.footer-bottom-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.footer-bottom p{font-size:.75rem;color:rgba(255,255,255,0.25);margin:0}
+.footer-legal{display:flex;gap:20px;justify-content:center;padding:10px 0;margin-top:10px;border-top:1px solid rgba(51,53,51,0.5)}
+.footer-legal a{font-size:.72rem;color:#a3a3a3;text-decoration:none;transition:color .2s}
+.footer-legal a:hover{color:#FFD500}
+
+/* ========================
+   RESPONSIVE
+======================== */
+@media(max-width:1024px){
+  .dif-grid{grid-template-columns:1fr 1fr}
+  .numeros-grid{grid-template-columns:repeat(2,1fr)}
+  .numero-item:nth-child(2){border-right:none}
+  .numero-item:nth-child(3){border-top:1px solid rgba(51,53,51,0.8)}
+  .numero-item:nth-child(3),.numero-item:nth-child(4){padding-top:40px}
+}
+@media(max-width:900px){
+  .hero-b2b-inner{grid-template-columns:1fr;gap:40px}
+  .hero-b2b-right{display:none}
+  .pilares-grid{grid-template-columns:1fr}
+  .pilar-card+.pilar-card{border-left:none;border-top:1px solid rgba(51,53,51,0.8)}
+  .footer-inner{grid-template-columns:1fr 1fr;gap:36px}
+}
+@media(max-width:600px){
+  .dif-grid{grid-template-columns:1fr}
+  .numeros-grid{grid-template-columns:1fr 1fr}
+  .cta-box{padding:44px 24px}
+  .pilar-card{padding:36px 28px}
+  .footer-inner{grid-template-columns:1fr}
+  .footer-bottom-inner{flex-direction:column;text-align:center}
+  .footer-legal{flex-direction:column;align-items:center;gap:10px}
+  .hero-ctas{flex-direction:column;align-items:flex-start}
+  .btn-b2b-ghost{margin-left:0}
+}
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-wrap">
+      <a href="index.html" class="logo"><img src="assets/img/logo-icon.png" alt="Vitor iSolder" class="logo-img" /></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#reparos">Reparos</a></li>
+        <li><a href="index.html#reparo-placa">Placa Lógica</a></li>
+        <li><a href="corporativo.html">Para Empresas</a></li>
+        <li><a href="index.html#porque">Por que a iSolder</a></li>
+        <li><a href="index.html#historia">Sobre nós</a></li>
+        <li><a href="index.html#avaliacoes">Avaliações</a></li>
+        <li><a href="index.html#contato">Contato</a></li>
+      </ul>
+      <div class="nav-ctas">
+        <a href="https://wa.me/5521988476695?text=Olá!%20Sou%20lojista%20e%20gostaria%20de%20conhecer%20as%20condições%20B2B." target="_blank" class="btn-nav"><i class="fa-brands fa-whatsapp"></i> Consultor B2B</a>
+      </div>
+      <button class="hamburger" id="hamburger"><i class="fa-solid fa-bars" id="menuIcon"></i></button>
+    </div>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb"><div class="container"><a href="index.html">Início</a><span>›</span>Corporativo & Parcerias</div></div>
+
+  <!-- ========================
+       HERO B2B
+  ======================== -->
+  <section class="hero-b2b">
+    <div class="container">
+      <div class="hero-b2b-inner">
+
+        <div class="hero-b2b-left">
+          <div class="hero-eyebrow">
+            <i class="fa-solid fa-building"></i>
+            Grupo Yellow · Mercado B2B
+          </div>
+          <h1>Engenharia de Hardware Apple<br>para o seu <em>Negócio.</em></h1>
+          <p class="hero-b2b-sub">Conecte sua empresa ou assistência à iSolder. Reparos avançados de placas lógicas e telas com condições exclusivas para frotas corporativas, lojistas e assistências parceiras.</p>
+          <div class="hero-ctas">
+            <a href="https://wa.me/5521988476695?text=Olá!%20Sou%20lojista%20/%20empresa%20e%20gostaria%20de%20conhecer%20as%20condições%20B2B%20da%20iSolder." target="_blank" class="btn-b2b-hero">
+              <i class="fa-brands fa-whatsapp"></i>
+              Falar com Consultor B2B
+            </a>
+            <a href="mailto:contato@vitorisolder.com.br" class="btn-b2b-ghost">
+              <i class="fa-solid fa-envelope"></i>
+              contato@vitorisolder.com.br
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-b2b-right">
+          <div class="fleet-visual">
+            <div class="fleet-glow"></div>
+
+            <!-- MacBook mockup -->
+            <div class="mac-wrap">
+              <div class="mac-frame">
+                <div class="mac-notch"></div>
+                <div class="mac-screen">
+                  <div class="mac-screen-content">
+                    <div class="mac-sidebar"></div>
+                    <div class="mac-main">
+                      <div class="mac-bar accent"></div>
+                      <div class="mac-bar"></div>
+                      <div class="mac-bar short"></div>
+                      <div class="mac-bar"></div>
+                      <div class="mac-bar short"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="mac-base"></div>
+              <div class="mac-foot"></div>
+            </div>
+
+            <!-- iPhone mockup -->
+            <div class="iphone-wrap">
+              <div class="iphone-frame">
+                <div class="iphone-island"></div>
+                <div class="iphone-screen">
+                  <div class="iph-bar accent"></div>
+                  <div class="iph-bar"></div>
+                  <div class="iph-bar short"></div>
+                  <div class="iph-icon-grid">
+                    <div class="iph-icon"></div>
+                    <div class="iph-icon"></div>
+                    <div class="iph-icon"></div>
+                    <div class="iph-icon"></div>
+                    <div class="iph-icon"></div>
+                    <div class="iph-icon"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Badge flutuante -->
+            <div class="fleet-badge">
+              <div class="fleet-badge-dot"></div>
+              <div>
+                <div class="fleet-badge-text">Frota Corporativa Ativa</div>
+                <div class="fleet-badge-sub">SLA prioritário · Faturamento CNPJ</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================
+       NÚMEROS
+  ======================== -->
+  <section class="numeros">
+    <div class="container">
+      <div class="numeros-grid">
+        <div class="numero-item">
+          <div class="numero-val">+10k</div>
+          <div class="numero-label">Reparos realizados</div>
+        </div>
+        <div class="numero-item">
+          <div class="numero-val">6 anos</div>
+          <div class="numero-label">De atuação no mercado</div>
+        </div>
+        <div class="numero-item">
+          <div class="numero-val">98%</div>
+          <div class="numero-label">Aprovação nas avaliações</div>
+        </div>
+        <div class="numero-item">
+          <div class="numero-val">CNPJ</div>
+          <div class="numero-label">Emissão de NF-e e faturamento</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================
+       PILARES DE ATENDIMENTO
+  ======================== -->
+  <section class="pilares">
+    <div class="container">
+      <div class="section-label">Pilares de Atendimento Corporativo</div>
+      <div class="pilares-grid">
+
+        <!-- COLUNA 01 — LOJISTAS -->
+        <div class="pilar-card">
+          <div class="pilar-num">Coluna 01</div>
+          <div class="pilar-icon-wrap"><i class="fa-solid fa-store"></i></div>
+          <div class="pilar-tag">Para Lojistas & Assistências</div>
+          <h2>Terceirize o que nenhuma outra assistência consegue resolver.</h2>
+          <p>Microssoldagem de nível profissional, reballing de chips e reparo de placa para você oferecer como serviço aos seus clientes — com a qualidade iSolder e a sua margem garantida.</p>
+          <ul class="pilar-list">
+            <li><i class="fa-solid fa-check"></i> Terceirização de microssoldagem BGA e SMD</li>
+            <li><i class="fa-solid fa-check"></i> Tabela de preços diferenciada para revendedores</li>
+            <li><i class="fa-solid fa-check"></i> Suporte técnico de bancada com laudo detalhado</li>
+            <li><i class="fa-solid fa-check"></i> Confidencialidade total — sem contato com o cliente final</li>
+            <li><i class="fa-solid fa-check"></i> Volumes de lote com prazo negociado</li>
+          </ul>
+          <a href="https://wa.me/5521988476695?text=Olá!%20Sou%20lojista%20e%20quero%20conhecer%20as%20condições%20de%20parceria%20iSolder." target="_blank" class="pilar-btn primary">
+            <i class="fa-brands fa-whatsapp"></i> Quero ser parceiro
+          </a>
+        </div>
+
+        <!-- COLUNA 02 — FROTAS CORPORATIVAS -->
+        <div class="pilar-card">
+          <div class="pilar-num">Coluna 02</div>
+          <div class="pilar-icon-wrap"><i class="fa-solid fa-briefcase"></i></div>
+          <div class="pilar-tag">Para Empresas & Frotas Corporativas</div>
+          <h2>Mantenha sua frota Apple operando sem parar.</h2>
+          <p>Contrato de manutenção preventiva e corretiva para MacBooks e iPhones corporativos. Diagnóstico com laudo técnico, faturamento via CNPJ e SLA de entrega rápido para o seu time não parar.</p>
+          <ul class="pilar-list">
+            <li><i class="fa-solid fa-check"></i> Contratos de manutenção para frotas Apple</li>
+            <li><i class="fa-solid fa-check"></i> Faturamento 100% via CNPJ com NF-e</li>
+            <li><i class="fa-solid fa-check"></i> SLA de diagnóstico em até 24h úteis</li>
+            <li><i class="fa-solid fa-check"></i> Laudo técnico para patrimônio e seguro</li>
+            <li><i class="fa-solid fa-check"></i> Atendimento remoto e retirada/entrega</li>
+          </ul>
+          <a href="https://wa.me/5521988476695?text=Olá!%20Representamos%20uma%20empresa%20e%20queremos%20um%20contrato%20de%20manutenção%20para%20nossa%20frota%20Apple." target="_blank" class="pilar-btn primary">
+            <i class="fa-brands fa-whatsapp"></i> Solicitar proposta
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================
+       DIFERENCIAIS — 4 CARDS
+  ======================== -->
+  <section class="diferenciais">
+    <div class="container">
+      <div class="section-label">Diferenciais que Importam para o seu CNPJ</div>
+      <div class="dif-grid">
+
+        <div class="dif-card">
+          <div class="dif-icon"><i class="fa-solid fa-tags"></i></div>
+          <h3>Preços Especiais de Atacado</h3>
+          <p>Tabela exclusiva para parceiros e revendedores. Quanto maior o volume, maior a vantagem — com margens reais para a sua operação.</p>
+        </div>
+
+        <div class="dif-card">
+          <div class="dif-icon"><i class="fa-solid fa-gauge-high"></i></div>
+          <h3>Prioridade de Diagnóstico</h3>
+          <p>Clientes corporativos entram em fila prioritária. Prazo de diagnóstico reduzido para que o equipamento volte à operação o quanto antes.</p>
+        </div>
+
+        <div class="dif-card">
+          <div class="dif-icon"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+          <h3>NF-e e Faturamento Formal</h3>
+          <p>Emissão de nota fiscal eletrônica para cada serviço. Processo 100% em conformidade jurídica e fiscal para você lançar no seu departamento.</p>
+        </div>
+
+        <div class="dif-card">
+          <div class="dif-icon"><i class="fa-solid fa-truck-fast"></i></div>
+          <h3>Logística Segura de Lotes</h3>
+          <p>Recebimento e envio de lotes com embalagem segura e rastreamento. Atendemos municípios da região com suporte intermunicipal estruturado.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================
+       CTA FINAL
+  ======================== -->
+  <section class="cta-final">
+    <div class="container">
+      <div class="cta-box">
+        <div class="cta-box-eyebrow"><i class="fa-solid fa-handshake"></i> Homologação Comercial</div>
+        <h2>Pronto para homologar a iSolder como a assistência oficial da sua empresa?</h2>
+        <p>Fale diretamente com o nosso consultor comercial. Montamos uma proposta personalizada para o seu volume, perfil e necessidade — sem enrolação.</p>
+        <div class="cta-box-btns">
+          <a href="https://wa.me/5521988476695?text=Olá!%20Quero%20homologar%20a%20iSolder%20como%20assistência%20oficial%20da%20minha%20empresa." target="_blank" class="btn-cta-primary">
+            <i class="fa-brands fa-whatsapp"></i>
+            Iniciar Homologação
+          </a>
+          <a href="mailto:contato@vitorisolder.com.br?subject=Proposta%20Comercial%20B2B%20-%20iSolder" class="btn-cta-ghost">
+            <i class="fa-solid fa-envelope"></i>
+            Enviar proposta por e-mail
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="logo" style="margin-bottom:14px;display:inline-flex"><img src="assets/img/logo-full.png" alt="Vitor iSolder" class="logo-img logo-img-footer" /></a>
+        <p>Assistência especializada Apple em Itaguaí, RJ. Reparo de placa lógica, laudos técnicos e atendimento transparente desde 2020.</p>
+        <div class="footer-social">
+          <a href="https://instagram.com/vitor.isolder" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://youtube.com/@vitor.isolder" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+          <a href="https://tiktok.com/@vitorisolder" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="https://maps.app.goo.gl/zm5rNsxPpcUqcPT39" target="_blank"><i class="fa-brands fa-google"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h6>Dispositivos</h6>
+        <ul>
+          <li><a href="iphone.html">iPhone</a></li>
+          <li><a href="ipad.html">iPad</a></li>
+          <li><a href="macbook.html">MacBook</a></li>
+          <li><a href="watch.html">Apple Watch</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h6>Navegação</h6>
+        <ul>
+          <li><a href="index.html#historia">Nossa história</a></li>
+          <li><a href="index.html#porque">Por que a iSolder</a></li>
+          <li><a href="index.html#avaliacoes">Avaliações</a></li>
+          <li><a href="corporativo.html">Corporativo B2B</a></li>
+          <li><a href="index.html#contato">Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h6>Parcerias</h6>
+        <ul>
+          <li><a href="corporativo.html">Seja um Lojista Parceiro</a></li>
+          <li><a href="corporativo.html">Soluções para Empresas</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>© 2025 Vitor iSolder · Itaguaí, RJ · CNPJ 41.632.649/0001-02</p>
+        <p>Empresa independente, sem vínculo com a Apple Inc.</p>
+      </div>
+      <div class="container footer-legal">
+        <a href="politica-de-privacidade.html">Política de Privacidade</a>
+        <a href="termos-de-uso.html">Termos de Uso</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WA FLOAT -->
+  <div class="wa-wrap" id="waWrap">
+    <div class="wa-menu" id="waMenu">
+      <a href="https://wa.me/5521988476695?text=Olá!%20Somos%20lojistas." target="_blank" class="wa-opt"><span>Lojistas & PJ</span><div class="wa-sm-btn"><i class="fa-brands fa-whatsapp"></i></div></a>
+      <a href="https://wa.me/5521950147576?text=Olá!%20Gostaria%20de%20um%20orçamento." target="_blank" class="wa-opt"><span>Cliente Final</span><div class="wa-sm-btn"><i class="fa-brands fa-whatsapp"></i></div></a>
+    </div>
+    <button class="wa-btn" id="waBtn">
+      <i class="fa-brands fa-whatsapp" id="waIco"></i>
+      <i class="fa-solid fa-xmark" id="waX" style="display:none"></i>
+    </button>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
