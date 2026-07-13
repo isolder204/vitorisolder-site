@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>iPad Não Liga: Como Identificamos e Substituímos o Chip de Carga Hydra | Vitor iSolder</title>
+  <meta name="description" content="iPad que não carrega nem liga? Na maioria dos casos, o culpado é o chip de carga Hydra. Entenda o diagnóstico e o processo de reparo de placa utilizado no lab iSolder." />
+  <link rel="canonical" href="https://www.vitorisolder.com/blog/ipad-nao-liga-falha-chip-carga-hydra.html" />
+  <link rel="icon" href="../assets/img/logo-icon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="../assets/img/logo-icon.png" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Vitor iSolder" />
+  <meta property="og:title" content="iPad Não Liga: Como Identificamos e Substituímos o Chip de Carga Hydra" />
+  <meta property="og:description" content="iPad que não carrega e não liga é diagnóstico corriqueiro no lab. Na maioria dos casos, o culpado é o chip Hydra — e a solução é reparo de placa, não troca do iPad." />
+  <meta property="og:url" content="https://www.vitorisolder.com/blog/ipad-nao-liga-falha-chip-carga-hydra.html" />
+  <meta property="og:image" content="https://www.vitorisolder.com/assets/img/bancada.jpg" />
+  <meta property="article:author" content="Vitor Hugo" />
+  <meta property="article:published_time" content="2025-07-08" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JFD0B4B629"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-JFD0B4B629');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900;1,14..32,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="../assets/css/style.css?v=25" />
+  <style>
+:root{--y:#FFD500;--bk:#202020;--graph:#333533;--dust:#D6D6D6}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background-color:#202020;color:#fff;font-family:'Inter',sans-serif;
+  background-image:
+    linear-gradient(rgba(51,53,51,0.18) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(51,53,51,0.18) 1px,transparent 1px),
+    linear-gradient(rgba(51,53,51,0.07) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(51,53,51,0.07) 1px,transparent 1px);
+  background-size:32px 32px,32px 32px,8px 8px,8px 8px;
+  background-attachment:fixed;
+}
+.logo-img{height:90px;width:auto;display:block;mix-blend-mode:screen;filter:brightness(1.15)}
+.logo-img-footer{height:120px}
+.navbar{padding:8px 0!important;background:#202020!important}
+.navbar.scrolled{padding:4px 0!important;background:rgba(32,32,32,0.96)!important;backdrop-filter:blur(16px)}
+@media(max-width:768px){
+  .nav-links,.nav-ctas{display:none!important}
+  .hamburger{display:block!important}
+  .nav-links.open{display:flex!important;flex-direction:column;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(32,32,32,0.98);align-items:center;justify-content:center;gap:40px;z-index:800}
+}
+.breadcrumb{padding:100px 0 0;font-size:.8rem;color:var(--dust)}
+.breadcrumb a{color:var(--dust);text-decoration:none;transition:color .2s}
+.breadcrumb a:hover{color:var(--y)}
+.breadcrumb span{margin:0 8px;opacity:.4}
+.article-header{padding:32px 0 56px}
+.article-cat{display:inline-block;margin-bottom:20px;padding:4px 12px;border-radius:100px;background:#FFD500;color:#080808;font-size:.68rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;}
+.article-header h1{font-size:clamp(1.9rem,4vw,3rem);font-weight:900;line-height:1.1;letter-spacing:-.03em;color:#fff;margin-bottom:20px;max-width:800px;}
+.article-meta{display:flex;align-items:center;gap:20px;flex-wrap:wrap;font-size:.78rem;color:rgba(255,255,255,.4);margin-bottom:32px;}
+.article-meta i{font-size:.65rem;color:#FFD500}
+.article-hero-img{width:100%;border-radius:16px;overflow:hidden;aspect-ratio:21/9;background:#1a1a1a;margin-bottom:64px;}
+.article-hero-img img{width:100%;height:100%;object-fit:cover;display:block}
+.article-layout{display:grid;grid-template-columns:1fr 280px;gap:64px;align-items:start;margin-bottom:80px;}
+.article-body{max-width:720px}
+.article-body h2{font-size:1.35rem;font-weight:800;letter-spacing:-.02em;color:#fff;margin:40px 0 16px;}
+.article-body h3{font-size:1.1rem;font-weight:700;color:#fff;margin:32px 0 12px;}
+.article-body p{font-size:.95rem;color:rgba(255,255,255,.62);line-height:1.9;margin-bottom:18px;}
+.article-body strong{color:#fff}
+.article-body ul,.article-body ol{padding-left:20px;margin-bottom:18px;}
+.article-body li{font-size:.95rem;color:rgba(255,255,255,.62);line-height:1.85;margin-bottom:8px;}
+.article-body li::marker{color:#FFD500}
+.callout{background:rgba(255,213,0,0.06);border:1px solid rgba(255,213,0,0.2);border-left:3px solid #FFD500;border-radius:0 12px 12px 0;padding:20px 24px;margin:28px 0;}
+.callout p{color:rgba(255,255,255,.75)!important;margin:0}
+.callout strong{color:#FFD500!important}
+.article-sidebar{}
+.sidebar-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:28px;margin-bottom:20px;}
+.sidebar-card h5{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:16px;}
+.sidebar-card p{font-size:.83rem;color:rgba(255,255,255,.5);line-height:1.7;margin-bottom:16px}
+.sidebar-wa{display:flex;align-items:center;gap:10px;padding:12px 16px;border-radius:10px;background:#25D366;color:#fff;font-size:.82rem;font-weight:700;text-decoration:none;transition:background .2s,transform .2s;}
+.sidebar-wa:hover{background:#1ebe5d;transform:translateY(-2px)}
+.sidebar-wa i{font-size:1rem}
+.related-post{display:flex;gap:12px;align-items:flex-start;text-decoration:none;color:inherit;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.06);transition:opacity .2s;}
+.related-post:last-child{border-bottom:none;padding-bottom:0}
+.related-post:hover{opacity:.75}
+.related-thumb{width:52px;height:52px;border-radius:8px;overflow:hidden;flex-shrink:0;background:#1a1a1a}
+.related-thumb img{width:100%;height:100%;object-fit:cover}
+.related-post span{font-size:.8rem;color:rgba(255,255,255,.65);line-height:1.4;font-weight:600}
+.cta-banner{background:linear-gradient(135deg,rgba(255,213,0,0.08) 0%,rgba(255,213,0,0.03) 100%);border:1px solid rgba(255,213,0,0.2);border-radius:20px;padding:48px 52px;display:flex;align-items:center;justify-content:space-between;gap:32px;margin-bottom:80px;flex-wrap:wrap;}
+.cta-banner-text h3{font-size:1.6rem;font-weight:900;letter-spacing:-.02em;color:#fff;margin-bottom:8px;}
+.cta-banner-text h3 em{color:#FFD500;font-style:normal}
+.cta-banner-text p{font-size:.9rem;color:rgba(255,255,255,.5);line-height:1.7}
+.cta-banner-btn{display:inline-flex;align-items:center;gap:12px;padding:16px 32px;border-radius:14px;background:#25D366;color:#fff;font-size:.95rem;font-weight:700;text-decoration:none;white-space:nowrap;transition:background .2s,transform .2s,box-shadow .2s;}
+.cta-banner-btn:hover{background:#1ebe5d;transform:translateY(-2px);box-shadow:0 14px 40px rgba(37,211,102,0.35)}
+.cta-banner-btn i{font-size:1.1rem}
+.footer{background:#0e0e0e;border-top:1px solid rgba(255,255,255,0.07);padding:60px 0 0}
+.footer-inner{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:56px;margin-bottom:48px;align-items:start}
+.footer-brand .logo{margin-bottom:14px;display:inline-flex}
+.footer-brand>p{font-size:.84rem;color:rgba(255,255,255,0.45);line-height:1.75;max-width:300px;margin-bottom:0}
+.footer-social{display:flex;gap:10px;margin-top:20px}
+.footer-social a{width:38px;height:38px;border-radius:9px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;font-size:.95rem;color:rgba(255,255,255,0.6);transition:.2s;text-decoration:none}
+.footer-social a:hover{background:rgba(255,224,0,0.1);border-color:rgba(255,224,0,0.25);color:#FFE000}
+.footer-col h6{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:18px}
+.footer-col ul{display:flex;flex-direction:column;gap:10px;list-style:none;padding:0;margin:0}
+.footer-col a{font-size:.85rem;color:rgba(255,255,255,0.5);transition:color .2s;text-decoration:none}
+.footer-col a:hover{color:#FFE000}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.06);padding:20px 0}
+.footer-bottom-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.footer-bottom p{font-size:.75rem;color:rgba(255,255,255,0.35);margin:0}
+.footer-legal{display:flex;gap:20px;justify-content:center;padding:10px 0;margin-top:10px;border-top:1px solid rgba(255,255,255,.06)}
+.footer-legal a{font-size:.72rem;color:#a3a3a3;text-decoration:none;transition:color .2s}
+.footer-legal a:hover{color:#FFD500}
+@media(max-width:900px){.article-layout{grid-template-columns:1fr}.article-sidebar{display:none}.cta-banner{padding:32px}}
+@media(max-width:600px){.footer-inner{grid-template-columns:1fr}.cta-banner{flex-direction:column}}
+  </style>
+</head>
+<body>
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-wrap">
+      <a href="../index.html" class="logo">
+        <img src="../assets/img/logo-icon.png" alt="Vitor iSolder" class="logo-img" />
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../index.html#reparos">Reparos</a></li>
+        <li><a href="../index.html#reparo-placa">Placa Lógica</a></li>
+        <li><a href="../corporativo.html">Para Empresas</a></li>
+        <li><a href="../blog.html" style="color:#FFD500">Blog</a></li>
+        <li><a href="../index.html#porque">Por que a iSolder</a></li>
+        <li><a href="../index.html#historia">Sobre nós</a></li>
+        <li><a href="../index.html#contato">Contato</a></li>
+      </ul>
+      <div class="nav-ctas">
+        <a href="https://wa.me/5521950147576?text=Olá!%20Gostaria%20de%20um%20orçamento." target="_blank" class="btn-nav">
+          <i class="fa-brands fa-whatsapp"></i> Falar agora
+        </a>
+      </div>
+      <button class="hamburger" id="hamburger"><i class="fa-solid fa-bars" id="menuIcon"></i></button>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="../index.html">Início</a><span>/</span>
+      <a href="../blog.html">Blog</a><span>/</span>
+      iPad Não Liga — Chip Hydra
+    </div>
+  </div>
+
+  <section class="article-header">
+    <div class="container">
+      <span class="article-cat">Reparo de Placa</span>
+      <h1>iPad Não Liga: Como Identificamos e Substituímos o Chip de Carga Hydra</h1>
+      <div class="article-meta">
+        <span><i class="fa-solid fa-user"></i> Vitor Hugo — Fundador & Técnico Especialista</span>
+        <span><i class="fa-regular fa-calendar"></i> Julho de 2025</span>
+        <span><i class="fa-regular fa-clock"></i> 7 minutos de leitura</span>
+      </div>
+    </div>
+    <div class="container">
+      <div class="article-hero-img">
+        <img src="../assets/img/bancada.jpg" alt="Bancada de reparo de placa iSolder" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="article-layout">
+      <article class="article-body">
+
+        <p>Todo técnico com experiência em hardware Apple já viu esse quadro inúmeras vezes: um iPad aparentemente saudável, sem histórico de queda ou contato com líquido, que simplesmente para de ligar. O cliente conecta na tomada, nada acontece. Pressiona o botão power por 30 segundos, nada. O aparelho parece morto.</p>
+
+        <p>Na grande maioria dos casos que chegam até o nosso lab com esse sintoma, o responsável é um único componente: o <strong>chip de carga Hydra</strong> — e a solução é reparo de placa, não troca do iPad.</p>
+
+        <h2>O que é o chip Hydra e o que ele faz</h2>
+
+        <p>O Hydra (ou U6300 em diagramas de referência) é o controlador de carga integrado da placa lógica dos iPads. Ele é responsável por:</p>
+
+        <ul>
+          <li>Gerenciar o protocolo de comunicação USB-C entre o carregador e o dispositivo</li>
+          <li>Regular a tensão e corrente que chegam à bateria</li>
+          <li>Negociar o carregamento rápido via Power Delivery (PD)</li>
+          <li>Proteger a bateria e os demais componentes contra sobretensão</li>
+          <li>Sinalizar ao processador quando há uma fonte de energia conectada</li>
+        </ul>
+
+        <p>Quando o Hydra falha, o iPad perde completamente a capacidade de detectar que está conectado a um carregador. Sem essa detecção, a bateria não carrega. Sem carga na bateria, o iPad não liga. O resultado é um ciclo sem saída para o cliente que tenta resolver por conta própria.</p>
+
+        <div class="callout">
+          <p><strong>Por que o Hydra falha?</strong> As causas mais comuns são: uso prolongado de carregadores não certificados (especialmente carregadores com PD mal calibrado), contato breve com umidade no conector, e simplesmente desgaste após anos de uso intenso. Não é defeito de fabricação — é componente que tem vida útil.</p>
+        </div>
+
+        <h2>Como fazemos o diagnóstico</h2>
+
+        <p>O diagnóstico correto é o que separa o reparo bem-feito do reparo que vai voltar com o mesmo problema em três meses. No lab da iSolder, seguimos um protocolo específico para iPads que não carregam:</p>
+
+        <h3>Etapa 1 — Verificação da bateria</h3>
+        <p>Antes de qualquer conclusão sobre a placa, verificamos o estado real da bateria. Uma bateria completamente descarregada (abaixo de 2V) pode parecer morta mas ainda ser recuperável. Conectamos a placa a uma fonte DC regulada e injetamos uma corrente controlada para recarregar a bateria antes de prosseguir.</p>
+
+        <h3>Etapa 2 — Medição de corrente no conector</h3>
+        <p>Com a fonte DC acoplada ao conector USB-C, medimos o consumo de corrente. Um iPad saudável puxa entre 0,7A e 1,2A ao iniciar o carregamento. Um iPad com Hydra defeituoso puxa <strong>0 mA</strong> — o sistema simplesmente não reconhece a fonte.</p>
+
+        <h3>Etapa 3 — Leitura de tensões na placa</h3>
+        <p>Com o microscópio posicionado sobre a placa lógica, medimos os pontos de tensão ao redor do Hydra. Um chip funcional apresenta tensões esperadas em seus pinos de comunicação. Um chip com falha apresenta tensões ausentes ou invertidas em pontos críticos.</p>
+
+        <h3>Etapa 4 — Confirmação via DCPS</h3>
+        <p>Conectamos o iPad a uma fonte de corrente de precisão (DCPS) e analisamos a curva de consumo ao longo do tempo. Isso nos permite confirmar com certeza se o problema está no Hydra ou em outro componente da cadeia de carga.</p>
+
+        <h2>O processo de substituição</h2>
+
+        <p>Com o diagnóstico confirmado, partimos para a substituição do Hydra. O processo exige precisão — o chip é um BGA (Ball Grid Array) com pontos de solda microscópicos na face inferior, invisíveis a olho nu.</p>
+
+        <ol>
+          <li><strong>Remoção do chip defeituoso</strong> — aquecemos a área com estação de ar quente em temperatura controlada (entre 180°C e 220°C, dependendo do modelo). O chip é removido com pinças de carbono anti-ESD.</li>
+          <li><strong>Limpeza e nivelamento dos pads</strong> — os pontos de solda remanescentes são removidos com malha de dessoldagem e o plano da placa é verificado sob microscópio para garantir que nenhum pad foi arrancado.</li>
+          <li><strong>Aplicação de flux e posicionamento</strong> — o novo chip recebe pasta de solda e é posicionado com auxílio de estação de retrabalho BGA com câmera de alinhamento.</li>
+          <li><strong>Soldagem por refluxo</strong> — perfil de temperatura programado em curva específica para o Hydra: pré-aquecimento, rampa, pico e resfriamento controlado.</li>
+          <li><strong>Verificação sob microscópio</strong> — checamos cada ponto da borda do BGA para garantir que não há pontos frios ou pontes de solda.</li>
+          <li><strong>Testes de carga e funcionalidade</strong> — reconectamos a bateria e verificamos se o iPad reconhece o carregador, se a corrente de carga está dentro do esperado e se todos os recursos do iPad funcionam normalmente.</li>
+        </ol>
+
+        <h2>O que acontece quando o cliente ignora o problema</h2>
+
+        <p>É muito comum o cliente esperar semanas antes de procurar assistência. Nesse período, algumas tentativas caseiras — como deixar o iPad na tomada por dias seguidos com esperança de "reativar" a bateria — podem agravar o problema.</p>
+
+        <p>Uma bateria que fica descarregada por tempo prolongado sofre sulfatação irreversível das células. Quando isso acontece, o reparo do Hydra resolve o problema de carga, mas a bateria precisa ser substituída também. O custo do reparo sobe.</p>
+
+        <div class="callout">
+          <p><strong>Nossa recomendação:</strong> Assim que o iPad parar de carregar, traga para diagnóstico. Diagnóstico é gratuito, não gera compromisso de reparo e define com precisão o que de fato está falhando antes de qualquer custo.</p>
+        </div>
+
+        <h2>Modelos de iPad mais afetados</h2>
+
+        <p>Atendemos essa falha em praticamente todos os modelos com conector USB-C:</p>
+
+        <ul>
+          <li>iPad Pro 11" (1ª, 2ª, 3ª e 4ª geração)</li>
+          <li>iPad Pro 12.9" (3ª, 4ª, 5ª e 6ª geração)</li>
+          <li>iPad Air (4ª e 5ª geração)</li>
+          <li>iPad mini (6ª geração)</li>
+          <li>iPad (10ª geração)</li>
+        </ul>
+
+        <p>Também atendemos modelos Lightning com falha no chip de carga — nesses casos o componente é diferente, mas o protocolo de diagnóstico é similar.</p>
+
+        <h2>Recebemos de todo o Brasil</h2>
+
+        <p>Se você está fora do Rio de Janeiro, pode nos enviar o iPad via SEDEX. Entre em contato pelo WhatsApp para receber as instruções de embalagem e o endereço de envio. Realizamos o reparo e devolvemos com laudo técnico completo e nota de serviço.</p>
+
+      </article>
+
+      <aside class="article-sidebar">
+        <div class="sidebar-card">
+          <h5>Seu iPad não liga?</h5>
+          <p>Diagnóstico gratuito. Laudo técnico incluso. 6 meses de garantia no reparo.</p>
+          <a href="https://wa.me/5521950147576?text=Olá!%20Li%20o%20artigo%20sobre%20chip%20Hydra%20do%20iPad%20e%20gostaria%20de%20um%20diagnóstico." target="_blank" class="sidebar-wa">
+            <i class="fa-brands fa-whatsapp"></i> Solicitar diagnóstico
+          </a>
+        </div>
+        <div class="sidebar-card">
+          <h5>Leia também</h5>
+          <a href="troca-de-vidro-apple-watch-preserva-tela-oled.html" class="related-post">
+            <div class="related-thumb">
+              <img src="../assets/img/laboratorio.jpg" alt="Apple Watch" loading="lazy" />
+            </div>
+            <span>Troca de Vidro Apple Watch: OLED Original</span>
+          </a>
+          <a href="macbook-molhou-recuperacao-placa-logica.html" class="related-post">
+            <div class="related-thumb">
+              <img src="../assets/img/laboratorioflash.jpg" alt="MacBook molhado" loading="lazy" />
+            </div>
+            <span>MacBook Molhado: Protocolo de Recuperação</span>
+          </a>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="cta-banner">
+      <div class="cta-banner-text">
+        <h3>iPad parado?<br /><em>Diagnóstico gratuito.</em></h3>
+        <p>Identificamos o problema antes de cobrar qualquer valor. Reparo de placa com laudo técnico e 6 meses de garantia.</p>
+      </div>
+      <a href="https://wa.me/5521950147576?text=Olá!%20Meu%20iPad%20não%20liga%20e%20gostaria%20de%20um%20diagnóstico." target="_blank" class="cta-banner-btn">
+        <i class="fa-brands fa-whatsapp"></i> Falar pelo WhatsApp agora
+      </a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="../index.html" class="logo">
+          <img src="../assets/img/logo-full.png" alt="Vitor iSolder" class="logo-img logo-img-footer" />
+        </a>
+        <p>Assistência especializada Apple em Itaguaí, RJ. Reparo de placa lógica, laudos técnicos e atendimento transparente desde 2020.</p>
+        <div class="footer-social">
+          <a href="https://instagram.com/vitor.isolder" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://youtube.com/@vitor.isolder" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          <a href="https://tiktok.com/@vitorisolder" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="https://maps.app.goo.gl/zm5rNsxPpcUqcPT39" target="_blank" aria-label="Google Maps"><i class="fa-brands fa-google"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h6>Serviços</h6>
+        <ul>
+          <li><a href="../index.html#reparo-placa">Reparo de Placa</a></li>
+          <li><a href="../index.html#reparos">Troca de Tela</a></li>
+          <li><a href="../index.html#reparos">Troca de Bateria</a></li>
+          <li><a href="../index.html#reparos">Face ID</a></li>
+          <li><a href="../index.html#reparos">Recuperação de dados</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h6>Navegação</h6>
+        <ul>
+          <li><a href="../blog.html">Blog</a></li>
+          <li><a href="../index.html#historia">Nossa história</a></li>
+          <li><a href="../index.html#porque">Por que a iSolder</a></li>
+          <li><a href="../index.html#avaliacoes">Avaliações</a></li>
+          <li><a href="../index.html#contato">Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h6>Parcerias</h6>
+        <ul>
+          <li><a href="../corporativo.html">Seja um Lojista Parceiro</a></li>
+          <li><a href="../corporativo.html">Soluções para Empresas</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>© 2025 Vitor iSolder · Itaguaí, RJ · CNPJ 41.632.649/0001-02</p>
+        <p>Empresa independente, sem vínculo com a Apple Inc.</p>
+      </div>
+      <div class="container footer-legal">
+        <a href="../politica-de-privacidade.html">Política de Privacidade</a>
+        <a href="../termos-de-uso.html">Termos de Uso</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="wa-wrap" id="waWrap">
+    <div class="wa-menu" id="waMenu">
+      <a href="https://wa.me/5521988476695?text=Olá!%20Somos%20lojistas." target="_blank" class="wa-opt">
+        <span>Lojistas & PJ</span><div class="wa-sm-btn"><i class="fa-brands fa-whatsapp"></i></div>
+      </a>
+      <a href="https://wa.me/5521950147576?text=Olá!%20Gostaria%20de%20um%20orçamento." target="_blank" class="wa-opt">
+        <span>Cliente Final</span><div class="wa-sm-btn"><i class="fa-brands fa-whatsapp"></i></div>
+      </a>
+    </div>
+    <button class="wa-btn" id="waBtn">
+      <i class="fa-brands fa-whatsapp" id="waIco"></i>
+      <i class="fa-solid fa-xmark" id="waX" style="display:none"></i>
+    </button>
+  </div>
+
+  <script src="../assets/js/main.js?v=2"></script>
+</body>
+</html>

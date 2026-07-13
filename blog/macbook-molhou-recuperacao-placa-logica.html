@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MacBook Molhado: O Protocolo Completo de Recuperação de Placa Lógica | Vitor iSolder</title>
+  <meta name="description" content="Líquido no MacBook é emergência. A velocidade e a técnica nos primeiros 30 minutos definem se a placa sobrevive. Conheça o protocolo de recuperação que usamos no lab iSolder." />
+  <link rel="canonical" href="https://www.vitorisolder.com/blog/macbook-molhou-recuperacao-placa-logica.html" />
+  <link rel="icon" href="../assets/img/logo-icon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="../assets/img/logo-icon.png" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Vitor iSolder" />
+  <meta property="og:title" content="MacBook Molhado: O Protocolo Completo de Recuperação de Placa Lógica" />
+  <meta property="og:description" content="Líquido no MacBook é emergência. A velocidade e a técnica nos primeiros 30 minutos definem se a placa sobrevive. Conheça o protocolo que usamos no lab." />
+  <meta property="og:url" content="https://www.vitorisolder.com/blog/macbook-molhou-recuperacao-placa-logica.html" />
+  <meta property="og:image" content="https://www.vitorisolder.com/assets/img/laboratorioflash.jpg" />
+  <meta property="article:author" content="Vitor Hugo" />
+  <meta property="article:published_time" content="2025-07-15" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JFD0B4B629"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-JFD0B4B629');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900;1,14..32,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="../assets/css/style.css?v=25" />
+  <style>
+:root{--y:#FFD500;--bk:#202020;--graph:#333533;--dust:#D6D6D6}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background-color:#202020;color:#fff;font-family:'Inter',sans-serif;
+  background-image:
+    linear-gradient(rgba(51,53,51,0.18) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(51,53,51,0.18) 1px,transparent 1px),
+    linear-gradient(rgba(51,53,51,0.07) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(51,53,51,0.07) 1px,transparent 1px);
+  background-size:32px 32px,32px 32px,8px 8px,8px 8px;
+  background-attachment:fixed;
+}
+.logo-img{height:90px;width:auto;display:block;mix-blend-mode:screen;filter:brightness(1.15)}
+.logo-img-footer{height:120px}
+.navbar{padding:8px 0!important;background:#202020!important}
+.navbar.scrolled{padding:4px 0!important;background:rgba(32,32,32,0.96)!important;backdrop-filter:blur(16px)}
+@media(max-width:768px){
+  .nav-links,.nav-ctas{display:none!important}
+  .hamburger{display:block!important}
+  .nav-links.open{display:flex!important;flex-direction:column;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(32,32,32,0.98);align-items:center;justify-content:center;gap:40px;z-index:800}
+}
+.breadcrumb{padding:100px 0 0;font-size:.8rem;color:var(--dust)}
+.breadcrumb a{color:var(--dust);text-decoration:none;transition:color .2s}
+.breadcrumb a:hover{color:var(--y)}
+.breadcrumb span{margin:0 8px;opacity:.4}
+.article-header{padding:32px 0 56px}
+.article-cat{display:inline-block;margin-bottom:20px;padding:4px 12px;border-radius:100px;background:#FFD500;color:#080808;font-size:.68rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;}
+.article-header h1{font-size:clamp(1.9rem,4vw,3rem);font-weight:900;line-height:1.1;letter-spacing:-.03em;color:#fff;margin-bottom:20px;max-width:800px;}
+.article-meta{display:flex;align-items:center;gap:20px;flex-wrap:wrap;font-size:.78rem;color:rgba(255,255,255,.4);margin-bottom:32px;}
+.article-meta i{font-size:.65rem;color:#FFD500}
+.article-hero-img{width:100%;border-radius:16px;overflow:hidden;aspect-ratio:21/9;background:#1a1a1a;margin-bottom:64px;}
+.article-hero-img img{width:100%;height:100%;object-fit:cover;display:block}
+.article-layout{display:grid;grid-template-columns:1fr 280px;gap:64px;align-items:start;margin-bottom:80px;}
+.article-body{max-width:720px}
+.article-body h2{font-size:1.35rem;font-weight:800;letter-spacing:-.02em;color:#fff;margin:40px 0 16px;}
+.article-body h3{font-size:1.1rem;font-weight:700;color:#fff;margin:32px 0 12px;}
+.article-body p{font-size:.95rem;color:rgba(255,255,255,.62);line-height:1.9;margin-bottom:18px;}
+.article-body strong{color:#fff}
+.article-body ul,.article-body ol{padding-left:20px;margin-bottom:18px;}
+.article-body li{font-size:.95rem;color:rgba(255,255,255,.62);line-height:1.85;margin-bottom:8px;}
+.article-body li::marker{color:#FFD500}
+.callout{background:rgba(255,213,0,0.06);border:1px solid rgba(255,213,0,0.2);border-left:3px solid #FFD500;border-radius:0 12px 12px 0;padding:20px 24px;margin:28px 0;}
+.callout.danger{background:rgba(255,80,50,0.05);border-color:rgba(255,80,50,0.2);border-left-color:#FF5032;}
+.callout p{color:rgba(255,255,255,.75)!important;margin:0}
+.callout strong{color:#FFD500!important}
+.callout.danger strong{color:#FF5032!important}
+.article-sidebar{}
+.sidebar-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:28px;margin-bottom:20px;}
+.sidebar-card h5{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:16px;}
+.sidebar-card p{font-size:.83rem;color:rgba(255,255,255,.5);line-height:1.7;margin-bottom:16px}
+.sidebar-wa{display:flex;align-items:center;gap:10px;padding:12px 16px;border-radius:10px;background:#25D366;color:#fff;font-size:.82rem;font-weight:700;text-decoration:none;transition:background .2s,transform .2s;}
+.sidebar-wa:hover{background:#1ebe5d;transform:translateY(-2px)}
+.sidebar-wa i{font-size:1rem}
+.related-post{display:flex;gap:12px;align-items:flex-start;text-decoration:none;color:inherit;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.06);transition:opacity .2s;}
+.related-post:last-child{border-bottom:none;padding-bottom:0}
+.related-post:hover{opacity:.75}
+.related-thumb{width:52px;height:52px;border-radius:8px;overflow:hidden;flex-shrink:0;background:#1a1a1a}
+.related-thumb img{width:100%;height:100%;object-fit:cover}
+.related-post span{font-size:.8rem;color:rgba(255,255,255,.65);line-height:1.4;font-weight:600}
+.cta-banner{background:linear-gradient(135deg,rgba(255,213,0,0.08) 0%,rgba(255,213,0,0.03) 100%);border:1px solid rgba(255,213,0,0.2);border-radius:20px;padding:48px 52px;display:flex;align-items:center;justify-content:space-between;gap:32px;margin-bottom:80px;flex-wrap:wrap;}
+.cta-banner-text h3{font-size:1.6rem;font-weight:900;letter-spacing:-.02em;color:#fff;margin-bottom:8px;}
+.cta-banner-text h3 em{color:#FFD500;font-style:normal}
+.cta-banner-text p{font-size:.9rem;color:rgba(255,255,255,.5);line-height:1.7}
+.cta-banner-btn{display:inline-flex;align-items:center;gap:12px;padding:16px 32px;border-radius:14px;background:#25D366;color:#fff;font-size:.95rem;font-weight:700;text-decoration:none;white-space:nowrap;transition:background .2s,transform .2s,box-shadow .2s;}
+.cta-banner-btn:hover{background:#1ebe5d;transform:translateY(-2px);box-shadow:0 14px 40px rgba(37,211,102,0.35)}
+.cta-banner-btn i{font-size:1.1rem}
+.footer{background:#0e0e0e;border-top:1px solid rgba(255,255,255,0.07);padding:60px 0 0}
+.footer-inner{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:56px;margin-bottom:48px;align-items:start}
+.footer-brand .logo{margin-bottom:14px;display:inline-flex}
+.footer-brand>p{font-size:.84rem;color:rgba(255,255,255,0.45);line-height:1.75;max-width:300px;margin-bottom:0}
+.footer-social{display:flex;gap:10px;margin-top:20px}
+.footer-social a{width:38px;height:38px;border-radius:9px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;font-size:.95rem;color:rgba(255,255,255,0.6);transition:.2s;text-decoration:none}
+.footer-social a:hover{background:rgba(255,224,0,0.1);border-color:rgba(255,224,0,0.25);color:#FFE000}
+.footer-col h6{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:18px}
+.footer-col ul{display:flex;flex-direction:column;gap:10px;list-style:none;padding:0;margin:0}
+.footer-col a{font-size:.85rem;color:rgba(255,255,255,0.5);transition:color .2s;text-decoration:none}
+.footer-col a:hover{color:#FFE000}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.06);padding:20px 0}
+.footer-bottom-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.footer-bottom p{font-size:.75rem;color:rgba(255,255,255,0.35);margin:0}
+.footer-legal{display:flex;gap:20px;justify-content:center;padding:10px 0;margin-top:10px;border-top:1px solid rgba(255,255,255,.06)}
+.footer-legal a{font-size:.72rem;color:#a3a3a3;text-decoration:none;transition:color .2s}
+.footer-legal a:hover{color:#FFD500}
+@media(max-width:900px){.article-layout{grid-template-columns:1fr}.article-sidebar{display:none}.cta-banner{padding:32px}}
+@media(max-width:600px){.footer-inner{grid-template-columns:1fr}.cta-banner{flex-direction:column}}
+  </style>
+</head>
+<body>
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-wrap">
+      <a href="../index.html" class="logo">
+        <img src="../assets/img/logo-icon.png" alt="Vitor iSolder" class="logo-img" />
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../index.html#reparos">Reparos</a></li>
+        <li><a href="../index.html#reparo-placa">Placa Lógica</a></li>
+        <li><a href="../corporativo.html">Para Empresas</a></li>
+        <li><a href="../blog.html" style="color:#FFD500">Blog</a></li>
+        <li><a href="../index.html#porque">Por que a iSolder</a></li>
+        <li><a href="../index.html#historia">Sobre nós</a></li>
+        <li><a href="../index.html#contato">Contato</a></li>
+      </ul>
+      <div class="nav-ctas">
+        <a href="https://wa.me/5521950147576?text=Olá!%20Gostaria%20de%20um%20orçamento." target="_blank" class="btn-nav">
+          <i class="fa-brands fa-whatsapp"></i> Falar agora
+        </a>
+      </div>
+      <button class="hamburger" id="hamburger"><i class="fa-solid fa-bars" id="menuIcon"></i></button>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="../index.html">Início</a><span>/</span>
+      <a href="../blog.html">Blog</a><span>/</span>
+      MacBook Molhado — Recuperação
+    </div>
+  </div>
+
+  <section class="article-header">
+    <div class="container">
+      <span class="article-cat">Reparo de Placa</span>
+      <h1>MacBook Molhado: O Protocolo Completo de Recuperação de Placa Lógica que Usamos no Lab</h1>
+      <div class="article-meta">
+        <span><i class="fa-solid fa-user"></i> Vitor Hugo — Fundador & Técnico Especialista</span>
+        <span><i class="fa-regular fa-calendar"></i> Julho de 2025</span>
+        <span><i class="fa-regular fa-clock"></i> 8 minutos de leitura</span>
+      </div>
+    </div>
+    <div class="container">
+      <div class="article-hero-img">
+        <img src="../assets/img/laboratorioflash.jpg" alt="Laboratório iSolder com iluminação de trabalho" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="article-layout">
+      <article class="article-body">
+
+        <p>É uma das situações mais angustiantes para qualquer usuário de Mac: você derruba um copo de água, café ou suco sobre o teclado e vê o MacBook reagir de maneiras imprevisíveis — e então desligar. O coração afunda.</p>
+
+        <p>A boa notícia é que <strong>a maioria dos MacBooks molhados pode ser recuperada</strong> — desde que a resposta seja rápida e técnica. O que define se uma placa lógica sobrevive ao dano por líquido não é apenas a quantidade de líquido — é o que você faz nos primeiros 30 minutos.</p>
+
+        <div class="callout danger">
+          <p><strong>Se o seu MacBook acabou de molhar:</strong> Desligue imediatamente. Pressione e segure o botão de energia até desligar. Não tente religar para "ver se funciona". Vire o MacBook de cabeça para baixo em formato de tenda e venha ao lab o mais rápido possível.</p>
+        </div>
+
+        <h2>Por que o líquido destrói a placa lógica</h2>
+
+        <p>A placa lógica de um MacBook opera em tensões muito baixas — componentes críticos como o processador, chips de memória e controladores trabalham entre 0,7V e 3,3V. Nesse ambiente de baixa tensão, qualquer condutor estranho entre os pinos de um componente causa curto-circuito instantâneo.</p>
+
+        <p>A água pura, paradoxalmente, não conduz eletricidade bem — o problema real são os <strong>minerais e íons dissolvidos</strong> nela. Água da torneira, café, refrigerante e sucos são excelentes condutores e atacam os componentes de forma muito mais agressiva do que a água destilada.</p>
+
+        <p>O processo de destruição ocorre em etapas:</p>
+
+        <ol>
+          <li>O líquido entra pelo teclado ou pelas saídas de ar e atinge a placa lógica</li>
+          <li>Se o Mac está ligado, o líquido cria caminhos de condução entre pontos da placa que não deveriam se comunicar</li>
+          <li>Curtos de baixa resistência causam picos de corrente que "queimam" transistores e resistores</li>
+          <li>Com o Mac desligado, o processo não para — o líquido começa a oxidar os metais da placa (cobre, estanho, alumínio)</li>
+          <li>Ao longo de horas e dias, os resíduos de evaporação formam cristais condutores que continuam causando curtos mesmo sem líquido visível</li>
+        </ol>
+
+        <p>Isso explica por que alguns MacBooks "molhados" são trazidos ao lab funcionando — e param de funcionar dois dias depois. O dano não é imediato em alguns casos; é progressivo.</p>
+
+        <h2>O protocolo de recuperação da iSolder</h2>
+
+        <h3>Fase 1 — Recepção e triagem (0–15 minutos)</h3>
+
+        <p>Assim que o MacBook chega ao lab, registramos o modelo, verificamos externamente o histórico de dano e fazemos as perguntas certas: qual foi o líquido? Quanto tempo faz? O Mac chegou a ligar depois? Foram tentados reparos anteriores?</p>
+
+        <p>Abrimos o MacBook imediatamente e desconectamos a bateria antes de qualquer análise. Esse passo é crítico — mesmo com o MacBook "desligado", a bateria pode estar fornecendo corrente para a placa em standby, agravando os curtos.</p>
+
+        <h3>Fase 2 — Remoção da placa lógica e inspeção visual</h3>
+
+        <p>Retiramos a placa lógica do chassis e a posicionamos sob o microscópio. Nessa etapa, buscamos:</p>
+
+        <ul>
+          <li>Resíduos visíveis de líquido ou corrosão (manchas verdes, brancas ou escuras)</li>
+          <li>Componentes com sinais de queima (SMDs enegrecidos, capacitores com resíduo)</li>
+          <li>Trilhas oxidadas ou com material estranho entre os pads</li>
+          <li>Conectores com pinos dobrados ou corroídos</li>
+        </ul>
+
+        <h3>Fase 3 — Limpeza ultrassônica</h3>
+
+        <p>A placa entra em nosso equipamento de limpeza ultrassônica com solução isopropílica de alta pureza (IPA 99,9%). A cavitação ultrassônica cria bolhas microscópicas que implodem contra a superfície da placa, removendo resíduos de locais inacessíveis por qualquer pincel ou spray.</p>
+
+        <p>Após a limpeza ultrassônica, a placa passa por secagem em câmara aquecida a 50°C por tempo controlado — calor suficiente para eliminar umidade residual sem estressar os componentes.</p>
+
+        <h3>Fase 4 — Diagnóstico elétrico sob microscópio</h3>
+
+        <p>Com a placa limpa e seca, realizamos o diagnóstico elétrico completo. Conectamos a placa a uma fonte DC regulada com limitação de corrente — assim, se houver um curto, a fonte limita a corrente antes de causar dano adicional.</p>
+
+        <p>Rastreamos os rails de tensão um a um, medindo continuidade e resistência. Rails com baixa resistência para GND indicam curto-circuito naquele subsistema. Localizamos o componente responsável pelo curto e o identificamos via diagrama de referência (boardview).</p>
+
+        <h3>Fase 5 — Reparo dos componentes danificados</h3>
+
+        <p>Componentes com curto ou queima são substituídos com microssoldagem. Os tipos mais comuns de dano que encontramos:</p>
+
+        <ul>
+          <li><strong>Capacitores de filtro em curto</strong> — os mais comuns; causados por corrente excessiva durante o líquido. Substituição simples e de alta taxa de sucesso.</li>
+          <li><strong>MOSFETs de proteção danificados</strong> — ficam em modo de condução contínua após o curto. Requerem substituição e recalibração do rail.</li>
+          <li><strong>Chip de gerenciamento de energia (SMC/ISL)</strong> — nos casos mais graves, o controlador principal de energia sofre dano. Substituição requer rebalagem e reprogramação.</li>
+          <li><strong>Trilhas corroídas</strong> — em casos de exposição prolongada ao líquido, as trilhas de cobre podem se romper. Reparamos com jumpers de fio de 0,1mm soldados sob microscópio.</li>
+        </ul>
+
+        <h3>Fase 6 — Testes e validação</h3>
+
+        <p>Com os reparos concluídos, reconectamos a bateria e testamos o MacBook de forma progressiva:</p>
+
+        <ol>
+          <li>Verificação de todos os rails de tensão antes de ligar</li>
+          <li>Primeira inicialização com monitoramento de consumo de corrente</li>
+          <li>Verificação de todos os periféricos: Wi-Fi, Bluetooth, câmera, microfone, USB, Thunderbolt, áudio</li>
+          <li>Teste de temperatura em carga — processamento intenso por 30 minutos</li>
+          <li>Ciclo de carga da bateria para verificar o controlador de carga</li>
+          <li>Teste de teclado e trackpad</li>
+        </ol>
+
+        <h2>Taxa de sucesso e o que determina o resultado</h2>
+
+        <p>MacBooks trazidos ao lab nas primeiras horas após o contato com líquido têm taxa de recuperação significativamente maior do que aparelhos que chegam dias depois — ou que foram religados repetidamente pelo proprietário após molhar.</p>
+
+        <p>Os fatores que mais afetam o prognóstico:</p>
+
+        <ul>
+          <li><strong>Tempo até o desligamento</strong> — quanto mais rápido o Mac foi desligado após o contato, menor o dano elétrico</li>
+          <li><strong>Tipo de líquido</strong> — água é o melhor caso; refrigerante com açúcar é o pior (além dos sais minerais, o açúcar carameliza sobre os componentes)</li>
+          <li><strong>Tentativas de religar</strong> — cada vez que o Mac é ligado com líquido na placa, novos componentes são expostos a curtos</li>
+          <li><strong>Tempo de espera antes do lab</strong> — oxidação e cristalização de resíduos são progressivas</li>
+        </ul>
+
+        <div class="callout">
+          <p><strong>Sobre o seguro Apple Care+:</strong> A Apple cobre dano por líquido no Apple Care+, mas a cobertura tem uma taxa de serviço e, dependendo da extensão do dano, pode resultar em troca por aparelho refurbished — o que significa perda dos dados. O reparo de placa preserva o aparelho original e os dados sem troca.</p>
+        </div>
+
+        <h2>Recebemos MacBooks de todo o Brasil</h2>
+
+        <p>Se você está fora do Rio de Janeiro, o envio via SEDEX é viável — contanto que o MacBook esteja corretamente embalado e desligado. Entre em contato pelo WhatsApp antes de enviar para receber as instruções de embalagem segura. O tempo entre o dano e o envio impacta o resultado, então não adie a decisão.</p>
+
+      </article>
+
+      <aside class="article-sidebar">
+        <div class="sidebar-card">
+          <h5>MacBook molhado?</h5>
+          <p>Não religue. Entre em contato agora para diagnóstico gratuito e orientação de emergência.</p>
+          <a href="https://wa.me/5521950147576?text=Meu%20MacBook%20molhou%20e%20preciso%20de%20ajuda%20urgente." target="_blank" class="sidebar-wa">
+            <i class="fa-brands fa-whatsapp"></i> Contato de emergência
+          </a>
+        </div>
+        <div class="sidebar-card">
+          <h5>Leia também</h5>
+          <a href="troca-de-vidro-apple-watch-preserva-tela-oled.html" class="related-post">
+            <div class="related-thumb">
+              <img src="../assets/img/laboratorio.jpg" alt="Apple Watch" loading="lazy" />
+            </div>
+            <span>Troca de Vidro Apple Watch: OLED Original</span>
+          </a>
+          <a href="ipad-nao-liga-falha-chip-carga-hydra.html" class="related-post">
+            <div class="related-thumb">
+              <img src="../assets/img/bancada.jpg" alt="iPad não liga" loading="lazy" />
+            </div>
+            <span>iPad Não Liga: Chip de Carga Hydra</span>
+          </a>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="cta-banner">
+      <div class="cta-banner-text">
+        <h3>MacBook molhou?<br /><em>Cada minuto importa.</em></h3>
+        <p>Diagnóstico gratuito, protocolo completo de recuperação e 6 meses de garantia no reparo. Atendemos de todo o Brasil.</p>
+      </div>
+      <a href="https://wa.me/5521950147576?text=Meu%20MacBook%20molhou%20e%20preciso%20de%20ajuda%20urgente." target="_blank" class="cta-banner-btn">
+        <i class="fa-brands fa-whatsapp"></i> Falar agora pelo WhatsApp
+      </a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="../index.html" class="logo">
+          <img src="../assets/img/logo-full.png" alt="Vitor iSolder" class="logo-img logo-img-footer" />
+        </a>
+        <p>Assistência especializada Apple em Itaguaí, RJ. Reparo de placa lógica, laudos técnicos e atendimento transparente desde 2020.</p>
+        <div class="footer-social">
+          <a href="https://instagram.com/vitor.isolder" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://youtube.com/@vitor.isolder" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          <a href="https://tiktok.com/@vitorisolder" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="https://maps.app.goo.gl/zm5rNsxPpcUqcPT39" target="_blank" aria-label="Google Maps"><i class="fa-brands fa-google"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h6>Serviços</h6>
+        <ul>
+          <li><a href="../index.html#reparo-placa">Reparo de Placa</a></li>
+          <li><a href="../index.html#reparos">Troca de Tela</a></li>
+          <li><a href="../index.html#reparos">Troca de Bateria</a></li>
+          <li><a href="../index.html#reparos">Face ID</a></li>
+          <li><a href="../index.html#reparos">Recuperação de dados</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h6>Navegação</h6>
+        <ul>
+          <li><a href="../blog.html">Blog</a></li>
+          <li><a href="../index.html#historia">Nossa história</a></li>
+          <li><a href="../index.html#porque">Por que a iSolder</a></li>
+          <li><a href="../index.html#avaliacoes">Avaliações</a></li>
+          <li><a href="../index.html#contato">Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h6>Parcerias</h6>
+        <ul>
+          <li><a href="../corporativo.html">Seja um Lojista Parceiro</a></li>
+          <li><a href="../corporativo.html">Soluções para Empresas</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>© 2025 Vitor iSolder · Itaguaí, RJ · CNPJ 41.632.649/0001-02</p>
+        <p>Empresa independente, sem vínculo com a Apple Inc.</p>
+      </div>
+      <div class="container footer-legal">
+        <a href="../politica-de-privacidade.html">Política de Privacidade</a>
+        <a href="../termos-de-uso.html">Termos de Uso</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="wa-wrap" id="waWrap">
+    <div class="wa-menu" id="waMenu">
+      <a href="https://wa.me/5521988476695?text=Olá!%20Somos%20lojistas." target="_blank" class="wa-opt">
+        <span>Lojistas & PJ</span><div class="wa-sm-btn"><i class="fa-brands fa-whatsapp"></i></div>
+      </a>
+      <a href="https://wa.me/5521950147576?text=Olá!%20Gostaria%20de%20um%20orçamento." target="_blank" class="wa-opt">
+        <span>Cliente Final</span><div class="wa-sm-btn"><i class="fa-brands fa-whatsapp"></i></div>
+      </a>
+    </div>
+    <button class="wa-btn" id="waBtn">
+      <i class="fa-brands fa-whatsapp" id="waIco"></i>
+      <i class="fa-solid fa-xmark" id="waX" style="display:none"></i>
+    </button>
+  </div>
+
+  <script src="../assets/js/main.js?v=2"></script>
+</body>
+</html>

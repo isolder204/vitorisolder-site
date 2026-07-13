@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog | Vitor iSolder — Microssoldagem e Engenharia Apple</title>
+  <meta name="description" content="Bastidores do laboratório: artigos técnicos sobre reparo de placa lógica, troca de vidro, diagnósticos avançados em iPhone, iPad, MacBook e Apple Watch." />
+  <link rel="icon" href="assets/img/logo-icon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="assets/img/logo-icon.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Vitor iSolder" />
+  <meta property="og:title" content="Blog | Vitor iSolder — Microssoldagem e Engenharia Apple" />
+  <meta property="og:description" content="Bastidores do laboratório: artigos técnicos sobre reparo de placa lógica, troca de vidro e diagnósticos avançados em dispositivos Apple." />
+  <meta property="og:url" content="https://www.vitorisolder.com/blog.html" />
+  <meta property="og:image" content="https://www.vitorisolder.com/assets/img/laboratorio.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JFD0B4B629"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-JFD0B4B629');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900;1,14..32,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css?v=25" />
+  <style>
+:root{--y:#FFD500;--bk:#202020;--graph:#333533;--dust:#D6D6D6;--w:#fff;--w50:rgba(255,255,255,0.5);--w08:rgba(255,255,255,0.08)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background-color:#202020;color:#fff;font-family:'Inter',sans-serif;
+  background-image:
+    linear-gradient(rgba(51,53,51,0.18) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(51,53,51,0.18) 1px,transparent 1px),
+    linear-gradient(rgba(51,53,51,0.07) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(51,53,51,0.07) 1px,transparent 1px);
+  background-size:32px 32px,32px 32px,8px 8px,8px 8px;
+  background-attachment:fixed;
+}
+
+/* NAV */
+.logo-img{height:90px;width:auto;display:block;mix-blend-mode:screen;filter:brightness(1.15)}
+.logo-img-footer{height:120px}
+.navbar{padding:8px 0!important;background:#202020!important}
+.navbar.scrolled{padding:4px 0!important;background:rgba(32,32,32,0.96)!important;backdrop-filter:blur(16px)}
+@media(max-width:768px){
+  .nav-links,.nav-ctas{display:none!important}
+  .hamburger{display:block!important}
+  .nav-links.open{display:flex!important;flex-direction:column;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(32,32,32,0.98);align-items:center;justify-content:center;gap:40px;z-index:800}
+}
+
+/* BREADCRUMB */
+.breadcrumb{padding:100px 0 0;font-size:.8rem;color:var(--dust)}
+.breadcrumb a{color:var(--dust);text-decoration:none;transition:color .2s}
+.breadcrumb a:hover{color:var(--y)}
+.breadcrumb span{margin:0 8px;opacity:.4}
+
+/* BLOG HERO */
+.blog-hero{padding:32px 0 64px}
+.blog-hero-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:5px 14px;border-radius:100px;
+  background:rgba(255,213,0,0.08);border:1px solid rgba(255,213,0,0.2);
+  font-size:.7rem;font-weight:700;color:#FFD500;
+  letter-spacing:.1em;text-transform:uppercase;margin-bottom:24px;
+}
+.blog-hero h1{
+  font-size:clamp(2.4rem,4.5vw,3.8rem);font-weight:900;line-height:1.05;
+  letter-spacing:-.03em;color:#fff;margin-bottom:16px;
+}
+.blog-hero h1 em{color:#FFD500;font-style:normal}
+.blog-hero p{font-size:1rem;color:rgba(255,255,255,.5);max-width:600px;line-height:1.8}
+
+/* FEATURED POST */
+.featured-post{
+  display:grid;grid-template-columns:1fr 1fr;gap:0;
+  border-radius:20px;overflow:hidden;
+  border:1px solid rgba(255,255,255,0.08);
+  background:rgba(255,255,255,0.04);
+  margin-bottom:72px;
+  transition:border-color .3s,box-shadow .3s;
+  text-decoration:none;color:inherit;
+}
+.featured-post:hover{
+  border-color:rgba(255,213,0,0.35);
+  box-shadow:0 16px 48px rgba(0,0,0,.4),0 0 0 1px rgba(255,213,0,0.15);
+}
+.featured-img{
+  position:relative;overflow:hidden;min-height:400px;
+  background:linear-gradient(135deg,#1a1a1a 0%,#2a2a2a 100%);
+}
+.featured-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+.featured-post:hover .featured-img img{transform:scale(1.04)}
+.featured-img-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(90deg,transparent 60%,rgba(32,32,32,0.6) 100%);
+}
+.featured-body{
+  padding:48px 52px;display:flex;flex-direction:column;justify-content:center;
+}
+.featured-cat{
+  display:inline-block;margin-bottom:20px;
+  padding:4px 12px;border-radius:100px;
+  background:#FFD500;color:#080808;
+  font-size:.68rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
+}
+.featured-label{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:.68rem;font-weight:700;color:#FFD500;
+  letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px;
+}
+.featured-label i{font-size:.6rem}
+.featured-body h2{
+  font-size:clamp(1.5rem,2.5vw,2rem);font-weight:800;line-height:1.2;
+  letter-spacing:-.02em;color:#fff;margin-bottom:16px;
+}
+.featured-body p{
+  font-size:.9rem;color:rgba(255,255,255,.5);line-height:1.8;margin-bottom:28px;
+}
+.featured-meta{
+  display:flex;align-items:center;gap:16px;
+  font-size:.75rem;color:rgba(255,255,255,.35);margin-bottom:28px;
+}
+.featured-meta i{font-size:.65rem}
+.featured-read{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:.82rem;font-weight:700;color:#FFD500;
+  text-decoration:none;transition:gap .2s;
+}
+.featured-post:hover .featured-read{gap:14px}
+
+/* GRID */
+.blog-section-title{
+  font-size:.7rem;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;color:rgba(255,255,255,.4);
+  margin-bottom:28px;padding-bottom:12px;
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.blog-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:24px;margin-bottom:64px;
+}
+.post-card{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:16px;overflow:hidden;
+  text-decoration:none;color:inherit;
+  display:flex;flex-direction:column;
+  transition:border-color .3s,box-shadow .3s,transform .3s;
+}
+.post-card:hover{
+  border-color:rgba(255,213,0,0.3);
+  box-shadow:0 12px 40px rgba(0,0,0,.35);
+  transform:translateY(-4px);
+}
+.post-thumb{overflow:hidden;aspect-ratio:16/9;background:#1a1a1a}
+.post-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .45s ease}
+.post-card:hover .post-thumb img{transform:scale(1.06)}
+.post-body{padding:24px;display:flex;flex-direction:column;flex:1}
+.post-cat{
+  display:inline-block;margin-bottom:12px;
+  padding:3px 10px;border-radius:100px;
+  background:#FFD500;color:#080808;
+  font-size:.62rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
+  width:fit-content;
+}
+.post-body h3{
+  font-size:1rem;font-weight:700;line-height:1.35;
+  letter-spacing:-.01em;color:#fff;margin-bottom:10px;
+}
+.post-body p{font-size:.82rem;color:rgba(255,255,255,.45);line-height:1.7;margin-bottom:16px;flex:1}
+.post-meta{
+  display:flex;align-items:center;gap:12px;
+  font-size:.7rem;color:rgba(255,255,255,.3);margin-top:auto;
+  padding-top:14px;border-top:1px solid rgba(255,255,255,.06);
+}
+.post-meta i{font-size:.6rem}
+
+/* FOOTER */
+.footer{background:#0e0e0e;border-top:1px solid rgba(255,255,255,0.07);padding:60px 0 0}
+.footer-inner{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:56px;margin-bottom:48px;align-items:start}
+.footer-brand .logo{margin-bottom:14px;display:inline-flex}
+.footer-brand>p{font-size:.84rem;color:rgba(255,255,255,0.45);line-height:1.75;max-width:300px;margin-bottom:0}
+.footer-social{display:flex;gap:10px;margin-top:20px}
+.footer-social a{width:38px;height:38px;border-radius:9px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;font-size:.95rem;color:rgba(255,255,255,0.6);transition:.2s;text-decoration:none}
+.footer-social a:hover{background:rgba(255,224,0,0.1);border-color:rgba(255,224,0,0.25);color:#FFE000}
+.footer-col h6{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:18px}
+.footer-col ul{display:flex;flex-direction:column;gap:10px;list-style:none;padding:0;margin:0}
+.footer-col a{font-size:.85rem;color:rgba(255,255,255,0.5);transition:color .2s;text-decoration:none}
+.footer-col a:hover{color:#FFE000}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.06);padding:20px 0}
+.footer-bottom-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.footer-bottom p{font-size:.75rem;color:rgba(255,255,255,0.35);margin:0}
+.footer-legal{display:flex;gap:20px;justify-content:center;padding:10px 0;margin-top:10px;border-top:1px solid rgba(255,255,255,.06)}
+.footer-legal a{font-size:.72rem;color:#a3a3a3;text-decoration:none;transition:color .2s}
+.footer-legal a:hover{color:#FFD500}
+
+@media(max-width:900px){
+  .featured-post{grid-template-columns:1fr}
+  .featured-img{min-height:240px}
+  .featured-img-overlay{display:none}
+  .featured-body{padding:32px}
+  .blog-grid{grid-template-columns:1fr 1fr}
+  .footer-inner{grid-template-columns:1fr 1fr;gap:36px}
+}
+@media(max-width:600px){
+  .blog-grid{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr}
+}
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-wrap">
+      <a href="index.html" class="logo">
+        <img src="assets/img/logo-icon.png" alt="Vitor iSolder" class="logo-img" />
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#reparos">Reparos</a></li>
+        <li><a href="index.html#reparo-placa">Placa Lógica</a></li>
+        <li><a href="corporativo.html">Para Empresas</a></li>
+        <li><a href="blog.html" style="color:#FFD500">Blog</a></li>
+        <li><a href="index.html#porque">Por que a iSolder</a></li>
+        <li><a href="index.html#historia">Sobre nós</a></li>
+        <li><a href="index.html#contato">Contato</a></li>
+      </ul>
+      <div class="nav-ctas">
+        <a href="https://wa.me/5521950147576?text=Olá!%20Gostaria%20de%20um%20orçamento." target="_blank" class="btn-nav">
+          <i class="fa-brands fa-whatsapp"></i> Falar agora
+        </a>
+      </div>
+      <button class="hamburger" id="hamburger"><i class="fa-solid fa-bars" id="menuIcon"></i></button>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="index.html">Início</a><span>/</span>Blog
+    </div>
+  </div>
+
+  <!-- BLOG HERO -->
+  <section class="blog-hero">
+    <div class="container">
+      <div class="blog-hero-eyebrow"><i class="fa-solid fa-flask-vial"></i> Bastidores do Laboratório</div>
+      <h1>Engenharia Apple<br />na prática, <em>a fundo.</em></h1>
+      <p>Artigos técnicos escritos pelos próprios técnicos. Aqui você entende como de fato funciona o hardware Apple — e por que o reparo correto faz toda a diferença.</p>
+    </div>
+  </section>
+
+  <!-- FEATURED POST -->
+  <div class="container">
+    <a href="blog/troca-de-vidro-apple-watch-preserva-tela-oled.html" class="featured-post">
+      <div class="featured-img">
+        <img src="assets/img/laboratorio.jpg" alt="Troca de Vidro Apple Watch" loading="lazy" />
+        <div class="featured-img-overlay"></div>
+      </div>
+      <div class="featured-body">
+        <span class="featured-cat">Troca de Vidro</span>
+        <div class="featured-label"><i class="fa-solid fa-star"></i> Artigo em destaque</div>
+        <h2>Troca de Vidro do Apple Watch: Por Que Preservar a Tela OLED Original Faz Toda a Diferença</h2>
+        <p>A maioria das assistências simplesmente troca o conjunto inteiro. Nós extraímos só o vidro trincado e mantemos a tela de fábrica — e esse detalhe muda completamente a experiência do seu relógio.</p>
+        <div class="featured-meta">
+          <span><i class="fa-solid fa-user"></i> Vitor Hugo</span>
+          <span><i class="fa-regular fa-calendar"></i> Julho 2025</span>
+          <span><i class="fa-regular fa-clock"></i> 6 min de leitura</span>
+        </div>
+        <span class="featured-read">Ler artigo completo <i class="fa-solid fa-arrow-right"></i></span>
+      </div>
+    </a>
+
+    <!-- GRID ARTICLES -->
+    <p class="blog-section-title">Todos os artigos</p>
+    <div class="blog-grid">
+      <a href="blog/troca-de-vidro-apple-watch-preserva-tela-oled.html" class="post-card">
+        <div class="post-thumb">
+          <img src="assets/img/laboratorio.jpg" alt="Troca de Vidro Apple Watch" loading="lazy" />
+        </div>
+        <div class="post-body">
+          <span class="post-cat">Troca de Vidro</span>
+          <h3>Troca de Vidro do Apple Watch: Por Que Preservar a Tela OLED Original Faz Toda a Diferença</h3>
+          <p>Extraímos apenas o vidro, mantendo a tela OLED de fábrica. Entenda o processo e por que ele vale mais.</p>
+          <div class="post-meta">
+            <span><i class="fa-regular fa-calendar"></i> Jul 2025</span>
+            <span><i class="fa-regular fa-clock"></i> 6 min</span>
+          </div>
+        </div>
+      </a>
+      <a href="blog/ipad-nao-liga-falha-chip-carga-hydra.html" class="post-card">
+        <div class="post-thumb">
+          <img src="assets/img/bancada.jpg" alt="iPad não liga — chip de carga Hydra" loading="lazy" />
+        </div>
+        <div class="post-body">
+          <span class="post-cat">Reparo de Placa</span>
+          <h3>iPad Não Liga: Como Identificamos e Substituímos o Chip de Carga Hydra</h3>
+          <p>iPad que não carrega e não liga é diagnóstico corriqueiro aqui no lab. Na maioria dos casos, o culpado é o chip Hydra.</p>
+          <div class="post-meta">
+            <span><i class="fa-regular fa-calendar"></i> Jul 2025</span>
+            <span><i class="fa-regular fa-clock"></i> 7 min</span>
+          </div>
+        </div>
+      </a>
+      <a href="blog/macbook-molhou-recuperacao-placa-logica.html" class="post-card">
+        <div class="post-thumb">
+          <img src="assets/img/laboratorioflash.jpg" alt="MacBook molhado — recuperação de placa lógica" loading="lazy" />
+        </div>
+        <div class="post-body">
+          <span class="post-cat">Reparo de Placa</span>
+          <h3>MacBook Molhado: O Protocolo Completo de Recuperação de Placa Lógica que Usamos no Lab</h3>
+          <p>Líquido no MacBook é emergência. A velocidade e a técnica nos primeiros 30 minutos definem se a placa sobrevive.</p>
+          <div class="post-meta">
+            <span><i class="fa-regular fa-calendar"></i> Jul 2025</span>
+            <span><i class="fa-regular fa-clock"></i> 8 min</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <img src="assets/img/logo-full.png" alt="Vitor iSolder" class="logo-img logo-img-footer" />
+        </a>
+        <p>Assistência especializada Apple em Itaguaí, RJ. Reparo de placa lógica, laudos técnicos e atendimento transparente desde 2020.</p>
+        <div class="footer-social">
+          <a href="https://instagram.com/vitor.isolder" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://youtube.com/@vitor.isolder" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          <a href="https://tiktok.com/@vitorisolder" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="https://maps.app.goo.gl/zm5rNsxPpcUqcPT39" target="_blank" aria-label="Google Maps"><i class="fa-brands fa-google"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h6>Serviços</h6>
+        <ul>
+          <li><a href="index.html#reparo-placa">Reparo de Placa</a></li>
+          <li><a href="index.html#reparos">Troca de Tela</a></li>
+          <li><a href="index.html#reparos">Troca de Bateria</a></li>
+          <li><a href="index.html#reparos">Face ID</a></li>
+          <li><a href="index.html#reparos">Recuperação de dados</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h6>Navegação</h6>
+        <ul>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="index.html#historia">Nossa história</a></li>
+          <li><a href="index.html#porque">Por que a iSolder</a></li>
+          <li><a href="index.html#avaliacoes">Avaliações</a></li>
+          <li><a href="index.html#contato">Contato</a></li>
+          <li><a href="https://www.reclameaqui.com.br/empresa/41-632-649-vitor-hugo-silva-de-souza/sobre/" target="_blank">Reclame Aqui</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h6>Parcerias</h6>
+        <ul>
+          <li><a href="corporativo.html">Seja um Lojista Parceiro</a></li>
+          <li><a href="corporativo.html">Soluções para Empresas</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>© 2025 Vitor iSolder · Itaguaí, RJ · CNPJ 41.632.649/0001-02</p>
+        <p>Empresa independente, sem vínculo com a Apple Inc.</p>
+      </div>
+      <div class="container footer-legal">
+        <a href="politica-de-privacidade.html">Política de Privacidade</a>
+        <a href="termos-de-uso.html">Termos de Uso</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WA FLOAT -->
+  <div class="wa-wrap" id="waWrap">
+    <div class="wa-menu" id="waMenu">
+      <a href="https://wa.me/5521988476695?text=Olá!%20Somos%20lojistas." target="_blank" class="wa-opt">
+        <span>Lojistas & PJ</span>
+        <div class="wa-sm-btn"><i class="fa-brands fa-whatsapp"></i></div>
+      </a>
+      <a href="https://wa.me/5521950147576?text=Olá!%20Gostaria%20de%20um%20orçamento." target="_blank" class="wa-opt">
+        <span>Cliente Final</span>
+        <div class="wa-sm-btn"><i class="fa-brands fa-whatsapp"></i></div>
+      </a>
+    </div>
+    <button class="wa-btn" id="waBtn">
+      <i class="fa-brands fa-whatsapp" id="waIco"></i>
+      <i class="fa-solid fa-xmark" id="waX" style="display:none"></i>
+    </button>
+  </div>
+
+  <script src="assets/js/main.js?v=2"></script>
+</body>
+</html>
