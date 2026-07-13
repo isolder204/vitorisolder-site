@@ -417,7 +417,7 @@ body{
         <li><a href="#reparos">Reparos</a></li>
         <li><a href="#reparo-placa">Placa Lógica</a></li>
         <li><a href="corporativo.html">Para Empresas</a></li>
-        <li><a href="blog.html">Blog</a></li>
+        <li><a href="blog.html">Conteúdo</a></li>
         <li><a href="#porque">Por que a iSolder</a></li>
         <li><a href="#historia">Sobre nós</a></li>
         <li><a href="#avaliacoes">Avaliações</a></li>
@@ -973,58 +973,88 @@ body{
   </section>
 
   <!-- ==============================
-       BASTIDORES DO LABORATÓRIO (BLOG)
+       CENTRAL DE CONTEÚDO
   =============================== -->
-  <section class="section" style="background:#202020;padding:80px 0">
+  <section id="conteudo" style="background:#161616;border-top:1px solid rgba(255,255,255,0.06);padding:72px 0 80px">
     <div class="container">
-      <div class="section-header reveal" style="margin-bottom:48px">
-        <span class="eyebrow">Bastidores do Laboratório</span>
-        <h2 style="color:#fff">Engenharia Apple<br />na prática, <em style="color:#FFD500;font-style:normal">a fundo.</em></h2>
-        <p class="section-sub">Artigos técnicos escritos pelos próprios técnicos. Aqui você entende como de fato funciona o hardware Apple.</p>
-      </div>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:40px" class="blog-home-grid">
-        <a href="blog/troca-de-vidro-apple-watch-preserva-tela-oled.html" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:border-color .3s,box-shadow .3s,transform .3s" class="blog-home-card reveal">
-          <div style="overflow:hidden;aspect-ratio:16/9;background:#1a1a1a">
-            <img src="assets/img/laboratorio.jpg" alt="Troca de Vidro Apple Watch" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .45s ease" />
-          </div>
-          <div style="padding:24px;display:flex;flex-direction:column;flex:1">
-            <span style="display:inline-block;margin-bottom:12px;padding:3px 10px;border-radius:100px;background:#FFD500;color:#080808;font-size:.62rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;width:fit-content">Troca de Vidro</span>
-            <h3 style="font-size:1rem;font-weight:700;line-height:1.35;color:#fff;margin-bottom:10px">Troca de Vidro do Apple Watch: Por Que Preservar a Tela OLED Original Faz Toda a Diferença</h3>
-            <p style="font-size:.82rem;color:rgba(255,255,255,.45);line-height:1.7;margin-bottom:0">Extraímos apenas o vidro, mantendo a tela OLED de fábrica. Entenda o processo e por que ele vale mais.</p>
-          </div>
-        </a>
-        <a href="blog/ipad-nao-liga-falha-chip-carga-hydra.html" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:border-color .3s,box-shadow .3s,transform .3s" class="blog-home-card reveal">
-          <div style="overflow:hidden;aspect-ratio:16/9;background:#1a1a1a">
-            <img src="assets/img/bancada.jpg" alt="iPad não liga — chip Hydra" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .45s ease" />
-          </div>
-          <div style="padding:24px;display:flex;flex-direction:column;flex:1">
-            <span style="display:inline-block;margin-bottom:12px;padding:3px 10px;border-radius:100px;background:#FFD500;color:#080808;font-size:.62rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;width:fit-content">Reparo de Placa</span>
-            <h3 style="font-size:1rem;font-weight:700;line-height:1.35;color:#fff;margin-bottom:10px">iPad Não Liga: Como Identificamos e Substituímos o Chip de Carga Hydra</h3>
-            <p style="font-size:.82rem;color:rgba(255,255,255,.45);line-height:1.7;margin-bottom:0">iPad que não carrega e não liga tem diagnóstico certo. Na maioria dos casos, o culpado é o chip Hydra.</p>
-          </div>
-        </a>
-        <a href="blog/macbook-molhou-recuperacao-placa-logica.html" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:border-color .3s,box-shadow .3s,transform .3s" class="blog-home-card reveal">
-          <div style="overflow:hidden;aspect-ratio:16/9;background:#1a1a1a">
-            <img src="assets/img/laboratorioflash.jpg" alt="MacBook molhado" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .45s ease" />
-          </div>
-          <div style="padding:24px;display:flex;flex-direction:column;flex:1">
-            <span style="display:inline-block;margin-bottom:12px;padding:3px 10px;border-radius:100px;background:#FFD500;color:#080808;font-size:.62rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;width:fit-content">Reparo de Placa</span>
-            <h3 style="font-size:1rem;font-weight:700;line-height:1.35;color:#fff;margin-bottom:10px">MacBook Molhado: O Protocolo Completo de Recuperação de Placa Lógica</h3>
-            <p style="font-size:.82rem;color:rgba(255,255,255,.45);line-height:1.7;margin-bottom:0">A velocidade e a técnica nos primeiros 30 minutos definem se a placa sobrevive.</p>
-          </div>
+
+      <!-- Cabeçalho compacto -->
+      <div class="reveal" style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:48px;flex-wrap:wrap">
+        <div>
+          <span style="display:inline-block;margin-bottom:10px;font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.35)">Central de Conteúdo</span>
+          <h2 style="font-size:clamp(1.5rem,2.8vw,2rem);font-weight:800;letter-spacing:-.02em;color:#fff;line-height:1.15;margin-bottom:10px">Conhecimento técnico<br />de quem faz o reparo.</h2>
+          <p style="font-size:.85rem;color:rgba(255,255,255,.4);line-height:1.75;max-width:480px;margin:0">Dicas, curiosidades e explicações sobre o universo Apple — produzidas pelos próprios técnicos do laboratório.</p>
+        </div>
+        <a href="blog.html" style="display:inline-flex;align-items:center;gap:8px;font-size:.8rem;font-weight:600;color:rgba(255,255,255,.45);text-decoration:none;white-space:nowrap;transition:color .2s;flex-shrink:0" class="conteudo-ver-todos">
+          Ver todos os artigos <i class="fa-solid fa-arrow-right" style="font-size:.7rem"></i>
         </a>
       </div>
-      <div style="text-align:center">
-        <a href="blog.html" class="btn btn-ghost btn-lg reveal">
-          <i class="fa-solid fa-book-open"></i> Ver todos os artigos
+
+      <!-- Grid de artigos -->
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:40px" class="conteudo-grid">
+
+        <!-- Artigo 1 -->
+        <div class="conteudo-card reveal" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:border-color .28s,box-shadow .28s">
+          <div style="overflow:hidden;aspect-ratio:16/9;background:#1a1a1a;flex-shrink:0">
+            <img src="assets/img/laboratorio.jpg" alt="Troca de Vidro Apple Watch" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .45s ease" class="conteudo-img" />
+          </div>
+          <div style="padding:22px 24px 24px;display:flex;flex-direction:column;flex:1">
+            <span style="font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#FFD500;margin-bottom:10px;display:block">Troca de Vidro</span>
+            <h3 style="font-size:.92rem;font-weight:700;line-height:1.4;color:#fff;margin-bottom:8px;flex:1">Troca de Vidro do Apple Watch: Por Que Preservar a Tela OLED Original Faz Toda a Diferença</h3>
+            <p style="font-size:.78rem;color:rgba(255,255,255,.38);line-height:1.7;margin-bottom:18px">Extraímos apenas o vidro danificado e mantemos a tela de fábrica — e esse detalhe muda tudo.</p>
+            <a href="blog/troca-de-vidro-apple-watch-preserva-tela-oled.html" style="display:inline-flex;align-items:center;gap:7px;font-size:.75rem;font-weight:700;color:#FFD500;text-decoration:none;transition:gap .2s" class="conteudo-link">
+              Ler artigo <i class="fa-solid fa-arrow-right" style="font-size:.65rem"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Artigo 2 -->
+        <div class="conteudo-card reveal" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:border-color .28s,box-shadow .28s">
+          <div style="overflow:hidden;aspect-ratio:16/9;background:#1a1a1a;flex-shrink:0">
+            <img src="assets/img/bancada.jpg" alt="iPad não liga — chip Hydra" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .45s ease" class="conteudo-img" />
+          </div>
+          <div style="padding:22px 24px 24px;display:flex;flex-direction:column;flex:1">
+            <span style="font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#FFD500;margin-bottom:10px;display:block">Reparo de Placa</span>
+            <h3 style="font-size:.92rem;font-weight:700;line-height:1.4;color:#fff;margin-bottom:8px;flex:1">iPad Não Liga: Como Identificamos e Substituímos o Chip de Carga Hydra</h3>
+            <p style="font-size:.78rem;color:rgba(255,255,255,.38);line-height:1.7;margin-bottom:18px">Na maioria dos casos de iPad sem resposta ao carregador, o culpado é o chip Hydra — e tem solução.</p>
+            <a href="blog/ipad-nao-liga-falha-chip-carga-hydra.html" style="display:inline-flex;align-items:center;gap:7px;font-size:.75rem;font-weight:700;color:#FFD500;text-decoration:none;transition:gap .2s" class="conteudo-link">
+              Ler artigo <i class="fa-solid fa-arrow-right" style="font-size:.65rem"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Artigo 3 -->
+        <div class="conteudo-card reveal" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:border-color .28s,box-shadow .28s">
+          <div style="overflow:hidden;aspect-ratio:16/9;background:#1a1a1a;flex-shrink:0">
+            <img src="assets/img/laboratorioflash.jpg" alt="MacBook molhado — recuperação de placa lógica" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .45s ease" class="conteudo-img" />
+          </div>
+          <div style="padding:22px 24px 24px;display:flex;flex-direction:column;flex:1">
+            <span style="font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#FFD500;margin-bottom:10px;display:block">Reparo de Placa</span>
+            <h3 style="font-size:.92rem;font-weight:700;line-height:1.4;color:#fff;margin-bottom:8px;flex:1">MacBook Molhado: O Protocolo Completo de Recuperação de Placa Lógica</h3>
+            <p style="font-size:.78rem;color:rgba(255,255,255,.38);line-height:1.7;margin-bottom:18px">A velocidade e a técnica nos primeiros 30 minutos definem se a placa sobrevive ao contato com líquido.</p>
+            <a href="blog/macbook-molhou-recuperacao-placa-logica.html" style="display:inline-flex;align-items:center;gap:7px;font-size:.75rem;font-weight:700;color:#FFD500;text-decoration:none;transition:gap .2s" class="conteudo-link">
+              Ler artigo <i class="fa-solid fa-arrow-right" style="font-size:.65rem"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- CTA inferior centralizado -->
+      <div class="reveal" style="text-align:center">
+        <a href="blog.html" class="btn btn-ghost">
+          Ver todos os artigos <i class="fa-solid fa-arrow-right" style="font-size:.7rem"></i>
         </a>
       </div>
+
     </div>
   </section>
   <style>
-  .blog-home-card:hover{border-color:rgba(255,213,0,0.3)!important;box-shadow:0 12px 40px rgba(0,0,0,.35)!important;transform:translateY(-4px)!important}
-  .blog-home-card:hover img{transform:scale(1.06)!important}
-  @media(max-width:768px){.blog-home-grid{grid-template-columns:1fr!important}}
+  .conteudo-card:hover{border-color:rgba(255,213,0,0.22)!important;box-shadow:0 8px 32px rgba(0,0,0,.4)!important}
+  .conteudo-card:hover .conteudo-img{transform:scale(1.05)!important}
+  .conteudo-card:hover .conteudo-link{gap:12px!important}
+  .conteudo-ver-todos:hover{color:#FFD500!important}
+  @media(max-width:768px){.conteudo-grid{grid-template-columns:1fr!important}.conteudo-ver-todos{display:none!important}}
   </style>
 
   <!-- ==============================
@@ -1057,7 +1087,7 @@ body{
       <div class="footer-col">
         <h6>Navegação</h6>
         <ul>
-          <li><a href="blog.html">Blog</a></li>
+          <li><a href="blog.html">Conteúdo</a></li>
           <li><a href="#historia">Nossa história</a></li>
           <li><a href="#porque">Por que a iSolder</a></li>
           <li><a href="#avaliacoes">Avaliações</a></li>
