@@ -107,100 +107,62 @@ body{
 .btn-b2b-ghost:hover{border-color:rgba(255,255,255,0.4);color:#fff}
 .hero-ctas{display:flex;align-items:center;flex-wrap:wrap;gap:12px}
 
-/* FLEET MOCKUP */
+/* HERO RIGHT — FOTO LAB */
 .hero-b2b-right{
   display:flex;align-items:center;justify-content:center;
   position:relative;
 }
 .fleet-visual{
-  position:relative;width:100%;max-width:480px;
+  position:relative;width:100%;max-width:520px;
   aspect-ratio:4/3;
 }
 .fleet-glow{
   position:absolute;inset:-20%;
-  background:radial-gradient(circle at 50% 50%,rgba(255,213,0,0.07) 0%,transparent 70%);
-  pointer-events:none;
+  background:radial-gradient(circle at 50% 50%,rgba(255,213,0,0.09) 0%,transparent 68%);
+  pointer-events:none;z-index:0;
 }
-/* MacBook mockup */
-.mac-wrap{
-  position:absolute;top:5%;left:0;right:10%;
+.lab-photo-wrap{
+  position:absolute;inset:0;border-radius:20px;overflow:hidden;
+  border:1px solid rgba(255,255,255,0.08);
+  box-shadow:0 32px 80px rgba(0,0,0,0.6),0 0 0 1px rgba(255,255,255,0.04);
+  z-index:1;
 }
-.mac-frame{
-  width:100%;background:#1a1a1a;
-  border:2px solid #3a3a3a;border-radius:10px 10px 0 0;
-  padding:8px 8px 0;
-  box-shadow:0 24px 80px rgba(0,0,0,0.6),0 0 0 1px rgba(255,255,255,0.04);
+.lab-photo-img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  filter:brightness(.85) saturate(.9);
 }
-.mac-notch{
-  width:10px;height:10px;background:#2a2a2a;border-radius:50%;
-  margin:0 auto 6px;
+.lab-photo-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(160deg,rgba(20,20,20,0.35) 0%,rgba(20,20,20,0.1) 60%,rgba(20,20,20,0.55) 100%);
 }
-.mac-screen{
-  background:linear-gradient(135deg,#1c1c1e 0%,#2c2c2e 100%);
-  border-radius:6px;aspect-ratio:16/10;
-  display:flex;align-items:center;justify-content:center;
-  overflow:hidden;position:relative;
-}
-.mac-screen-content{
-  display:grid;grid-template-columns:1fr 2fr;gap:8px;
-  padding:12px;width:100%;height:100%;
-}
-.mac-sidebar{background:rgba(255,255,255,0.04);border-radius:4px;}
-.mac-main{display:flex;flex-direction:column;gap:6px;}
-.mac-bar{height:8px;background:rgba(255,255,255,0.06);border-radius:3px;}
-.mac-bar.accent{background:rgba(255,213,0,0.3);width:60%;}
-.mac-bar.short{width:40%;}
-.mac-base{
-  width:110%;margin-left:-5%;height:10px;
-  background:#2a2a2a;border-radius:0 0 6px 6px;
-  border-top:1px solid #3a3a3a;
-}
-.mac-foot{
-  width:40%;margin:0 auto;height:5px;
-  background:#222;border-radius:0 0 4px 4px;
-}
-/* iPhone mockup */
-.iphone-wrap{
-  position:absolute;bottom:0;right:0;width:28%;
-  filter:drop-shadow(0 16px 48px rgba(0,0,0,0.7));
-}
-.iphone-frame{
-  background:#1a1a1a;border:2px solid #3a3a3a;
-  border-radius:28px;padding:10px 6px;
-  box-shadow:0 0 0 1px rgba(255,255,255,0.04);
-}
-.iphone-island{
-  width:36%;height:10px;background:#111;border-radius:10px;
-  margin:0 auto 8px;
-}
-.iphone-screen{
-  background:linear-gradient(160deg,#1c1c1e 0%,#2c2c2e 100%);
-  border-radius:20px;aspect-ratio:9/19;
-  display:flex;flex-direction:column;gap:5px;padding:10px 6px;
-}
-.iph-bar{height:6px;background:rgba(255,255,255,0.06);border-radius:3px;}
-.iph-bar.accent{background:rgba(255,213,0,0.35);width:55%;}
-.iph-bar.short{width:35%;}
-.iph-icon-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-top:4px;
-}
-.iph-icon{aspect-ratio:1;background:rgba(255,255,255,0.05);border-radius:8px;}
-.iph-icon:first-child{background:rgba(255,213,0,0.15);}
-/* badge flutuante */
+/* badges flutuantes */
 .fleet-badge{
-  position:absolute;top:18%;right:-6%;
-  background:#1e1e1e;border:1px solid rgba(255,213,0,0.3);
-  border-radius:14px;padding:10px 14px;
+  position:absolute;top:14%;right:-5%;z-index:2;
+  background:rgba(20,20,20,0.88);border:1px solid rgba(255,213,0,0.32);
+  border-radius:14px;padding:10px 16px;
   display:flex;align-items:center;gap:10px;
-  box-shadow:0 8px 32px rgba(0,0,0,0.5);
+  box-shadow:0 8px 32px rgba(0,0,0,0.55);
   white-space:nowrap;
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+}
+.fleet-badge-2{
+  top:auto;bottom:12%;right:-5%;
 }
 .fleet-badge-dot{
   width:8px;height:8px;background:#FFD500;border-radius:50%;
   box-shadow:0 0 8px rgba(255,213,0,0.6);flex-shrink:0;
 }
 .fleet-badge-text{font-size:.72rem;font-weight:700;color:#fff;line-height:1.3}
-.fleet-badge-sub{font-size:.65rem;color:var(--dust);font-weight:400}
+.fleet-badge-sub{font-size:.63rem;color:var(--dust);font-weight:400}
+
+/* PILAR ICON BOUNCE */
+@keyframes icon-bounce{
+  0%,100%{transform:translateY(0)}
+  45%{transform:translateY(-6px)}
+  65%{transform:translateY(-3px)}
+}
+.pilar-icon-wrap{animation:icon-bounce 3s ease-in-out infinite}
+.pilar-card:nth-child(2) .pilar-icon-wrap{animation-delay:.6s}
 
 /* ========================
    PILARES — DOIS CARDS
@@ -471,8 +433,8 @@ body{
             <i class="fa-solid fa-building"></i>
             Grupo Yellow · Mercado B2B
           </div>
-          <h1>Engenharia de Hardware Apple<br>para o seu <em>Negócio.</em></h1>
-          <p class="hero-b2b-sub">Conecte sua empresa ou assistência à iSolder. Reparos avançados de placas lógicas e telas com condições exclusivas para frotas corporativas, lojistas e assistências parceiras.</p>
+          <h1>Sua infraestrutura Apple rodando sem interrupções. Engenharia especializada para <em>frotas e lojistas.</em></h1>
+          <p class="hero-b2b-sub">Reduza em até 70% seus custos com substituição de aparelhos e telas. Terceirize a microssoldagem e reparos avançados de placa da sua empresa ou assistência com quem é especialista no ecossistema Apple.</p>
           <div class="hero-ctas">
             <a href="https://wa.me/5521988476695?text=Olá!%20Sou%20lojista%20/%20empresa%20e%20gostaria%20de%20conhecer%20as%20condições%20B2B%20da%20iSolder." target="_blank" class="btn-b2b-hero">
               <i class="fa-brands fa-whatsapp"></i>
@@ -489,45 +451,10 @@ body{
           <div class="fleet-visual">
             <div class="fleet-glow"></div>
 
-            <!-- MacBook mockup -->
-            <div class="mac-wrap">
-              <div class="mac-frame">
-                <div class="mac-notch"></div>
-                <div class="mac-screen">
-                  <div class="mac-screen-content">
-                    <div class="mac-sidebar"></div>
-                    <div class="mac-main">
-                      <div class="mac-bar accent"></div>
-                      <div class="mac-bar"></div>
-                      <div class="mac-bar short"></div>
-                      <div class="mac-bar"></div>
-                      <div class="mac-bar short"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="mac-base"></div>
-              <div class="mac-foot"></div>
-            </div>
-
-            <!-- iPhone mockup -->
-            <div class="iphone-wrap">
-              <div class="iphone-frame">
-                <div class="iphone-island"></div>
-                <div class="iphone-screen">
-                  <div class="iph-bar accent"></div>
-                  <div class="iph-bar"></div>
-                  <div class="iph-bar short"></div>
-                  <div class="iph-icon-grid">
-                    <div class="iph-icon"></div>
-                    <div class="iph-icon"></div>
-                    <div class="iph-icon"></div>
-                    <div class="iph-icon"></div>
-                    <div class="iph-icon"></div>
-                    <div class="iph-icon"></div>
-                  </div>
-                </div>
-              </div>
+            <!-- Foto real do laboratório -->
+            <div class="lab-photo-wrap">
+              <img src="assets/img/blog-macbook.jpg" alt="Laboratório iSolder — bancada de reparo Apple" class="lab-photo-img" />
+              <div class="lab-photo-overlay"></div>
             </div>
 
             <!-- Badge flutuante -->
@@ -536,6 +463,15 @@ body{
               <div>
                 <div class="fleet-badge-text">Frota Corporativa Ativa</div>
                 <div class="fleet-badge-sub">SLA prioritário · Faturamento CNPJ</div>
+              </div>
+            </div>
+
+            <!-- Badge secundário -->
+            <div class="fleet-badge fleet-badge-2">
+              <div class="fleet-badge-dot" style="background:#4caf50;box-shadow:0 0 8px rgba(76,175,80,0.6)"></div>
+              <div>
+                <div class="fleet-badge-text">NF-e Emitida</div>
+                <div class="fleet-badge-sub">Faturamento via CNPJ · Boleto</div>
               </div>
             </div>
 
@@ -549,24 +485,24 @@ body{
   <!-- ========================
        NÚMEROS
   ======================== -->
-  <section class="numeros">
+  <section class="numeros" id="numeros">
     <div class="container">
       <div class="numeros-grid">
         <div class="numero-item">
-          <div class="numero-val">+10k</div>
+          <div class="numero-val"><span class="countup-corp" data-target="10000" data-prefix="+" data-suffix="k" data-divisor="1000">+10k</span></div>
           <div class="numero-label">Reparos realizados</div>
         </div>
         <div class="numero-item">
-          <div class="numero-val">6 anos</div>
+          <div class="numero-val"><span class="countup-corp" data-target="6" data-suffix=" anos">6 anos</span></div>
           <div class="numero-label">De atuação no mercado</div>
         </div>
         <div class="numero-item">
-          <div class="numero-val">98%</div>
+          <div class="numero-val"><span class="countup-corp" data-target="98" data-suffix="%">98%</span></div>
           <div class="numero-label">Aprovação nas avaliações</div>
         </div>
         <div class="numero-item">
-          <div class="numero-val">CNPJ</div>
-          <div class="numero-label">Emissão de NF-e e faturamento</div>
+          <div class="numero-val" style="font-size:clamp(1.4rem,2.5vw,2rem);letter-spacing:-.01em">NF-e</div>
+          <div class="numero-label">Emissão de nota fiscal por serviço</div>
         </div>
       </div>
     </div>
@@ -582,10 +518,9 @@ body{
 
         <!-- COLUNA 01 — LOJISTAS -->
         <div class="pilar-card">
-          <div class="pilar-num">Coluna 01</div>
           <div class="pilar-icon-wrap"><i class="fa-solid fa-store"></i></div>
           <div class="pilar-tag">Para Lojistas & Assistências</div>
-          <h2>Terceirize o que nenhuma outra assistência consegue resolver.</h2>
+          <h2>Lojistas & Assistências Parceiras</h2>
           <p>Microssoldagem de nível profissional, reballing de chips e reparo de placa para você oferecer como serviço aos seus clientes — com a qualidade iSolder e a sua margem garantida.</p>
           <ul class="pilar-list">
             <li><i class="fa-solid fa-check"></i> Terceirização de microssoldagem BGA e SMD</li>
@@ -601,10 +536,9 @@ body{
 
         <!-- COLUNA 02 — FROTAS CORPORATIVAS -->
         <div class="pilar-card">
-          <div class="pilar-num">Coluna 02</div>
           <div class="pilar-icon-wrap"><i class="fa-solid fa-briefcase"></i></div>
           <div class="pilar-tag">Para Empresas & Frotas Corporativas</div>
-          <h2>Mantenha sua frota Apple operando sem parar.</h2>
+          <h2>Frotas Corporativas & Empresas PJ</h2>
           <p>Contrato de manutenção preventiva e corretiva para MacBooks e iPhones corporativos. Diagnóstico com laudo técnico, faturamento via CNPJ e SLA de entrega rápido para o seu time não parar.</p>
           <ul class="pilar-list">
             <li><i class="fa-solid fa-check"></i> Contratos de manutenção para frotas Apple</li>
@@ -746,5 +680,44 @@ body{
   </div>
 
   <script src="assets/js/main.js"></script>
+  <script>
+  (function(){
+    var els = document.querySelectorAll('.countup-corp');
+    if(!els.length) return;
+    var started = false;
+    function runCountUp(){
+      if(started) return;
+      started = true;
+      els.forEach(function(el){
+        var target  = parseFloat(el.dataset.target);
+        var divisor = parseFloat(el.dataset.divisor) || 1;
+        var prefix  = el.dataset.prefix  || '';
+        var suffix  = el.dataset.suffix  || '';
+        var duration = 1800;
+        var start    = performance.now();
+        function tick(now){
+          var p = Math.min((now - start) / duration, 1);
+          var ease = 1 - Math.pow(1 - p, 3);
+          var val  = target * ease / divisor;
+          var display = divisor > 1
+            ? (val >= 10 ? Math.floor(val) + 'k' : val.toFixed(1) + 'k')
+            : Math.round(val);
+          el.textContent = prefix + display + suffix;
+          if(p < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      });
+    }
+    var section = document.getElementById('numeros');
+    if('IntersectionObserver' in window && section){
+      var obs = new IntersectionObserver(function(entries){
+        if(entries[0].isIntersecting){ runCountUp(); obs.disconnect(); }
+      }, {threshold: 0.3});
+      obs.observe(section);
+    } else {
+      runCountUp();
+    }
+  })();
+  </script>
 </body>
 </html>
