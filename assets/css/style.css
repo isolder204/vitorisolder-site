@@ -620,6 +620,7 @@ h5{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercas
   background-attachment:fixed;
 }
 .porque-section h2{font-weight:900;color:#202020}
+.porque-section h2 em{color:#C8920A}
 .porque-section .eyebrow{background:#202020;color:#FFD100}
 
 /* ── Icon micro-animations ── */
