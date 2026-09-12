@@ -983,6 +983,8 @@ body{
 
     if (model.deviceType === 'macbook') {
       app.innerHTML = breadcrumb + hero + placaSection + vidroSection + repairsSection + cta;
+    } else if (model.deviceType === 'watch') {
+      app.innerHTML = breadcrumb + hero + vidroSection + repairsSection + cta;
     } else {
       app.innerHTML = breadcrumb + hero + vidroSection + repairsSection + placaSection + cta;
     }
