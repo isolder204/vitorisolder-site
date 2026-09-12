@@ -522,7 +522,7 @@ body{
       <a href="https://wa.me/5521988476695?text=Olá!%20Somos%20lojistas." target="_blank" class="wa-opt">
         <span>Lojistas & PJ</span><div class="wa-sm-btn"><i class="fa-brands fa-whatsapp"></i></div>
       </a>
-      <a href="https://wa.me/5521950147576?text=Olá!%20Gostaria%20de%20um%20orçamento." target="_blank" class="wa-opt">
+      <a href="https://wa.me/5521960147576?text=Olá!%20Gostaria%20de%20um%20orçamento." target="_blank" class="wa-opt">
         <span>Cliente Final</span><div class="wa-sm-btn"><i class="fa-brands fa-whatsapp"></i></div>
       </a>
     </div>
@@ -668,7 +668,7 @@ body{
 
   // ─── REPAIRS PER MODEL ────────────────────────────────────────────────────
   function getRepairs(slug, model) {
-    const wa = (txt) => `https://wa.me/5521950147576?text=${encodeURIComponent('Olá! Preciso de reparo no meu ' + model.name + '. Serviço: ' + txt)}`;
+    const wa = (txt) => `https://wa.me/5521960147576?text=${encodeURIComponent('Olá! Preciso de reparo no meu ' + model.name + '. Serviço: ' + txt)}`;
     if (model.deviceType === 'watch') {
       return [
         { icon:'fa-solid fa-display',      title:'Troca de Vidro / Tela OLED', desc:'Display OLED preservado — touch, always-on e brilho de fábrica restaurados sem trocar o conjunto interno.', wa: wa('Troca de Vidro/Tela OLED') },
@@ -712,7 +712,7 @@ body{
   // ─── RENDER ───────────────────────────────────────────────────────────────
   function wa(model, extra) {
     const txt = extra ? `Preciso de reparo no meu ${model.name}. Serviço: ${extra}` : `Preciso de reparo no meu ${model.name}. Gostaria de um orçamento.`;
-    return `https://wa.me/5521950147576?text=${encodeURIComponent('Olá! ' + txt)}`;
+    return `https://wa.me/5521960147576?text=${encodeURIComponent('Olá! ' + txt)}`;
   }
 
   function render(slug) {
