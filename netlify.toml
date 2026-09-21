@@ -1,5 +1,0 @@
-[[redirects]]
-  from = "https://vitorisolder.com/*"
-  to = "https://www.vitorisolder.com/:splat"
-  status = 301
-  force = true
