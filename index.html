@@ -1271,8 +1271,9 @@ h5{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercas
   .hero-btns .btn-lg{ width:100%; justify-content:center; }
 
   /* Seção 03 — números em grid 2x2 */
-  .lab-grid{ display:grid !important; grid-template-columns:1fr 1fr; gap:0; }
-  .lab-stat{ padding:24px 16px !important; border-left:none !important; border-right:1px solid rgba(255,255,255,.08); border-bottom:1px solid rgba(255,255,255,.08); }
+  .lab-sep{ display:none !important; }
+  .lab-grid{ display:grid !important; grid-template-columns:1fr 1fr !important; gap:0 !important; flex-direction:unset !important; }
+  .lab-stat{ flex:unset !important; padding:24px 16px !important; border-left:none !important; border-right:1px solid rgba(255,255,255,.1) !important; border-bottom:1px solid rgba(255,255,255,.1) !important; }
   .lab-stat:nth-child(2n){ border-right:none !important; }
   .lab-stat:nth-last-child(-n+2){ border-bottom:none !important; }
   .lab-header{ flex-direction:column; align-items:flex-start; gap:10px; }
