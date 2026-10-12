@@ -1246,11 +1246,22 @@ h5{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercas
 @media(max-width:768px){
   .hero-inner{ padding:0 20px !important; }
   .hero{ padding:90px 0 40px !important; }
-  .hero-stats-bar{ display:none; }
+  .hero-stats-bar{ display:none !important; }
   .hero-floats{ display:none; }
   .hero-title{ font-size:clamp(2rem,9vw,3rem) !important; }
   .hero-btns{ flex-direction:column; gap:10px; }
   .hero-btns .btn-lg{ width:100%; justify-content:center; }
+
+  /* Seção 03 — números em coluna */
+  .lab-grid{ flex-direction:column; align-items:flex-start; gap:32px; }
+  .lab-stat{ padding:0 !important; border-left:none !important; border-top:1px solid rgba(255,255,255,.08); padding-top:24px !important; width:100%; }
+  .lab-stat:first-child{ border-top:none; padding-top:0 !important; }
+  .lab-header{ flex-direction:column; align-items:flex-start; gap:10px; }
+
+  /* Seção 01 — serviços: esconde descrição e thumb, simplifica grid */
+  .svc-row{ grid-template-columns:40px 1fr 28px; gap:12px; }
+  .svc-desc{ display:none; }
+  .svc-thumb{ display:none; }
 
   /* Mapa + card de endereço: empilha */
   .canal-map[style*="grid"]{ display:flex !important; flex-direction:column !important; }
@@ -1266,6 +1277,7 @@ h5{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercas
 @media(max-width:480px){
   .hero-title{ font-size:clamp(1.8rem,8vw,2.4rem) !important; }
   .cta-final-title{ font-size:clamp(1.6rem,7vw,2.4rem); }
+  .lab-n{ font-size:clamp(2.4rem,12vw,4rem) !important; }
 }
 
 @media(min-width:769px) and (max-width:1024px){
