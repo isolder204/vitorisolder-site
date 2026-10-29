@@ -1183,11 +1183,11 @@ h5{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercas
 
 /* ===== PREVIEW v3: COMPACT HERO + BETTER TYPOGRAPHY ===== */
 
-/* Hero: much more compact, no min-height 100vh */
+/* Hero: full viewport height, content vertically centered */
 .hero{
-  min-height:auto !important;
-  padding:110px 0 52px !important;
-  align-items:flex-start !important;
+  min-height:100vh !important;
+  padding:0 !important;
+  align-items:center !important;
 }
 /* Foto real do laboratório no hero — full background escurecida */
 .hero-lab-photo{
@@ -1197,6 +1197,8 @@ h5{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercas
   background-size:cover;
   background-position:center 40%;
   z-index:0;
+  transform:translateZ(0);
+  will-change:transform;
 }
 .hero-lab-photo::after{
   content:'';
@@ -1214,10 +1216,11 @@ h5{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercas
   position:absolute;color:rgba(255,213,0,0.12);
 }
 .hf svg{ display:block; }
+.hf{ will-change:transform; }
 .hf1{ width:80px;top:14%;right:18%;animation:hf-float 7s ease-in-out infinite; }
 .hf2{ width:56px;top:22%;right:8%;animation:hf-float 9s ease-in-out infinite 1.5s; }
 .hf3{ width:90px;top:55%;right:22%;animation:hf-float 8s ease-in-out infinite 0.8s; }
-.hf4{ width:70px;top:68%;right:6%;animation:hf-float-spin 12s linear infinite; }
+.hf4{ width:70px;top:68%;right:6%;animation:hf-float 12s ease-in-out infinite 0.5s; }
 .hf5{ width:100px;top:38%;right:38%;animation:hf-float 10s ease-in-out infinite 2s; }
 @keyframes hf-float{
   0%,100%{ transform:translateY(0px); }
@@ -1245,7 +1248,7 @@ h5{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercas
 /* ===== RESPONSIVO MOBILE/TABLET ===== */
 @media(max-width:768px){
   .hero-inner{ padding:0 20px !important; }
-  .hero{ padding:90px 0 40px !important; }
+  .hero{ min-height:100svh !important; padding:80px 0 40px !important; }
   /* Stats bar: empilha em 1 coluna no mobile */
   .hero-stats-bar{
     flex-direction:column !important;
@@ -1266,7 +1269,7 @@ h5{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercas
   .hf3{ width:48px !important; top:58% !important; right:8% !important; }
   .hf4{ display:none; }
   .hf5{ display:none; }
-  .hero-title{ font-size:clamp(2rem,9vw,3rem) !important; }
+  .hero-title{ font-size:clamp(2.6rem,10vw,4rem) !important; }
   .hero-btns{ flex-direction:column; gap:10px; }
   .hero-btns .btn-lg{ width:100%; justify-content:center; }
 
@@ -1346,7 +1349,7 @@ h5{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercas
 
 /* H1: uppercase, tighter, better proportions */
 .hero-title{
-  font-size:clamp(1.8rem,4vw,3.4rem) !important;
+  font-size:clamp(3rem,7.5vw,7rem) !important;
   font-weight:900 !important;
   line-height:1.0 !important;
   letter-spacing:-.02em !important;
@@ -2534,7 +2537,7 @@ body{
   <script>
   (function(){
     const vh = () => innerHeight;
-    let rows = [];
+    let rows = [], ticking = false;
     function frame(){
       rows.forEach(el => {
         const r = el.getBoundingClientRect();
@@ -2542,11 +2545,15 @@ body{
         const progc = (r.top + r.height/2) / vh() - 0.5;
         el.style.transform = `translateX(${progc * +el.dataset.plxX * vh() * 2}px)`;
       });
-      requestAnimationFrame(frame);
+      ticking = false;
+    }
+    function onScroll(){
+      if(!ticking){ requestAnimationFrame(frame); ticking = true; }
     }
     document.addEventListener('DOMContentLoaded', function(){
       rows = Array.from(document.querySelectorAll('[data-plx-x]'));
-      requestAnimationFrame(frame);
+      frame();
+      window.addEventListener('scroll', onScroll, {passive:true});
     });
   })();
   </script>
@@ -2989,19 +2996,19 @@ body{
     const bg = document.getElementById('ra2BgNum');
     if(!bg) return;
     const section = bg.parentElement;
+    let ticking2 = false;
     function frame(){
       const r = section.getBoundingClientRect();
       const vh = innerHeight;
-      /* progresso de 0 (seção entrando por baixo) a 1 (seção saindo por cima) */
       const prog = 1 - (r.bottom / (vh + r.height));
-      /* translateX: começa em +18% (direita) e vai para -6% (quase centro) */
       const tx = 18 - prog * 24;
-      /* translateY: sobe levemente ao scrollar */
       const ty = -90 + prog * 12;
       bg.style.transform = `translate(${tx}%, ${ty}%)`;
-      requestAnimationFrame(frame);
+      ticking2 = false;
     }
-    requestAnimationFrame(frame);
+    function onScroll2(){ if(!ticking2){ requestAnimationFrame(frame); ticking2=true; } }
+    frame();
+    window.addEventListener('scroll', onScroll2, {passive:true});
   })();
   </script>
 
